@@ -171,11 +171,10 @@
 
       .hero-bg {
         position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--gradient-1); /* navy to teal */
+        inset: 0; /* replaces top/left/right/bottom */
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)),
+          url('/images/home/hero-bg.jpg') center center / cover no-repeat;
         z-index: -2;
       }
 
@@ -559,12 +558,8 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div class="max-w-4xl">
             <h1
-              class="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
-              From Arrival to
-              <span
-                class="bg-gradient-to-r from-[#DFB975] to-[#83A4A1] bg-clip-text text-transparent"
-                >Confidence</span
-              >
+              class="text-6xl md:text-8xl font-bold text-[#DFB975] mb-6 leading-tight">
+              From Arrival to Confidence
             </h1>
             <p
               class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl leading-relaxed">
@@ -625,12 +620,8 @@
       <section id="featured" class="py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="text-center mb-16">
-            <h2 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
-              Featured
-              <span
-                class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
-                >Programs</span
-              >
+            <h2 class="text-5xl md:text-6xl font-bold text-[#DFB975] mb-4">
+              Featured Programs
             </h2>
             <p class="text-xl text-gray-600 max-w-2xl mx-auto">
               Discover our comprehensive pathways designed for your success
@@ -642,9 +633,7 @@
             <div
               class="program-card group"
               onclick="window.location.href = 'programs.html#high-school'">
-              <img
-                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="High School" />
+              <img src="images/home/high-school-kids.jpg" alt="High School" />
               <div class="program-overlay">
                 <h3 class="text-2xl font-bold mb-2">High School Program</h3>
                 <p class="text-white/80 mb-3">
@@ -662,7 +651,7 @@
               class="program-card group"
               onclick="window.location.href = 'programs.html#look-see'">
               <img
-                src="https://images.unsplash.com/photo-1534432189763-160e2121e792?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="images/home/look-see-canada.jpg"
                 alt="Look See Canada" />
               <div class="program-overlay">
                 <h3 class="text-2xl font-bold mb-2">Look See Canada</h3>
@@ -749,17 +738,13 @@
       <section class="py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2
-            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
-            Why Choose
-            <span
-              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
-              >Us</span
-            >
+            class="text-5xl md:text-6xl font-bold text-[#DFB975] text-center mb-16">
+            Why Choose Us
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div class="shadcn-card text-center">
               <div
-                class="w-20 h-20 mx-auto bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center mb-6 transform rotate-3 hover:rotate-0 transition">
+                class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-2xl flex items-center justify-center mb-6">
                 <i class="fas fa-pray text-3xl text-white"></i>
               </div>
               <h3 class="text-xl font-bold text-gray-800 mb-3">
@@ -771,7 +756,7 @@
             </div>
             <div class="shadcn-card text-center">
               <div
-                class="w-20 h-20 mx-auto bg-gradient-to-r from-[#83A4A1] to-[#DFB975] rounded-2xl flex items-center justify-center mb-6 transform rotate-3 hover:rotate-0 transition">
+                class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-2xl flex items-center justify-center mb-6">
                 <i class="fas fa-home text-3xl text-white"></i>
               </div>
               <h3 class="text-xl font-bold text-gray-800 mb-3">
@@ -781,7 +766,7 @@
             </div>
             <div class="shadcn-card text-center">
               <div
-                class="w-20 h-20 mx-auto bg-gradient-to-r from-[#DFB975] to-[#323A63] rounded-2xl flex items-center justify-center mb-6 transform rotate-3 hover:rotate-0 transition">
+                class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-2xl flex items-center justify-center mb-6">
                 <i class="fas fa-graduation-cap text-3xl text-white"></i>
               </div>
               <h3 class="text-xl font-bold text-gray-800 mb-3">
@@ -793,7 +778,7 @@
             </div>
             <div class="shadcn-card text-center">
               <div
-                class="w-20 h-20 mx-auto bg-gradient-to-r from-[#323A63] to-[#DFB975] rounded-2xl flex items-center justify-center mb-6 transform rotate-3 hover:rotate-0 transition">
+                class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-2xl flex items-center justify-center mb-6">
                 <i class="fas fa-seedling text-3xl text-white"></i>
               </div>
               <h3 class="text-xl font-bold text-gray-800 mb-3">
@@ -809,12 +794,8 @@
       <section class="py-24 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <h2
-            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
-            What Our
-            <span
-              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
-              >Students Say</span
-            >
+            class="text-5xl md:text-6xl font-bold text-[#DFB975] text-center mb-16">
+            What Our Students Say
           </h2>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div class="shadcn-card">
