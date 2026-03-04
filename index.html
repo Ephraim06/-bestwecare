@@ -1,0 +1,1112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@BestWeCare – updated colours & buttons</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Outfit', sans-serif;
+        overflow-x: hidden;
+        /* site background – gentle gradient using new palette #323A63 -> #83A4A1 */
+        background: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* 🌟 NEW COLOR PALETTE (only site colours updated) */
+      :root {
+        --primary: #323a63; /* deep navy */
+        --secondary: #83a4a1; /* muted teal */
+        --accent: #dfb975; /* warm gold */
+        --dark: #1e2538; /* darker navy (for text/contrast) */
+        --light: #f7f9fc;
+        /* gradients – adapted using new palette */
+        --gradient-1: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+        --gradient-2: linear-gradient(135deg, #83a4a1 0%, #dfb975 100%);
+        --gradient-3: linear-gradient(135deg, #dfb975 0%, #323a63 100%);
+        --gradient-4: linear-gradient(135deg, #323a63 0%, #dfb975 100%);
+      }
+
+      /* Modern Card Styles (keeping structure, adapting background to palette) */
+      .shadcn-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .shadcn-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      /* Navigation */
+      .nav-glass {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 600;
+        color: var(--dark);
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+      }
+
+      .nav-link:hover {
+        background: var(--gradient-1);
+        color: white;
+      }
+
+      /* 🌟 NEW BUTTON STYLES – exactly matching the provided example */
+      .btn-primary {
+        /* base: white with border, shadow, active:slate-50 (like the first example button) */
+        background-color: white;
+        border-radius: 0.75rem; /* rounded-xl */
+        padding: 0.75rem 2rem; /* py-3 px-4 equivalent with extra horizontal */
+        font-weight: 600;
+        border: 1px solid #e2e8f0; /* slate-200 */
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        transition: all 0.15s ease;
+        color: #1e293b; /* text-slate-800 */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .btn-primary:hover {
+        background-color: #f8fafc; /* slate-50 */
+      }
+      .btn-primary:active {
+        background-color: #f1f5f9; /* active:bg-slate-100 */
+      }
+
+      /* secondary/apply button variant – matches the green button but using accent #DFB975 */
+      .btn-accent {
+        background-color: #dfb975; /* gold from palette */
+        border-radius: 0.75rem;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        color: white;
+        box-shadow:
+          0 10px 15px -3px rgb(223 185 117 / 0.3),
+          0 4px 6px -4px rgb(223 185 117 / 0.3); /* shadow-lg with gold tint */
+        transition: all 0.15s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: none;
+      }
+      .btn-accent:hover {
+        background-color: #c9a45c; /* darker gold */
+      }
+      .btn-accent:active {
+        background-color: #b38e4a; /* active darker */
+      }
+
+      /* For hero double button – keep same style as above but use btn-primary / btn-accent */
+      .btn-outline-light {
+        background-color: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(4px);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 9999px;
+        padding: 1rem 2rem;
+        font-weight: 600;
+        color: white;
+        transition: all 0.2s;
+      }
+      .btn-outline-light:hover {
+        background-color: white;
+        color: #323a63;
+      }
+
+      /* Hero section */
+      .hero-section {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-1); /* navy to teal */
+        z-index: -2;
+      }
+
+      .floating-shape {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        background: var(--gradient-2); /* teal to gold */
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.3;
+        animation: float 20s infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          transform: translate(30px, -30px) rotate(120deg);
+        }
+        66% {
+          transform: translate(-30px, 30px) rotate(240deg);
+        }
+      }
+
+      /* Timeline & other existing styles – keeping untouched, only colours adapt via variables */
+      .timeline-step {
+        position: relative;
+        padding-left: 3rem;
+        margin-bottom: 2rem;
+      }
+      .timeline-step::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2rem;
+        height: 2rem;
+        background: var(--gradient-1);
+        border-radius: 50%;
+        z-index: 2;
+        box-shadow: 0 0 0 4px rgba(50, 58, 99, 0.2); /* primary with opacity */
+      }
+      .timeline-step::after {
+        content: '';
+        position: absolute;
+        left: 0.95rem;
+        top: 2rem;
+        width: 2px;
+        height: calc(100% - 1rem);
+        background: linear-gradient(to bottom, #323a63, #83a4a1);
+        z-index: 1;
+      }
+      .timeline-step:last-child::after {
+        display: none;
+      }
+
+      .program-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+      .program-card img {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .program-card:hover img {
+        transform: scale(1.1);
+      }
+      .program-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+        padding: 2rem;
+        color: white;
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .leadership-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+      .leadership-card img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        transition: transform 0.6s ease;
+      }
+      .leadership-card:hover img {
+        transform: scale(1.05);
+      }
+      .leadership-info {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        color: white;
+        padding: 2rem;
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        background: white;
+      }
+      .form-input:focus {
+        outline: none;
+        border-color: #323a63;
+        box-shadow: 0 0 0 4px rgba(50, 58, 99, 0.1);
+      }
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: white;
+        z-index: 1000;
+        padding: 2rem;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      }
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: var(--gradient-1);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        transition: all 0.5s ease;
+      }
+      .loader {
+        width: 60px;
+        height: 60px;
+        border: 4px solid rgba(255, 255, 255, 0.3);
+        border-top-color: white;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      #backToTop {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--gradient-1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+        box-shadow: 0 10px 20px rgba(50, 58, 99, 0.3);
+      }
+      #backToTop.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      #backToTop:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(50, 58, 99, 0.4);
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+      .fade-up.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .stat-number {
+        font-size: 3rem;
+        font-weight: 800;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .footer-link {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        position: relative;
+        padding-bottom: 2px;
+      }
+      .footer-link:hover {
+        color: white;
+        transform: translateX(5px);
+      }
+      .footer-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #dfb975; /* accent */
+        transition: width 0.3s ease;
+      }
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem !important;
+        }
+        h2 {
+          font-size: 2rem !important;
+        }
+        .container {
+          padding-left: 1.5rem;
+          padding-right: 1.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loader -->
+    <div class="loader-wrapper" id="loader"><div class="loader"></div></div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="flex justify-between items-center mb-8">
+        <span
+          class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+          >@BestWeCare</span
+        >
+        <button
+          id="closeMenu"
+          class="text-2xl text-gray-600 hover:text-[#323A63] transition">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col space-y-4">
+        <a
+          href="index.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >About</a
+        >
+        <a
+          href="programs.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Programs</a
+        >
+        <a
+          href="admissions.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Admissions</a
+        >
+        <a
+          href="apply.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Apply Now</a
+        >
+        <a
+          href="contact.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Contact</a
+        >
+      </nav>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 nav-glass z-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="index.html" class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-0 transition">
+              <span class="text-white text-2xl font-bold">B</span>
+            </div>
+            <span
+              class="font-bold text-xl bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent hidden sm:block"
+              >@BestWeCare</span
+            >
+          </a>
+
+          <div class="hidden md:flex items-center space-x-1">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="programs.html" class="nav-link">Programs</a>
+            <a href="admissions.html" class="nav-link">Admissions</a>
+            <a href="apply.html" class="nav-link">Apply Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+
+          <!-- CTA button – now using btn-accent (gold) -->
+          <div class="hidden md:block">
+            <a href="apply.html" class="btn-accent">Apply Now →</a>
+          </div>
+
+          <button
+            id="menuToggle"
+            class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="hero-bg"></div>
+        <div class="floating-shape" style="top: 10%; left: 5%"></div>
+        <div
+          class="floating-shape"
+          style="bottom: 10%; right: 5%; background: var(--gradient-3)"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="max-w-4xl">
+            <h1
+              class="text-6xl md:text-8xl font-bold text-white mb-6 leading-tight">
+              From Arrival to
+              <span
+                class="bg-gradient-to-r from-[#DFB975] to-[#83A4A1] bg-clip-text text-transparent"
+                >Confidence</span
+              >
+            </h1>
+            <p
+              class="text-xl md:text-2xl text-white/90 mb-10 max-w-2xl leading-relaxed">
+              We walk the journey with international students from high school
+              to university and beyond.
+            </p>
+            <!-- Buttons in hero: exactly matching the requested style (first = white/border, second = gold) -->
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="programs.html" class="btn-primary text-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-5 h-5 text-[#323A63]">
+                  <path
+                    d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+                  <path d="M8 10v4" />
+                  <path d="M12 10v4" />
+                  <path d="M16 10v4" />
+                </svg>
+                Explore Programs
+              </a>
+              <a href="apply.html" class="btn-accent text-lg">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="w-5 h-5">
+                  <path d="M5 12h14" />
+                  <path d="M12 5v14" />
+                </svg>
+                Apply Now
+              </a>
+            </div>
+          </div>
+        </div>
+        <div
+          class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+          <a href="#featured" class="text-white text-2xl"
+            ><i class="fas fa-chevron-down"></i
+          ></a>
+        </div>
+      </section>
+
+      <!-- Featured Programs -->
+      <section id="featured" class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="text-center mb-16">
+            <h2 class="text-5xl md:text-6xl font-bold text-gray-800 mb-4">
+              Featured
+              <span
+                class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+                >Programs</span
+              >
+            </h2>
+            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+              Discover our comprehensive pathways designed for your success
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Program Card 1 (using new gold for "learn more") -->
+            <div
+              class="program-card group"
+              onclick="window.location.href = 'programs.html#high-school'">
+              <img
+                src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="High School" />
+              <div class="program-overlay">
+                <h3 class="text-2xl font-bold mb-2">High School Program</h3>
+                <p class="text-white/80 mb-3">
+                  Complete your OSSD with full support
+                </p>
+                <span
+                  class="inline-flex items-center text-[#DFB975] font-semibold"
+                  >Learn More
+                  <i
+                    class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i
+                ></span>
+              </div>
+            </div>
+            <div
+              class="program-card group"
+              onclick="window.location.href = 'programs.html#look-see'">
+              <img
+                src="https://images.unsplash.com/photo-1534432189763-160e2121e792?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Look See Canada" />
+              <div class="program-overlay">
+                <h3 class="text-2xl font-bold mb-2">Look See Canada</h3>
+                <p class="text-white/80 mb-3">6-8 week immersive experience</p>
+                <span
+                  class="inline-flex items-center text-[#DFB975] font-semibold"
+                  >Learn More
+                  <i
+                    class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i
+                ></span>
+              </div>
+            </div>
+            <div
+              class="program-card group"
+              onclick="window.location.href = 'programs.html#university'">
+              <img
+                src="https://images.unsplash.com/photo-1562774053-701939374585?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="University Support" />
+              <div class="program-overlay">
+                <h3 class="text-2xl font-bold mb-2">University Support</h3>
+                <p class="text-white/80 mb-3">93% graduate acceptance rate</p>
+                <span
+                  class="inline-flex items-center text-[#DFB975] font-semibold"
+                  >Learn More
+                  <i
+                    class="fas fa-arrow-right ml-2 group-hover:translate-x-2 transition"></i
+                ></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="text-center mt-12">
+            <!-- "View All Programs" matches first button style (white with border) -->
+            <a
+              href="programs.html"
+              class="btn-primary inline-flex items-center text-lg">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="w-5 h-5 text-[#323A63]">
+                <path d="M2 12h20" />
+                <path d="M12 2v20" />
+              </svg>
+              View All Programs
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Section (background using new navy->teal gradient) -->
+      <section class="py-24 bg-gradient-to-r from-[#323A63] to-[#83A4A1]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div class="shadcn-card">
+              <div class="stat-number" data-target="93">0</div>
+              <div class="text-xl font-semibold text-gray-700 mt-2">
+                University Acceptance Rate
+              </div>
+            </div>
+            <div class="shadcn-card">
+              <div class="stat-number" data-target="500">0</div>
+              <div class="text-xl font-semibold text-gray-700 mt-2">
+                Students Supported
+              </div>
+            </div>
+            <div class="shadcn-card">
+              <div class="stat-number" data-target="10">0</div>
+              <div class="text-xl font-semibold text-gray-700 mt-2">
+                Years of Experience
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us (cards untouched, icons now use new palette) -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
+            Why Choose
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Us</span
+            >
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="shadcn-card text-center">
+              <div
+                class="w-20 h-20 mx-auto bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center mb-6 transform rotate-3 hover:rotate-0 transition">
+                <i class="fas fa-pray text-3xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Christian Mentorship
+              </h3>
+              <p class="text-gray-600">
+                Faith-based values and character development
+              </p>
+            </div>
+            <div class="shadcn-card text-center">
+              <div
+                class="w-20 h-20 mx-auto bg-gradient-to-r from-[#83A4A1] to-[#DFB975] rounded-2xl flex items-center justify-center mb-6 transform rotate-3 hover:rotate-0 transition">
+                <i class="fas fa-home text-3xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Structured Accommodation
+              </h3>
+              <p class="text-gray-600">A true home away from home</p>
+            </div>
+            <div class="shadcn-card text-center">
+              <div
+                class="w-20 h-20 mx-auto bg-gradient-to-r from-[#DFB975] to-[#323A63] rounded-2xl flex items-center justify-center mb-6 transform rotate-3 hover:rotate-0 transition">
+                <i class="fas fa-graduation-cap text-3xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                University Pathway
+              </h3>
+              <p class="text-gray-600">
+                93% acceptance rate into Canadian universities
+              </p>
+            </div>
+            <div class="shadcn-card text-center">
+              <div
+                class="w-20 h-20 mx-auto bg-gradient-to-r from-[#323A63] to-[#DFB975] rounded-2xl flex items-center justify-center mb-6 transform rotate-3 hover:rotate-0 transition">
+                <i class="fas fa-seedling text-3xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Holistic Development
+              </h3>
+              <p class="text-gray-600">Academic + character + life skills</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
+            What Our
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Students Say</span
+            >
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="shadcn-card">
+              <i class="fas fa-quote-left text-4xl text-[#323A63] mb-4"></i>
+              <p class="text-gray-600 mb-6">
+                "@BestWeCare made my transition to Canada smooth..."
+              </p>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full"></div>
+                <div class="ml-4">
+                  <h4 class="font-bold text-gray-800">Maria Santos</h4>
+                  <p class="text-sm text-gray-500">University of Toronto</p>
+                </div>
+              </div>
+            </div>
+            <div class="shadcn-card">
+              <i class="fas fa-quote-left text-4xl text-[#83A4A1] mb-4"></i>
+              <p class="text-gray-600 mb-6">
+                "The mentorship program helped me grow..."
+              </p>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-[#83A4A1] to-[#DFB975] rounded-full"></div>
+                <div class="ml-4">
+                  <h4 class="font-bold text-gray-800">James Chen</h4>
+                  <p class="text-sm text-gray-500">McGill University</p>
+                </div>
+              </div>
+            </div>
+            <div class="shadcn-card">
+              <i class="fas fa-quote-left text-4xl text-[#DFB975] mb-4"></i>
+              <p class="text-gray-600 mb-6">
+                "From day one, I felt like part of a family..."
+              </p>
+              <div class="flex items-center">
+                <div
+                  class="w-12 h-12 bg-gradient-to-r from-[#DFB975] to-[#323A63] rounded-full"></div>
+                <div class="ml-4">
+                  <h4 class="font-bold text-gray-800">Priya Patel</h4>
+                  <p class="text-sm text-gray-500">UBC</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA Section (gradient using new colours) -->
+      <section class="py-24 bg-gradient-to-r from-[#323A63] to-[#83A4A1]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+            Ready to Start Your Journey?
+          </h2>
+          <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            Join us at @BestWeCare and experience a supportive, faith-based
+            pathway to success in Canada.
+          </p>
+          <!-- CTA button -> gold accent variant -->
+          <a href="apply.html" class="btn-accent text-lg px-12 py-5">
+            Apply Now <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (colour accents updated) -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center">
+                <span class="text-white text-2xl font-bold">B</span>
+              </div>
+              <span class="font-bold text-xl">@BestWeCare</span>
+            </div>
+            <p class="text-gray-400 mb-6">
+              From Arrival to Confidence. We walk the journey...
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="programs.html" class="footer-link">Programs</a></li>
+              <li>
+                <a href="admissions.html" class="footer-link">Admissions</a>
+              </li>
+              <li><a href="apply.html" class="footer-link">Apply Now</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Our Programs</h4>
+            <ul class="space-y-3">
+              <li>
+                <a href="programs.html#high-school" class="footer-link"
+                  >High School Program</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#look-see" class="footer-link"
+                  >Look See Canada</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#etiquette" class="footer-link"
+                  >School of Etiquette</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#university" class="footer-link"
+                  >University Support</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#science" class="footer-link"
+                  >For Science Lovers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-map-marker-alt text-[#DFB975] mt-1"></i
+                ><span class="text-gray-400">Hamilton, Ontario, Canada</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-phone text-[#83A4A1]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fab fa-whatsapp text-[#DFB975]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-[#323A63]"></i
+                ><span class="text-gray-400">atbestwecareinc@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <p>
+            © 2024 @BestWeCare Inc. All rights reserved. | Business Registration
+            #: 770656601RC0001
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+    <!-- JavaScript (unchanged, works with new colours) -->
+    <script>
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          gsap.to('#loader', {
+            opacity: 0,
+            visibility: 'hidden',
+            duration: 0.5,
+          });
+        }, 1000);
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('.hero-section h1', {
+          opacity: 0,
+          y: 100,
+          duration: 1.5,
+          delay: 0.5,
+        });
+        gsap.from('.hero-section p', {
+          opacity: 0,
+          y: 50,
+          duration: 1.5,
+          delay: 0.8,
+        });
+        gsap.from('.hero-section .flex', {
+          opacity: 0,
+          y: 30,
+          duration: 1.5,
+          delay: 1.1,
+        });
+        gsap.utils.toArray('.stat-number').forEach((stat) => {
+          ScrollTrigger.create({
+            trigger: stat,
+            start: 'top 80%',
+            onEnter: () => {
+              const target = parseInt(stat.getAttribute('data-target'));
+              let current = 0;
+              const inc = target / 50;
+              const t = setInterval(() => {
+                current += inc;
+                if (current >= target) {
+                  stat.textContent = target + (target === 93 ? '%' : '+');
+                  clearInterval(t);
+                } else {
+                  stat.textContent =
+                    Math.floor(current) + (target === 93 ? '%' : '+');
+                }
+              }, 30);
+            },
+          });
+        });
+        gsap.utils.toArray('.shadcn-card').forEach((card, i) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: i * 0.1,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
+        });
+      });
+      const menuToggle = document.getElementById('menuToggle'),
+        closeMenu = document.getElementById('closeMenu'),
+        mobileMenu = document.getElementById('mobileMenu'),
+        menuOverlay = document.getElementById('menuOverlay'),
+        mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      function openMenu() {
+        mobileMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenuFunc() {
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      menuToggle.addEventListener('click', openMenu);
+      closeMenu.addEventListener('click', closeMenuFunc);
+      menuOverlay.addEventListener('click', closeMenuFunc);
+      mobileNavLinks.forEach((l) => l.addEventListener('click', closeMenuFunc));
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        window.scrollY > 500
+          ? backToTop.classList.add('visible')
+          : backToTop.classList.remove('visible');
+      });
+      backToTop.addEventListener('click', function () {
+        gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
+      });
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target)
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: { y: target, offsetY: 80 },
+            });
+        });
+      });
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          nav.classList.add('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+          nav.classList.remove('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+      });
+    </script>
+  </body>
+</html>

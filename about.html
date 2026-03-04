@@ -1,0 +1,1049 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - @BestWeCare</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Outfit', sans-serif;
+        overflow-x: hidden;
+        /* soft background using new palette */
+        background: linear-gradient(135deg, #f1f4f9 0%, #dbe7e5 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* 🌟 NEW COLOR PALETTE (only site colours updated) */
+      :root {
+        --primary: #323a63; /* deep navy */
+        --secondary: #83a4a1; /* muted teal */
+        --accent: #dfb975; /* warm gold */
+        --dark: #1e2538; /* darker navy for text */
+        --light: #f7f9fc;
+        /* gradients – adapted using new palette */
+        --gradient-1: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+        --gradient-2: linear-gradient(135deg, #83a4a1 0%, #dfb975 100%);
+        --gradient-3: linear-gradient(135deg, #dfb975 0%, #323a63 100%);
+        --gradient-4: linear-gradient(135deg, #323a63 0%, #dfb975 100%);
+      }
+
+      .shadcn-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .shadcn-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .nav-glass {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 600;
+        color: var(--dark);
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+      }
+
+      .nav-link:hover {
+        background: var(--gradient-1);
+        color: white;
+      }
+
+      /* 🌟 NEW BUTTON STYLES – exactly matching the provided example */
+      .btn-primary {
+        background-color: white;
+        border-radius: 0.75rem;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        transition: all 0.15s ease;
+        color: #1e293b;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .btn-primary:hover {
+        background-color: #f8fafc;
+      }
+      .btn-primary:active {
+        background-color: #f1f5f9;
+      }
+
+      .btn-accent {
+        background-color: #dfb975;
+        border-radius: 0.75rem;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        color: white;
+        box-shadow:
+          0 10px 15px -3px rgb(223 185 117 / 0.3),
+          0 4px 6px -4px rgb(223 185 117 / 0.3);
+        transition: all 0.15s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: none;
+      }
+      .btn-accent:hover {
+        background-color: #c9a45c;
+      }
+      .btn-accent:active {
+        background-color: #b38e4a;
+      }
+
+      /* leadership cards */
+      .leadership-card {
+        position: relative;
+        border-radius: 24px;
+        overflow: hidden;
+        cursor: pointer;
+      }
+
+      .leadership-card img {
+        width: 100%;
+        height: 500px;
+        object-fit: cover;
+        transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .leadership-card:hover img {
+        transform: scale(1.05);
+      }
+
+      .leadership-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        color: white;
+        padding: 2rem;
+        transform: translateY(0);
+        transition: transform 0.3s ease;
+      }
+
+      .leadership-card:hover .leadership-overlay {
+        transform: translateY(-10px);
+      }
+
+      .timeline-dot {
+        width: 20px;
+        height: 20px;
+        background: var(--gradient-1);
+        border-radius: 50%;
+        position: relative;
+        z-index: 2;
+        box-shadow: 0 0 0 4px rgba(50, 58, 99, 0.2);
+      }
+
+      .timeline-line {
+        position: absolute;
+        left: 9px;
+        top: 30px;
+        width: 2px;
+        height: calc(100% - 30px);
+        background: linear-gradient(to bottom, #323a63, #83a4a1);
+      }
+
+      .value-badge {
+        background: rgba(50, 58, 99, 0.05);
+        border: 1px solid rgba(50, 58, 99, 0.2);
+        padding: 0.75rem 1.5rem;
+        border-radius: 9999px;
+        font-weight: 600;
+        color: var(--dark);
+        transition: all 0.3s ease;
+      }
+
+      .value-badge:hover {
+        background: var(--gradient-1);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px rgba(50, 58, 99, 0.3);
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: white;
+        z-index: 1000;
+        padding: 2rem;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .footer-link {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        position: relative;
+        padding-bottom: 2px;
+      }
+      .footer-link:hover {
+        color: white;
+        transform: translateX(5px);
+      }
+      .footer-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #dfb975;
+        transition: width 0.3s ease;
+      }
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem !important;
+        }
+        h2 {
+          font-size: 2rem !important;
+        }
+        .leadership-card img {
+          height: 400px;
+        }
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+      .fade-up.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      #backToTop {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--gradient-1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+        box-shadow: 0 10px 20px rgba(50, 58, 99, 0.3);
+      }
+      #backToTop.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      #backToTop:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(50, 58, 99, 0.4);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="flex justify-between items-center mb-8">
+        <span
+          class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+          >@BestWeCare</span
+        >
+        <button
+          id="closeMenu"
+          class="text-2xl text-gray-600 hover:text-[#323A63] transition">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col space-y-4">
+        <a
+          href="index.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >About</a
+        >
+        <a
+          href="programs.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Programs</a
+        >
+        <a
+          href="admissions.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Admissions</a
+        >
+        <a
+          href="apply.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Apply Now</a
+        >
+        <a
+          href="contact.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Contact</a
+        >
+      </nav>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 nav-glass z-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="index.html" class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-0 transition">
+              <span class="text-white text-2xl font-bold">B</span>
+            </div>
+            <span
+              class="font-bold text-xl bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent hidden sm:block"
+              >@BestWeCare</span
+            >
+          </a>
+
+          <div class="hidden md:flex items-center space-x-1">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="programs.html" class="nav-link">Programs</a>
+            <a href="admissions.html" class="nav-link">Admissions</a>
+            <a href="apply.html" class="nav-link">Apply Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+
+          <!-- CTA button – now using btn-accent (gold) -->
+          <div class="hidden md:block">
+            <a href="apply.html" class="btn-accent">Apply Now →</a>
+          </div>
+
+          <button
+            id="menuToggle"
+            class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      <!-- Hero Section (gradient updated) -->
+      <section
+        class="relative py-32 bg-gradient-to-r from-[#323A63] to-[#83A4A1] overflow-hidden">
+        <div class="absolute inset-0">
+          <div
+            class="absolute top-0 left-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse"></div>
+          <div
+            class="absolute bottom-0 right-0 w-96 h-96 bg-[#DFB975] rounded-full mix-blend-overlay filter blur-3xl opacity-20 animate-pulse delay-1000"></div>
+        </div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="max-w-4xl mx-auto text-center text-white">
+            <h1 class="text-6xl md:text-7xl font-bold mb-6">
+              About <span class="text-[#DFB975]">Us</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+              We're on a mission to transform the international student
+              experience through faith-based mentorship, structured support, and
+              unwavering commitment to excellence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Story -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div class="space-y-6">
+              <h2 class="text-5xl md:text-6xl font-bold text-gray-800">
+                Our
+                <span
+                  class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+                  >Story</span
+                >
+              </h2>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                Moving to a new country as a young student can be overwhelming,
+                especially when arriving alone. Choosing to send your child to
+                Canada is a major decision — academically, emotionally, and
+                spiritually. We understand the weight of that responsibility.
+              </p>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                At @BestWeCare, our mission is to gather, grow, guide, and
+                release students into their full potential. We support
+                international students who want to study in Canada by providing
+                a soft and safe landing into the Canadian education system.
+              </p>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                Starting in high school, we introduce them to the system early
+                to help them overcome social barriers, navigate culture shock,
+                and build confidence. We prepare our students for long-term
+                success well before university begins.
+              </p>
+              <div class="pt-6">
+                <!-- button white/border style -->
+                <a
+                  href="programs.html"
+                  class="btn-primary inline-flex items-center text-lg">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="w-5 h-5 text-[#323A63]">
+                    <path
+                      d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.93a2 2 0 0 1-1.66-.9l-.82-1.2A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13c0 1.1.9 2 2 2Z" />
+                    <path d="M8 10v4" />
+                    <path d="M12 10v4" />
+                    <path d="M16 10v4" />
+                  </svg>
+                  Explore Our Programs
+                </a>
+              </div>
+            </div>
+            <div class="relative">
+              <div
+                class="absolute inset-0 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-3xl transform rotate-3"></div>
+              <img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Students studying"
+                class="rounded-3xl shadow-2xl relative z-10" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission & Vision -->
+      <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="shadcn-card">
+              <div
+                class="w-20 h-20 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center mb-6 transform -rotate-3">
+                <i class="fas fa-bullseye text-4xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-gray-800 mb-4">Our Mission</h3>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                To gather, grow, guide, and release students into their full
+                potential through a soft and safe landing into the Canadian
+                education system, rooted in Christian values and unwavering
+                support.
+              </p>
+            </div>
+            <div class="shadcn-card">
+              <div
+                class="w-20 h-20 bg-gradient-to-r from-[#83A4A1] to-[#DFB975] rounded-2xl flex items-center justify-center mb-6 transform rotate-3">
+                <i class="fas fa-eye text-4xl text-white"></i>
+              </div>
+              <h3 class="text-3xl font-bold text-gray-800 mb-4">Our Vision</h3>
+              <p class="text-lg text-gray-600 leading-relaxed">
+                To become the leading Christian educational transition program
+                for international students entering Canada, setting the standard
+                for care, character, and excellence worldwide.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Core Values -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
+            Our Core
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Values</span
+            >
+          </h2>
+          <div class="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
+            <span class="value-badge">Character</span
+            ><span class="value-badge">Responsibility</span
+            ><span class="value-badge">Respect</span
+            ><span class="value-badge">Servant Leadership</span
+            ><span class="value-badge">Moral Accountability</span
+            ><span class="value-badge">Structured Authority</span
+            ><span class="value-badge">Integrity</span
+            ><span class="value-badge">Excellence</span
+            ><span class="value-badge">Compassion</span
+            ><span class="value-badge">Faith</span
+            ><span class="value-badge">Community</span
+            ><span class="value-badge">Growth</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Leadership Team -->
+      <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
+            Meet Our
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Leadership</span
+            >
+          </h2>
+
+          <div class="space-y-24">
+            <!-- Colline -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div class="leadership-card">
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Colline Tirivangani" />
+                <div class="leadership-overlay">
+                  <h3 class="text-2xl font-bold mb-1">Colline Tirivangani</h3>
+                  <p class="text-[#DFB975] font-semibold mb-3">Founder</p>
+                  <p class="text-white/80">
+                    B.S.W, RECE, M.T.S, Mental Health Diploma
+                  </p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <h3 class="text-3xl font-bold text-gray-800">
+                  Colline Tirivangani
+                </h3>
+                <p class="text-xl text-[#323A63] font-semibold">
+                  Founder & Lead Mentor
+                </p>
+                <div class="space-y-4 text-gray-600">
+                  <p>
+                    Colline Tirivangani is a dedicated education mentor
+                    committed to guiding international students through one of
+                    the most important transitions of their lives. With a
+                    passion for youth development and faith-based leadership,
+                    she provides structured mentorship, personal guidance, and
+                    holistic care for students arriving in Canada.
+                  </p>
+                  <p>
+                    She holds a Bachelor of Social Work from Coventry University
+                    (UK), is a Registered Early Childhood Educator (Mohawk
+                    College), and earned her Master's in Theology from McMaster
+                    University. She also holds a Diploma in Mental Health and
+                    Disability Management, bringing both professional expertise
+                    and compassionate insight to her work with students and
+                    families.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Leona -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div class="order-2 lg:order-1 space-y-4">
+                <h3 class="text-3xl font-bold text-gray-800">
+                  Leona Muringani
+                </h3>
+                <p class="text-xl text-[#83A4A1] font-semibold">
+                  Cofounder & Operations Director
+                </p>
+                <div class="space-y-4 text-gray-600">
+                  <p>
+                    Leona Muringani is an executive leader with a Master of
+                    Business Administration in Management and Change from the
+                    Sprott School of Business, Carleton University, and a
+                    Bachelor of Science from Western University.
+                  </p>
+                  <p>
+                    She brings extensive leadership experience across the
+                    hospital and long-term care sectors, having served in senior
+                    operational roles, including Executive Director and
+                    Operations Support Manager. Her background includes
+                    regulatory compliance, budget oversight, strategic planning,
+                    risk management, and team leadership.
+                  </p>
+                  <p>
+                    Leona has led multi-site operations, overseen compliance
+                    with government standards, managed cross-functional teams,
+                    and implemented structured systems to improve efficiency and
+                    accountability.
+                  </p>
+                </div>
+              </div>
+              <div class="order-1 lg:order-2 leadership-card">
+                <img
+                  src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Leona Muringani" />
+                <div class="leadership-overlay">
+                  <h3 class="text-2xl font-bold mb-1">Leona Muringani</h3>
+                  <p class="text-[#DFB975] font-semibold mb-3">Cofounder</p>
+                  <p class="text-white/80">MBA, B.Sc</p>
+                </div>
+              </div>
+            </div>
+            <!-- Beverley -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div class="leadership-card">
+                <img
+                  src="https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Beverley Allen" />
+                <div class="leadership-overlay">
+                  <h3 class="text-2xl font-bold mb-1">Beverley Allen</h3>
+                  <p class="text-[#DFB975] font-semibold mb-3">
+                    Director of Programs
+                  </p>
+                  <p class="text-white/80">CYW, PMAB Certified</p>
+                </div>
+              </div>
+              <div class="space-y-4">
+                <h3 class="text-3xl font-bold text-gray-800">Beverley Allen</h3>
+                <p class="text-xl text-[#323A63] font-semibold">
+                  Director of Programs
+                </p>
+                <div class="space-y-4 text-gray-600">
+                  <p>
+                    Beverly Allen serves as the Director of Programs at
+                    @BestWeCare Inc., bringing professional expertise in child
+                    and youth development, behavioural guidance, and holistic
+                    student development.
+                  </p>
+                  <p>
+                    She holds an Ontario College Advanced Diploma in Child and
+                    Youth Worker from Mohawk College and is certified in
+                    Prevention and Management of Aggressive Behaviour (PMAB).
+                    She is affiliated with the American Association of Christian
+                    Counsellors (AACC — USA) and has completed the AACC biblical
+                    counselling certification program, including Caring for Kids
+                    God's Way.
+                  </p>
+                  <p>
+                    In addition to her role at @BestWeCare, Beverly is the owner
+                    and operator of Christ's Kids Daycare, where she oversees
+                    daily operations, regulatory standards, and child
+                    development programming.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Janet -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div class="order-2 lg:order-1 space-y-4">
+                <h3 class="text-3xl font-bold text-gray-800">Janet Chifodya</h3>
+                <p class="text-xl text-[#83A4A1] font-semibold">
+                  International Coordinator
+                </p>
+                <div class="space-y-4 text-gray-600">
+                  <p>
+                    Janet Chifodya serves as the International Coordinator at
+                    @BestWeCare Inc., bringing over a decade of leadership
+                    experience in quality management, compliance systems, and
+                    operational excellence. She oversees student recruitment,
+                    international partnerships, and program quality assurance,
+                    ensuring that families and students receive structured
+                    guidance and high standards of support throughout their
+                    transition journey.
+                  </p>
+                  <p>
+                    Janet holds a BSc in Microbiology and Biochemistry from the
+                    University of Zululand and a BCom Honours in Operations &
+                    Quality Management. She is a Registered Natural Biological
+                    Scientist (SACNASP) and a Certified Lead Auditor (SAATA),
+                    with extensive experience in audit coordination, risk
+                    management, compliance systems, and team leadership. She is
+                    also completing Project Management studies with PMI,
+                    strengthening her strategic and operational oversight.
+                  </p>
+                </div>
+              </div>
+              <div class="order-1 lg:order-2 leadership-card">
+                <img
+                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                  alt="Janet Chifodya" />
+                <div class="leadership-overlay">
+                  <h3 class="text-2xl font-bold mb-1">Janet Chifodya</h3>
+                  <p class="text-[#DFB975] font-semibold mb-3">
+                    International Coordinator
+                  </p>
+                  <p class="text-white/80">B.Sc, B.Com Hons, Lead Auditor</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Choose Us -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
+            Why Families
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Trust Us</span
+            >
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="shadcn-card text-center">
+              <div
+                class="w-16 h-16 mx-auto bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-heart text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Personalized Care
+              </h3>
+              <p class="text-gray-600">
+                Each student receives individual attention and customized
+                support for their unique journey.
+              </p>
+            </div>
+            <div class="shadcn-card text-center">
+              <div
+                class="w-16 h-16 mx-auto bg-gradient-to-r from-[#83A4A1] to-[#DFB975] rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-shield-alt text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Safe Environment
+              </h3>
+              <p class="text-gray-600">
+                Structured accommodation and 24/7 support ensure students feel
+                safe and supported.
+              </p>
+            </div>
+            <div class="shadcn-card text-center">
+              <div
+                class="w-16 h-16 mx-auto bg-gradient-to-r from-[#DFB975] to-[#323A63] rounded-full flex items-center justify-center mb-6">
+                <i class="fas fa-chart-line text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Proven Results
+              </h3>
+              <p class="text-gray-600">
+                93% university acceptance rate with students attending top
+                Canadian institutions.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA (navy->teal gradient, gold button) -->
+      <section class="py-24 bg-gradient-to-r from-[#323A63] to-[#83A4A1]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+            Join Our Family Today
+          </h2>
+          <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            Experience the difference of truly personalized, faith-based support
+            for your educational journey in Canada.
+          </p>
+          <a href="apply.html" class="btn-accent text-lg px-12 py-5">
+            Start Your Application <i class="fas fa-arrow-right ml-2"></i>
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (updated colours) -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center">
+                <span class="text-white text-2xl font-bold">B</span>
+              </div>
+              <span class="font-bold text-xl">@BestWeCare</span>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              From Arrival to Confidence. We walk the journey with international
+              students from high school to university and beyond.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="programs.html" class="footer-link">Programs</a></li>
+              <li>
+                <a href="admissions.html" class="footer-link">Admissions</a>
+              </li>
+              <li><a href="apply.html" class="footer-link">Apply Now</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Our Programs</h4>
+            <ul class="space-y-3">
+              <li>
+                <a href="programs.html#high-school" class="footer-link"
+                  >High School Program</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#look-see" class="footer-link"
+                  >Look See Canada</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#etiquette" class="footer-link"
+                  >School of Etiquette</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#university" class="footer-link"
+                  >University Support</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#science" class="footer-link"
+                  >For Science Lovers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-map-marker-alt text-[#DFB975] mt-1"></i
+                ><span class="text-gray-400">Hamilton, Ontario, Canada</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-phone text-[#83A4A1]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fab fa-whatsapp text-[#DFB975]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-[#323A63]"></i
+                ><span class="text-gray-400">atbestwecareinc@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <p>
+            © 2024 @BestWeCare Inc. All rights reserved. | Business Registration
+            #: 770656601RC0001
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+    <script>
+      window.addEventListener('load', function () {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('.hero-section h1', {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          delay: 0.3,
+        });
+        gsap.from('.hero-section p', {
+          opacity: 0,
+          y: 30,
+          duration: 1,
+          delay: 0.6,
+        });
+        gsap.utils.toArray('.shadcn-card').forEach((card, i) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: i * 0.1,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
+        });
+        gsap.utils.toArray('.leadership-card').forEach((card, i) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, x: i % 2 === 0 ? -50 : 50 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 1,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
+        });
+        gsap.utils.toArray('.value-badge').forEach((badge, i) => {
+          gsap.fromTo(
+            badge,
+            { opacity: 0, scale: 0.8 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 0.5,
+              delay: i * 0.05,
+              scrollTrigger: {
+                trigger: '.value-badge',
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
+        });
+      });
+
+      const menuToggle = document.getElementById('menuToggle'),
+        closeMenu = document.getElementById('closeMenu'),
+        mobileMenu = document.getElementById('mobileMenu'),
+        menuOverlay = document.getElementById('menuOverlay'),
+        mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      function openMenu() {
+        mobileMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenuFunc() {
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      menuToggle.addEventListener('click', openMenu);
+      closeMenu.addEventListener('click', closeMenuFunc);
+      menuOverlay.addEventListener('click', closeMenuFunc);
+      mobileNavLinks.forEach((l) => l.addEventListener('click', closeMenuFunc));
+
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        window.scrollY > 500
+          ? backToTop.classList.add('visible')
+          : backToTop.classList.remove('visible');
+      });
+      backToTop.addEventListener('click', function () {
+        gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
+      });
+
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          nav.classList.add('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+          nav.classList.remove('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+      });
+    </script>
+  </body>
+</html>

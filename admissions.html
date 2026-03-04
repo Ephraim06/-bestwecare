@@ -1,0 +1,1114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admissions - @BestWeCare</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Outfit', sans-serif;
+        overflow-x: hidden;
+        /* soft background using new palette */
+        background: linear-gradient(135deg, #f1f4f9 0%, #dbe7e5 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* 🌟 NEW COLOR PALETTE */
+      :root {
+        --primary: #323a63; /* deep navy */
+        --secondary: #83a4a1; /* muted teal */
+        --accent: #dfb975; /* warm gold */
+        --dark: #1e2538;
+        --light: #f7f9fc;
+        --gradient-1: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+        --gradient-2: linear-gradient(135deg, #83a4a1 0%, #dfb975 100%);
+        --gradient-3: linear-gradient(135deg, #dfb975 0%, #323a63 100%);
+        --gradient-4: linear-gradient(135deg, #323a63 0%, #dfb975 100%);
+      }
+
+      .nav-glass {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 600;
+        color: var(--dark);
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+      }
+
+      .nav-link:hover {
+        background: var(--gradient-1);
+        color: white;
+      }
+
+      /* 🌟 NEW BUTTON STYLES – exactly matching the provided example */
+      .btn-primary {
+        background-color: white;
+        border-radius: 0.75rem;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        transition: all 0.15s ease;
+        color: #1e293b;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .btn-primary:hover {
+        background-color: #f8fafc;
+      }
+      .btn-primary:active {
+        background-color: #f1f5f9;
+      }
+
+      .btn-accent {
+        background-color: #dfb975;
+        border-radius: 0.75rem;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        color: white;
+        box-shadow:
+          0 10px 15px -3px rgb(223 185 117 / 0.3),
+          0 4px 6px -4px rgb(223 185 117 / 0.3);
+        transition: all 0.15s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: none;
+      }
+      .btn-accent:hover {
+        background-color: #c9a45c;
+      }
+      .btn-accent:active {
+        background-color: #b38e4a;
+      }
+
+      .shadcn-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .shadcn-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .timeline-container {
+        position: relative;
+        padding: 2rem 0;
+      }
+
+      .timeline-item {
+        position: relative;
+        padding-left: 3rem;
+        margin-bottom: 2rem;
+      }
+
+      .timeline-marker {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2rem;
+        height: 2rem;
+        background: var(--gradient-1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+        z-index: 2;
+        box-shadow: 0 0 0 4px rgba(50, 58, 99, 0.2);
+      }
+
+      .timeline-line {
+        position: absolute;
+        left: 1rem;
+        top: 2rem;
+        width: 2px;
+        height: calc(100% - 2rem);
+        background: linear-gradient(to bottom, #323a63, #83a4a1);
+        z-index: 1;
+      }
+
+      .timeline-item:last-child .timeline-line {
+        display: none;
+      }
+
+      .requirement-card {
+        background: rgba(50, 58, 99, 0.05);
+        border-radius: 20px;
+        padding: 2rem;
+        border: 1px solid rgba(50, 58, 99, 0.2);
+        transition: all 0.3s ease;
+        height: 100%;
+      }
+
+      .requirement-card:hover {
+        transform: translateY(-5px);
+        background: rgba(50, 58, 99, 0.1);
+        border-color: rgba(50, 58, 99, 0.4);
+      }
+
+      .intake-card {
+        background: white;
+        border-radius: 20px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+      }
+
+      .intake-card:hover {
+        transform: translateY(-5px);
+        border-color: #323a63;
+        box-shadow: 0 20px 40px rgba(50, 58, 99, 0.2);
+      }
+
+      .intake-card .date {
+        font-size: 2rem;
+        font-weight: 800;
+        background: var(--gradient-1);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .fee-card {
+        background: var(--gradient-1);
+        color: white;
+        border-radius: 24px;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .fee-card::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        right: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          45deg,
+          transparent 30%,
+          rgba(255, 255, 255, 0.1) 50%,
+          transparent 70%
+        );
+        transform: rotate(45deg);
+        animation: shimmer 3s infinite;
+      }
+
+      @keyframes shimmer {
+        0% {
+          transform: translateX(-100%) rotate(45deg);
+        }
+        100% {
+          transform: translateX(100%) rotate(45deg);
+        }
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: white;
+        z-index: 1000;
+        padding: 2rem;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .footer-link {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        position: relative;
+        padding-bottom: 2px;
+      }
+      .footer-link:hover {
+        color: white;
+        transform: translateX(5px);
+      }
+      .footer-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #dfb975;
+        transition: width 0.3s ease;
+      }
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      #backToTop {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--gradient-1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+        box-shadow: 0 10px 20px rgba(50, 58, 99, 0.3);
+      }
+      #backToTop.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      #backToTop:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(50, 58, 99, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem !important;
+        }
+        h2 {
+          font-size: 2rem !important;
+        }
+        .timeline-item {
+          padding-left: 2.5rem;
+        }
+      }
+
+      .floating-shape {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.2;
+        animation: float 20s infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          transform: translate(30px, -30px) rotate(120deg);
+        }
+        66% {
+          transform: translate(-30px, 30px) rotate(240deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="flex justify-between items-center mb-8">
+        <span
+          class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+          >@BestWeCare</span
+        >
+        <button
+          id="closeMenu"
+          class="text-2xl text-gray-600 hover:text-[#323A63] transition">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col space-y-4">
+        <a
+          href="index.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >About</a
+        >
+        <a
+          href="programs.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Programs</a
+        >
+        <a
+          href="admissions.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Admissions</a
+        >
+        <a
+          href="apply.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Apply Now</a
+        >
+        <a
+          href="contact.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Contact</a
+        >
+      </nav>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 nav-glass z-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="index.html" class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-0 transition">
+              <span class="text-white text-2xl font-bold">B</span>
+            </div>
+            <span
+              class="font-bold text-xl bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent hidden sm:block"
+              >@BestWeCare</span
+            >
+          </a>
+
+          <div class="hidden md:flex items-center space-x-1">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="programs.html" class="nav-link">Programs</a>
+            <a href="admissions.html" class="nav-link">Admissions</a>
+            <a href="apply.html" class="nav-link">Apply Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+
+          <!-- CTA button – gold accent -->
+          <div class="hidden md:block">
+            <a href="apply.html" class="btn-accent">Apply Now →</a>
+          </div>
+
+          <button
+            id="menuToggle"
+            class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      <!-- Hero Section (navy->teal gradient) -->
+      <section
+        class="relative py-32 bg-gradient-to-r from-[#323A63] to-[#83A4A1] overflow-hidden">
+        <div
+          class="floating-shape"
+          style="top: 10%; left: 5%; background: var(--gradient-2)"></div>
+        <div
+          class="floating-shape"
+          style="bottom: 10%; right: 5%; background: var(--gradient-3)"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
+              Admissions <span class="text-[#DFB975]">Process</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+              Your journey to studying in Canada starts here. Follow our
+              structured admissions process for a smooth transition.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Application Timeline -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
+            Application
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Timeline</span
+            >
+          </h2>
+
+          <div class="max-w-3xl mx-auto">
+            <div class="timeline-container">
+              <!-- Step 1 -->
+              <div class="timeline-item">
+                <div class="timeline-marker">1</div>
+                <div class="timeline-line"></div>
+                <div class="ml-4">
+                  <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                    Submit Application
+                  </h3>
+                  <p class="text-gray-600">
+                    Complete the online application form through our official
+                    portal. Ensure all information is accurate and complete.
+                  </p>
+                  <p class="text-sm text-gray-500 mt-2">Timeline: 1-2 days</p>
+                </div>
+              </div>
+              <!-- Step 2 -->
+              <div class="timeline-item">
+                <div class="timeline-marker">2</div>
+                <div class="timeline-line"></div>
+                <div class="ml-4">
+                  <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                    Pay Application Fee
+                  </h3>
+                  <p class="text-gray-600">
+                    Submit the non-refundable application fee of $250 CAD. Fee
+                    must be paid before document review begins.
+                  </p>
+                  <p class="text-sm text-gray-500 mt-2">Timeline: Immediate</p>
+                </div>
+              </div>
+              <!-- Step 3 -->
+              <div class="timeline-item">
+                <div class="timeline-marker">3</div>
+                <div class="timeline-line"></div>
+                <div class="ml-4">
+                  <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                    Document Review
+                  </h3>
+                  <p class="text-gray-600">
+                    Submit academic transcripts, passport copy, and English
+                    proficiency test scores (if applicable). Our team reviews
+                    all documents for completeness.
+                  </p>
+                  <p class="text-sm text-gray-500 mt-2">
+                    Timeline: 5-7 business days
+                  </p>
+                </div>
+              </div>
+              <!-- Step 4 -->
+              <div class="timeline-item">
+                <div class="timeline-marker">4</div>
+                <div class="timeline-line"></div>
+                <div class="ml-4">
+                  <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                    Zoom Interview
+                  </h3>
+                  <p class="text-gray-600">
+                    Meet with our admissions team for a personal interview. This
+                    helps us understand your goals and ensure you're the right
+                    fit for our programs.
+                  </p>
+                  <p class="text-sm text-gray-500 mt-2">
+                    Timeline: Scheduled within 1 week
+                  </p>
+                </div>
+              </div>
+              <!-- Step 5 -->
+              <div class="timeline-item">
+                <div class="timeline-marker">5</div>
+                <div class="timeline-line"></div>
+                <div class="ml-4">
+                  <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                    Admission Decision
+                  </h3>
+                  <p class="text-gray-600">
+                    Receive notification of acceptance. Successful candidates
+                    receive an offer letter with program details.
+                  </p>
+                  <p class="text-sm text-gray-500 mt-2">
+                    Timeline: 3-5 business days after interview
+                  </p>
+                </div>
+              </div>
+              <!-- Step 6 -->
+              <div class="timeline-item">
+                <div class="timeline-marker">6</div>
+                <div class="ml-4">
+                  <h3 class="text-2xl font-bold text-gray-800 mb-2">
+                    Enrollment & Visa Process
+                  </h3>
+                  <p class="text-gray-600">
+                    Complete enrollment forms, pay tuition deposit, and begin
+                    visa application process with our guidance.
+                  </p>
+                  <p class="text-sm text-gray-500 mt-2">
+                    Timeline: 4-8 weeks for visa processing
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Application Requirements -->
+      <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
+            Application
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Requirements</span
+            >
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="requirement-card">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-passport text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Valid Passport
+              </h3>
+              <p class="text-gray-600">
+                Copy of valid passport with at least 6 months validity beyond
+                intended stay.
+              </p>
+            </div>
+            <div class="requirement-card">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-[#83A4A1] to-[#DFB975] rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-graduation-cap text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Academic Transcripts
+              </h3>
+              <p class="text-gray-600">
+                Official transcripts from last 2-3 years of study, translated to
+                English if necessary.
+              </p>
+            </div>
+            <div class="requirement-card">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-[#DFB975] to-[#323A63] rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-language text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                English Proficiency
+              </h3>
+              <p class="text-gray-600">
+                IELTS, TOEFL, or equivalent scores (if applicable to your
+                program).
+              </p>
+            </div>
+            <div class="requirement-card">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-file-alt text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Statement of Purpose
+              </h3>
+              <p class="text-gray-600">
+                Personal essay outlining your goals, reasons for choosing
+                Canada, and alignment with our values.
+              </p>
+            </div>
+            <div class="requirement-card">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-[#83A4A1] to-[#DFB975] rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-envelope text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Reference Letters
+              </h3>
+              <p class="text-gray-600">
+                Two reference letters from teachers or mentors who can speak to
+                your character and academic ability.
+              </p>
+            </div>
+            <div class="requirement-card">
+              <div
+                class="w-16 h-16 bg-gradient-to-r from-[#DFB975] to-[#323A63] rounded-2xl flex items-center justify-center mb-6">
+                <i class="fas fa-heartbeat text-2xl text-white"></i>
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-3">
+                Medical Insurance
+              </h3>
+              <p class="text-gray-600">
+                Proof of medical insurance coverage for your stay in Canada (can
+                be arranged after acceptance).
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Program Intakes -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-16">
+            Program
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Intakes</span
+            >
+          </h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="intake-card">
+              <div class="date">Sep</div>
+              <h3 class="text-xl font-bold text-gray-800 mt-4">High School</h3>
+              <p class="text-gray-600">Semester 1</p>
+              <p class="text-sm text-gray-500 mt-2">
+                Application Deadline: May 31
+              </p>
+            </div>
+            <div class="intake-card">
+              <div class="date">Feb</div>
+              <h3 class="text-xl font-bold text-gray-800 mt-4">High School</h3>
+              <p class="text-gray-600">Semester 2</p>
+              <p class="text-sm text-gray-500 mt-2">
+                Application Deadline: Oct 31
+              </p>
+            </div>
+            <div class="intake-card">
+              <div class="date">Jul</div>
+              <h3 class="text-xl font-bold text-gray-800 mt-4">Science Lab</h3>
+              <p class="text-gray-600">Summer Program</p>
+              <p class="text-sm text-gray-500 mt-2">
+                Application Deadline: Apr 30
+              </p>
+            </div>
+            <div class="intake-card">
+              <div class="date">Rolling</div>
+              <h3 class="text-xl font-bold text-gray-800 mt-4">All Others</h3>
+              <p class="text-gray-600">Year-round</p>
+              <p class="text-sm text-gray-500 mt-2">Subject to availability</p>
+            </div>
+          </div>
+
+          <p class="text-center text-gray-600 mt-8">
+            <i class="fas fa-exclamation-triangle text-[#DFB975] mr-2"></i>Note:
+            Because visa processing can take time, applications must be
+            submitted early to allow for proper documentation and approval.
+          </p>
+        </div>
+      </section>
+
+      <!-- Fees & Scholarships (gradient updated) -->
+      <section class="py-24 bg-gradient-to-r from-[#323A63] to-[#83A4A1]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+                Fees & <span class="text-[#DFB975]">Scholarships</span>
+              </h2>
+              <p class="text-xl text-white/90 mb-8">
+                We believe in making quality education accessible. Explore our
+                fee structure and scholarship opportunities.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-center text-white">
+                  <i class="fas fa-check-circle text-[#DFB975] mr-3 text-xl"></i
+                  ><span>Merit-based scholarships available</span>
+                </div>
+                <div class="flex items-center text-white">
+                  <i class="fas fa-check-circle text-[#DFB975] mr-3 text-xl"></i
+                  ><span
+                    >Early bird discounts for applications before
+                    deadlines</span
+                  >
+                </div>
+                <div class="flex items-center text-white">
+                  <i class="fas fa-check-circle text-[#DFB975] mr-3 text-xl"></i
+                  ><span>Sibling discounts for multiple family members</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="fee-card">
+              <h3 class="text-3xl font-bold mb-6">Application Fee</h3>
+              <div class="text-5xl font-bold mb-4">$250 CAD</div>
+              <p class="mb-6 text-white/80">
+                Non-refundable application processing fee
+              </p>
+              <div class="border-t border-white/20 pt-6">
+                <h4 class="font-bold mb-3">Includes:</h4>
+                <ul class="space-y-2">
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-[#DFB975] mr-2"></i>Document
+                    verification
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-[#DFB975] mr-2"></i>Interview
+                    scheduling
+                  </li>
+                  <li class="flex items-center">
+                    <i class="fas fa-check text-[#DFB975] mr-2"></i>Initial
+                    consultation
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Selection Process -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-4xl mx-auto">
+            <h2
+              class="text-5xl md:text-6xl font-bold text-gray-800 text-center mb-12">
+              Selection
+              <span
+                class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+                >Process</span
+              >
+            </h2>
+
+            <div class="shadcn-card">
+              <p class="text-lg text-gray-600 mb-6">
+                Please note that admission is competitive. We follow a rigorous
+                and structured selection process to ensure we admit students who
+                are academically prepared, committed, aligned with our values,
+                and the best fit for our schools and us.
+              </p>
+              <p class="text-lg text-gray-600 mb-6">
+                Our goal is not simply placement, but the right placement. We
+                carefully assess readiness, character, and long-term potential
+                to ensure each student is positioned for success.
+              </p>
+              <div
+                class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] text-white p-6 rounded-xl">
+                <p class="text-xl font-semibold">
+                  Competition is strong, and spaces are limited. We encourage
+                  families to apply early and prepare thoroughly.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA (navy->teal gradient, gold & outline buttons) -->
+      <section class="py-24 bg-gradient-to-r from-[#323A63] to-[#83A4A1]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+            Ready to Apply?
+          </h2>
+          <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            Start your journey to academic success in Canada today. Our
+            admissions team is here to guide you every step of the way.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a href="apply.html" class="btn-accent text-lg px-12 py-5"
+              >Apply Now <i class="fas fa-arrow-right ml-2"></i
+            ></a>
+            <a
+              href="contact.html"
+              class="btn-primary text-lg border-2 border-white bg-transparent text-white hover:bg-white hover:text-[#323A63]"
+              >Contact Admissions</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (updated colours) -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center">
+                <span class="text-white text-2xl font-bold">B</span>
+              </div>
+              <span class="font-bold text-xl">@BestWeCare</span>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              From Arrival to Confidence. We walk the journey with international
+              students from high school to university and beyond.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="programs.html" class="footer-link">Programs</a></li>
+              <li>
+                <a href="admissions.html" class="footer-link">Admissions</a>
+              </li>
+              <li><a href="apply.html" class="footer-link">Apply Now</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Our Programs</h4>
+            <ul class="space-y-3">
+              <li>
+                <a href="programs.html#high-school" class="footer-link"
+                  >High School Program</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#look-see" class="footer-link"
+                  >Look See Canada</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#etiquette" class="footer-link"
+                  >School of Etiquette</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#university" class="footer-link"
+                  >University Support</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#science" class="footer-link"
+                  >For Science Lovers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-map-marker-alt text-[#DFB975] mt-1"></i
+                ><span class="text-gray-400">Hamilton, Ontario, Canada</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-phone text-[#83A4A1]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fab fa-whatsapp text-[#DFB975]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-[#323A63]"></i
+                ><span class="text-gray-400">atbestwecareinc@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <p>
+            © 2024 @BestWeCare Inc. All rights reserved. | Business Registration
+            #: 770656601RC0001
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+    <script>
+      window.addEventListener('load', function () {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('.hero-section h1', {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          delay: 0.3,
+        });
+        gsap.from('.hero-section p', {
+          opacity: 0,
+          y: 30,
+          duration: 1,
+          delay: 0.6,
+        });
+        gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+          gsap.fromTo(
+            item,
+            { opacity: 0, x: -50 },
+            {
+              opacity: 1,
+              x: 0,
+              duration: 0.8,
+              delay: i * 0.2,
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
+        });
+        gsap.utils.toArray('.requirement-card').forEach((card, i) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: i * 0.1,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
+        });
+        gsap.utils.toArray('.intake-card').forEach((card, i) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, scale: 0.9 },
+            {
+              opacity: 1,
+              scale: 1,
+              duration: 0.6,
+              delay: i * 0.1,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
+        });
+      });
+
+      const menuToggle = document.getElementById('menuToggle'),
+        closeMenu = document.getElementById('closeMenu'),
+        mobileMenu = document.getElementById('mobileMenu'),
+        menuOverlay = document.getElementById('menuOverlay'),
+        mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      function openMenu() {
+        mobileMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenuFunc() {
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      menuToggle.addEventListener('click', openMenu);
+      closeMenu.addEventListener('click', closeMenuFunc);
+      menuOverlay.addEventListener('click', closeMenuFunc);
+      mobileNavLinks.forEach((l) => l.addEventListener('click', closeMenuFunc));
+
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        window.scrollY > 500
+          ? backToTop.classList.add('visible')
+          : backToTop.classList.remove('visible');
+      });
+      backToTop.addEventListener('click', function () {
+        gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
+      });
+
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          nav.classList.add('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+          nav.classList.remove('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target)
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: { y: target, offsetY: 80 },
+            });
+        });
+      });
+    </script>
+  </body>
+</html>

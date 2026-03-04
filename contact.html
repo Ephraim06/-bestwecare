@@ -1,0 +1,1030 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - @BestWeCare</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Outfit', sans-serif;
+        overflow-x: hidden;
+        background: linear-gradient(135deg, #f1f4f9 0%, #dbe7e5 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* 🌟 NEW COLOR PALETTE */
+      :root {
+        --primary: #323a63; /* deep navy */
+        --secondary: #83a4a1; /* muted teal */
+        --accent: #dfb975; /* warm gold */
+        --dark: #1e2538;
+        --light: #f7f9fc;
+        --gradient-1: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+        --gradient-2: linear-gradient(135deg, #83a4a1 0%, #dfb975 100%);
+        --gradient-3: linear-gradient(135deg, #dfb975 0%, #323a63 100%);
+        --gradient-4: linear-gradient(135deg, #323a63 0%, #dfb975 100%);
+      }
+
+      .nav-glass {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 600;
+        color: var(--dark);
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+      }
+
+      .nav-link:hover {
+        background: var(--gradient-1);
+        color: white;
+      }
+
+      /* 🌟 NEW BUTTON STYLES */
+      .btn-primary {
+        background-color: white;
+        border-radius: 0.75rem;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        transition: all 0.15s ease;
+        color: #1e293b;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .btn-primary:hover {
+        background-color: #f8fafc;
+      }
+      .btn-primary:active {
+        background-color: #f1f5f9;
+      }
+
+      .btn-accent {
+        background-color: #dfb975;
+        border-radius: 0.75rem;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        color: white;
+        box-shadow:
+          0 10px 15px -3px rgb(223 185 117 / 0.3),
+          0 4px 6px -4px rgb(223 185 117 / 0.3);
+        transition: all 0.15s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: none;
+      }
+      .btn-accent:hover {
+        background-color: #c9a45c;
+      }
+      .btn-accent:active {
+        background-color: #b38e4a;
+      }
+
+      .shadcn-card {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 24px;
+        padding: 2rem;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .shadcn-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+      }
+
+      .contact-info-card {
+        background: rgba(50, 58, 99, 0.05);
+        border-radius: 24px;
+        padding: 2rem;
+        transition: all 0.3s ease;
+        border: 1px solid rgba(50, 58, 99, 0.2);
+        height: 100%;
+      }
+
+      .contact-info-card:hover {
+        transform: translateY(-5px);
+        background: rgba(50, 58, 99, 0.1);
+        border-color: rgba(50, 58, 99, 0.4);
+      }
+
+      .contact-icon {
+        width: 60px;
+        height: 60px;
+        background: var(--gradient-1);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        transform: rotate(-5deg);
+        transition: all 0.3s ease;
+      }
+
+      .contact-info-card:hover .contact-icon {
+        transform: rotate(0deg) scale(1.1);
+      }
+
+      .contact-icon i {
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      .contact-form {
+        background: white;
+        border-radius: 40px;
+        padding: 3rem;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        background: white;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #323a63;
+        box-shadow: 0 0 0 4px rgba(50, 58, 99, 0.1);
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      .map-container {
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        height: 400px;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 100%;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: white;
+        z-index: 1000;
+        padding: 2rem;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .footer-link {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        position: relative;
+        padding-bottom: 2px;
+      }
+      .footer-link:hover {
+        color: white;
+        transform: translateX(5px);
+      }
+      .footer-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #dfb975;
+        transition: width 0.3s ease;
+      }
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      #backToTop {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--gradient-1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+        box-shadow: 0 10px 20px rgba(50, 58, 99, 0.3);
+      }
+      #backToTop.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      #backToTop:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(50, 58, 99, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem !important;
+        }
+        h2 {
+          font-size: 2rem !important;
+        }
+        .contact-form {
+          padding: 1.5rem;
+        }
+        .map-container {
+          height: 300px;
+        }
+      }
+
+      .floating-shape {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.2;
+        animation: float 20s infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          transform: translate(30px, -30px) rotate(120deg);
+        }
+        66% {
+          transform: translate(-30px, 30px) rotate(240deg);
+        }
+      }
+
+      .success-message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem;
+        border-radius: 24px;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        text-align: center;
+        animation: slideUp 0.5s ease;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translate(-50%, 100%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .success-message.show {
+        display: block;
+      }
+      .success-message i {
+        font-size: 4rem;
+        color: #83a4a1;
+        margin-bottom: 1rem;
+      }
+
+      .business-hours {
+        background: var(--gradient-1);
+        color: white;
+        border-radius: 24px;
+        padding: 2rem;
+      }
+
+      .business-hours-item {
+        display: flex;
+        justify-content: space-between;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .business-hours-item:last-child {
+        border-bottom: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+      <i class="fas fa-check-circle"></i>
+      <h3 class="text-2xl font-bold text-gray-800 mb-2">Message Sent!</h3>
+      <p class="text-gray-600 mb-4">
+        Thank you for contacting us. We'll respond within 24-48 hours.
+      </p>
+      <button onclick="closeSuccessMessage()" class="btn-primary">Close</button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="flex justify-between items-center mb-8">
+        <span
+          class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+          >@BestWeCare</span
+        >
+        <button
+          id="closeMenu"
+          class="text-2xl text-gray-600 hover:text-[#323A63] transition">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col space-y-4">
+        <a
+          href="index.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >About</a
+        >
+        <a
+          href="programs.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Programs</a
+        >
+        <a
+          href="admissions.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Admissions</a
+        >
+        <a
+          href="apply.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Apply Now</a
+        >
+        <a
+          href="contact.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Contact</a
+        >
+      </nav>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 nav-glass z-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="index.html" class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-0 transition">
+              <span class="text-white text-2xl font-bold">B</span>
+            </div>
+            <span
+              class="font-bold text-xl bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent hidden sm:block"
+              >@BestWeCare</span
+            >
+          </a>
+
+          <div class="hidden md:flex items-center space-x-1">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="programs.html" class="nav-link">Programs</a>
+            <a href="admissions.html" class="nav-link">Admissions</a>
+            <a href="apply.html" class="nav-link">Apply Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+
+          <!-- CTA button – gold accent -->
+          <div class="hidden md:block">
+            <a href="apply.html" class="btn-accent">Apply Now →</a>
+          </div>
+
+          <button
+            id="menuToggle"
+            class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      <!-- Hero Section (navy->teal gradient) -->
+      <section
+        class="relative py-32 bg-gradient-to-r from-[#323A63] to-[#83A4A1] overflow-hidden">
+        <div
+          class="floating-shape"
+          style="top: 10%; left: 5%; background: var(--gradient-2)"></div>
+        <div
+          class="floating-shape"
+          style="bottom: 10%; right: 5%; background: var(--gradient-3)"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
+              Get in <span class="text-[#DFB975]">Touch</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+              We're here to answer your questions and help you start your
+              journey to Canada.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Information -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <!-- Contact Info Cards -->
+            <div class="space-y-6">
+              <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-8">
+                Let's
+                <span
+                  class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+                  >Connect</span
+                >
+              </h2>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div class="contact-info-card">
+                  <div class="contact-icon">
+                    <i class="fas fa-map-marker-alt"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">Visit Us</h3>
+                  <p class="text-gray-600">
+                    Hamilton, Ontario<br />Canada L9B 1B7
+                  </p>
+                </div>
+                <div class="contact-info-card">
+                  <div class="contact-icon">
+                    <i class="fas fa-phone-alt"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">Call Us</h3>
+                  <p class="text-gray-600">
+                    +1 365 855 2137<br />Mon-Fri, 9am-5pm
+                  </p>
+                </div>
+                <div class="contact-info-card">
+                  <div class="contact-icon">
+                    <i class="fab fa-whatsapp"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">WhatsApp</h3>
+                  <p class="text-gray-600">
+                    +1 365 855 2137<br />Quick responses
+                  </p>
+                </div>
+                <div class="contact-info-card">
+                  <div class="contact-icon">
+                    <i class="fas fa-envelope"></i>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">Email Us</h3>
+                  <p class="text-gray-600">
+                    atbestwecareinc@gmail.com<br />24/7 Support
+                  </p>
+                </div>
+              </div>
+
+              <!-- Business Hours -->
+              <div class="business-hours mt-8">
+                <h3 class="text-2xl font-bold mb-6">Business Hours</h3>
+                <div class="space-y-3">
+                  <div class="business-hours-item">
+                    <span>Monday - Friday</span
+                    ><span class="font-semibold">9:00 AM - 6:00 PM</span>
+                  </div>
+                  <div class="business-hours-item">
+                    <span>Saturday</span
+                    ><span class="font-semibold">10:00 AM - 4:00 PM</span>
+                  </div>
+                  <div class="business-hours-item">
+                    <span>Sunday</span><span class="font-semibold">Closed</span>
+                  </div>
+                </div>
+                <p class="text-sm text-white/80 mt-4">
+                  * Emergency support available 24/7 for current students
+                </p>
+              </div>
+
+              <!-- Social Media -->
+              <div class="mt-8">
+                <h3 class="text-xl font-bold text-gray-800 mb-4">Follow Us</h3>
+                <div class="flex space-x-4">
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white hover:scale-110 transition"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-gradient-to-r from-[#83A4A1] to-[#DFB975] rounded-full flex items-center justify-center text-white hover:scale-110 transition"
+                    ><i class="fab fa-instagram"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-gradient-to-r from-[#DFB975] to-[#323A63] rounded-full flex items-center justify-center text-white hover:scale-110 transition"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white hover:scale-110 transition"
+                    ><i class="fab fa-youtube"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div>
+              <div class="contact-form">
+                <h3 class="text-3xl font-bold text-gray-800 mb-8">
+                  Send us a Message
+                </h3>
+
+                <form id="contactForm" class="space-y-6">
+                  <div>
+                    <label class="form-label">Full Name *</label
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="contactName"
+                      required />
+                  </div>
+                  <div>
+                    <label class="form-label">Email Address *</label
+                    ><input
+                      type="email"
+                      class="form-input"
+                      id="contactEmail"
+                      required />
+                  </div>
+                  <div>
+                    <label class="form-label">Phone Number</label
+                    ><input type="tel" class="form-input" id="contactPhone" />
+                  </div>
+                  <div>
+                    <label class="form-label">Subject *</label>
+                    <select class="form-input" id="contactSubject" required>
+                      <option value="">Select a subject</option>
+                      <option value="general">General Inquiry</option>
+                      <option value="admissions">Admissions Question</option>
+                      <option value="programs">Program Information</option>
+                      <option value="support">Student Support</option>
+                      <option value="partnership">
+                        Partnership Opportunities
+                      </option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Message *</label
+                    ><textarea
+                      class="form-input"
+                      rows="6"
+                      id="contactMessage"
+                      required></textarea>
+                  </div>
+                  <div>
+                    <label class="flex items-center"
+                      ><input
+                        type="checkbox"
+                        class="mr-3 w-5 h-5"
+                        id="contactNewsletter" /><span class="text-gray-600"
+                        >Subscribe to our newsletter for updates</span
+                      ></label
+                    >
+                  </div>
+                  <button type="submit" class="btn-accent w-full text-lg py-4">
+                    Send Message <i class="fas fa-paper-plane ml-2"></i>
+                  </button>
+                  <p class="text-xs text-gray-500 text-center">
+                    Messages sent directly to atbestwecareinc@gmail.com
+                  </p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Map -->
+      <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-4xl md:text-5xl font-bold text-gray-800 text-center mb-12">
+            Find
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Us</span
+            >
+          </h2>
+
+          <div class="map-container">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d186572.8182991081!2d-79.987708!3d43.232168!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x882c98650e9c1e77%3A0x8a5b7f3e3f3c3c3c!2sHamilton%2C%20ON%2C%20Canada!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+              allowfullscreen=""
+              loading="lazy"></iframe>
+          </div>
+
+          <div class="text-center mt-8">
+            <p class="text-gray-600">
+              <i class="fas fa-map-pin text-[#DFB975] mr-2"></i>Hamilton,
+              Ontario, Canada L9B 1B7
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Preview -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <h2
+            class="text-4xl md:text-5xl font-bold text-gray-800 text-center mb-16">
+            Frequently Asked
+            <span
+              class="bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+              >Questions</span
+            >
+          </h2>
+
+          <div class="max-w-3xl mx-auto space-y-4">
+            <div class="shadcn-card">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                How long does the application process take?
+              </h3>
+              <p class="text-gray-600">
+                The complete application process typically takes 4-6 weeks from
+                submission to final decision, depending on document verification
+                and interview scheduling.
+              </p>
+            </div>
+            <div class="shadcn-card">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                What are the English language requirements?
+              </h3>
+              <p class="text-gray-600">
+                Requirements vary by program. Generally, we accept IELTS (6.0+),
+                TOEFL (80+), or equivalent. Some programs may have alternative
+                requirements.
+              </p>
+            </div>
+            <div class="shadcn-card">
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Do you provide visa assistance?
+              </h3>
+              <p class="text-gray-600">
+                Yes, we provide comprehensive visa guidance and document
+                support. However, final visa approval is at the discretion of
+                Canadian immigration authorities.
+              </p>
+            </div>
+            <div class="text-center mt-8">
+              <a
+                href="faqs.html"
+                class="text-[#323A63] font-semibold hover:underline"
+                >View all FAQs <i class="fas fa-arrow-right ml-2"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA (navy->teal gradient, gold button) -->
+      <section class="py-24 bg-gradient-to-r from-[#323A63] to-[#83A4A1]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+            Ready to Start?
+          </h2>
+          <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+            Take the first step towards your Canadian education journey today.
+          </p>
+          <a href="apply.html" class="btn-accent text-lg px-12 py-5"
+            >Apply Now <i class="fas fa-arrow-right ml-2"></i
+          ></a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (updated colours) -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center">
+                <span class="text-white text-2xl font-bold">B</span>
+              </div>
+              <span class="font-bold text-xl">@BestWeCare</span>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              From Arrival to Confidence. We walk the journey with international
+              students from high school to university and beyond.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="programs.html" class="footer-link">Programs</a></li>
+              <li>
+                <a href="admissions.html" class="footer-link">Admissions</a>
+              </li>
+              <li><a href="apply.html" class="footer-link">Apply Now</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Our Programs</h4>
+            <ul class="space-y-3">
+              <li>
+                <a href="programs.html#high-school" class="footer-link"
+                  >High School Program</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#look-see" class="footer-link"
+                  >Look See Canada</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#etiquette" class="footer-link"
+                  >School of Etiquette</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#university" class="footer-link"
+                  >University Support</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#science" class="footer-link"
+                  >For Science Lovers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-map-marker-alt text-[#DFB975] mt-1"></i
+                ><span class="text-gray-400">Hamilton, Ontario, Canada</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-phone text-[#83A4A1]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fab fa-whatsapp text-[#DFB975]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-[#323A63]"></i
+                ><span class="text-gray-400">atbestwecareinc@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <p>
+            © 2024 @BestWeCare Inc. All rights reserved. | Business Registration
+            #: 770656601RC0001
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+    <script>
+      // Contact Form Submission
+      const contactForm = document.getElementById('contactForm');
+      contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        document.getElementById('successMessage').classList.add('show');
+        this.reset();
+        setTimeout(closeSuccessMessage, 5000);
+      });
+
+      function closeSuccessMessage() {
+        document.getElementById('successMessage').classList.remove('show');
+      }
+
+      // Mobile Menu
+      const menuToggle = document.getElementById('menuToggle');
+      const closeMenu = document.getElementById('closeMenu');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      function openMenu() {
+        mobileMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenuFunc() {
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      menuToggle.addEventListener('click', openMenu);
+      closeMenu.addEventListener('click', closeMenuFunc);
+      menuOverlay.addEventListener('click', closeMenuFunc);
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener('click', closeMenuFunc);
+      });
+
+      // Back to Top
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        window.scrollY > 500
+          ? backToTop.classList.add('visible')
+          : backToTop.classList.remove('visible');
+      });
+      backToTop.addEventListener('click', function () {
+        gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
+      });
+
+      // Navbar scroll effect
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          nav.classList.add('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+          nav.classList.remove('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+      });
+
+      // GSAP Animations
+      window.addEventListener('load', function () {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.from('.hero-section h1', {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          delay: 0.3,
+        });
+        gsap.from('.hero-section p', {
+          opacity: 0,
+          y: 30,
+          duration: 1,
+          delay: 0.6,
+        });
+        gsap.utils.toArray('.contact-info-card').forEach((card, i) => {
+          gsap.fromTo(
+            card,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: i * 0.1,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
+        });
+        gsap.fromTo(
+          '.contact-form',
+          { opacity: 0, x: 50 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 1,
+            scrollTrigger: {
+              trigger: '.contact-form',
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+        gsap.fromTo(
+          '.map-container',
+          { opacity: 0, scale: 0.9 },
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 1,
+            scrollTrigger: {
+              trigger: '.map-container',
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,1213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply Now - @BestWeCare</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Google Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: 'Outfit', sans-serif;
+        overflow-x: hidden;
+        /* soft background using new palette */
+        background: linear-gradient(135deg, #f1f4f9 0%, #dbe7e5 100%);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: 'Space Grotesk', sans-serif;
+      }
+
+      /* 🌟 NEW COLOR PALETTE */
+      :root {
+        --primary: #323a63; /* deep navy */
+        --secondary: #83a4a1; /* muted teal */
+        --accent: #dfb975; /* warm gold */
+        --dark: #1e2538;
+        --light: #f7f9fc;
+        --gradient-1: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+        --gradient-2: linear-gradient(135deg, #83a4a1 0%, #dfb975 100%);
+        --gradient-3: linear-gradient(135deg, #dfb975 0%, #323a63 100%);
+        --gradient-4: linear-gradient(135deg, #323a63 0%, #dfb975 100%);
+      }
+
+      .nav-glass {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .nav-link {
+        position: relative;
+        font-weight: 600;
+        color: var(--dark);
+        transition: all 0.3s ease;
+        padding: 0.5rem 1rem;
+        border-radius: 9999px;
+      }
+
+      .nav-link:hover {
+        background: var(--gradient-1);
+        color: white;
+      }
+
+      /* 🌟 NEW BUTTON STYLES – exactly matching the provided example */
+      .btn-primary {
+        background-color: white;
+        border-radius: 0.75rem;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        border: 1px solid #e2e8f0;
+        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+        transition: all 0.15s ease;
+        color: #1e293b;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+      .btn-primary:hover {
+        background-color: #f8fafc;
+      }
+      .btn-primary:active {
+        background-color: #f1f5f9;
+      }
+
+      .btn-accent {
+        background-color: #dfb975;
+        border-radius: 0.75rem;
+        padding: 0.75rem 2rem;
+        font-weight: 600;
+        color: white;
+        box-shadow:
+          0 10px 15px -3px rgb(223 185 117 / 0.3),
+          0 4px 6px -4px rgb(223 185 117 / 0.3);
+        transition: all 0.15s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: none;
+      }
+      .btn-accent:hover {
+        background-color: #c9a45c;
+      }
+      .btn-accent:active {
+        background-color: #b38e4a;
+      }
+
+      .application-form {
+        background: rgba(255, 255, 255, 0.98);
+        backdrop-filter: blur(10px);
+        border-radius: 40px;
+        padding: 3rem;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .form-section {
+        background: rgba(50, 58, 99, 0.05);
+        border-radius: 24px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        border: 1px solid rgba(50, 58, 99, 0.1);
+      }
+
+      .form-input {
+        width: 100%;
+        padding: 1rem 1.5rem;
+        border: 2px solid #e2e8f0;
+        border-radius: 16px;
+        transition: all 0.3s ease;
+        font-size: 1rem;
+        background: white;
+      }
+
+      .form-input:focus {
+        outline: none;
+        border-color: #323a63;
+        box-shadow: 0 0 0 4px rgba(50, 58, 99, 0.1);
+      }
+
+      .form-label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: var(--dark);
+        font-size: 0.95rem;
+      }
+
+      .file-upload {
+        border: 2px dashed #e2e8f0;
+        border-radius: 16px;
+        padding: 2rem;
+        text-align: center;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        background: white;
+      }
+
+      .file-upload:hover {
+        border-color: #323a63;
+        background: rgba(50, 58, 99, 0.05);
+      }
+
+      .file-upload i {
+        font-size: 2rem;
+        color: #323a63;
+        margin-bottom: 1rem;
+      }
+
+      .progress-bar {
+        width: 0%;
+        height: 4px;
+        background: var(--gradient-1);
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 400px;
+        height: 100vh;
+        background: white;
+        z-index: 1000;
+        padding: 2rem;
+        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu.active {
+        right: 0;
+      }
+      .mobile-menu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(5px);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+      }
+      .mobile-menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .footer-link {
+        color: rgba(255, 255, 255, 0.7);
+        transition: all 0.3s ease;
+        position: relative;
+        padding-bottom: 2px;
+      }
+      .footer-link:hover {
+        color: white;
+        transform: translateX(5px);
+      }
+      .footer-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: #dfb975;
+        transition: width 0.3s ease;
+      }
+      .footer-link:hover::after {
+        width: 100%;
+      }
+
+      #backToTop {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 50px;
+        height: 50px;
+        background: var(--gradient-1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+        z-index: 100;
+        box-shadow: 0 10px 20px rgba(50, 58, 99, 0.3);
+      }
+      #backToTop.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+      #backToTop:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 30px rgba(50, 58, 99, 0.4);
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem !important;
+        }
+        h2 {
+          font-size: 2rem !important;
+        }
+        .application-form {
+          padding: 1.5rem;
+        }
+        .form-section {
+          padding: 1.5rem;
+        }
+      }
+
+      .floating-shape {
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0.2;
+        animation: float 20s infinite;
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translate(0, 0) rotate(0deg);
+        }
+        33% {
+          transform: translate(30px, -30px) rotate(120deg);
+        }
+        66% {
+          transform: translate(-30px, 30px) rotate(240deg);
+        }
+      }
+
+      .success-message {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: white;
+        padding: 2rem;
+        border-radius: 24px;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        text-align: center;
+        animation: slideUp 0.5s ease;
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translate(-50%, 100%);
+        }
+        to {
+          opacity: 1;
+          transform: translate(-50%, -50%);
+        }
+      }
+
+      .success-message.show {
+        display: block;
+      }
+      .success-message i {
+        font-size: 4rem;
+        color: #83a4a1;
+        margin-bottom: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Success Message -->
+    <div class="success-message" id="successMessage">
+      <i class="fas fa-check-circle"></i>
+      <h3 class="text-2xl font-bold text-gray-800 mb-2">
+        Application Submitted!
+      </h3>
+      <p class="text-gray-600 mb-4">
+        Thank you for applying. We'll contact you within 24-48 hours.
+      </p>
+      <button onclick="closeSuccessMessage()" class="btn-primary">Close</button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="menuOverlay"></div>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+      <div class="flex justify-between items-center mb-8">
+        <span
+          class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+          >@BestWeCare</span
+        >
+        <button
+          id="closeMenu"
+          class="text-2xl text-gray-600 hover:text-[#323A63] transition">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <nav class="flex flex-col space-y-4">
+        <a
+          href="index.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >About</a
+        >
+        <a
+          href="programs.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Programs</a
+        >
+        <a
+          href="admissions.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Admissions</a
+        >
+        <a
+          href="apply.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Apply Now</a
+        >
+        <a
+          href="contact.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Contact</a
+        >
+      </nav>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 left-0 right-0 nav-glass z-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-20">
+          <a href="index.html" class="flex items-center space-x-3">
+            <div
+              class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center transform rotate-3 hover:rotate-0 transition">
+              <span class="text-white text-2xl font-bold">B</span>
+            </div>
+            <span
+              class="font-bold text-xl bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent hidden sm:block"
+              >@BestWeCare</span
+            >
+          </a>
+
+          <div class="hidden md:flex items-center space-x-1">
+            <a href="index.html" class="nav-link">Home</a>
+            <a href="about.html" class="nav-link">About</a>
+            <a href="programs.html" class="nav-link">Programs</a>
+            <a href="admissions.html" class="nav-link">Admissions</a>
+            <a href="apply.html" class="nav-link">Apply Now</a>
+            <a href="contact.html" class="nav-link">Contact</a>
+          </div>
+
+          <!-- CTA button – gold accent -->
+          <div class="hidden md:block">
+            <a href="apply.html" class="btn-accent">Apply Now →</a>
+          </div>
+
+          <button
+            id="menuToggle"
+            class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <main class="pt-20">
+      <!-- Hero Section (navy->teal gradient) -->
+      <section
+        class="relative py-32 bg-gradient-to-r from-[#323A63] to-[#83A4A1] overflow-hidden">
+        <div
+          class="floating-shape"
+          style="top: 10%; left: 5%; background: var(--gradient-2)"></div>
+        <div
+          class="floating-shape"
+          style="bottom: 10%; right: 5%; background: var(--gradient-3)"></div>
+
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
+              Apply <span class="text-[#DFB975]">Now</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+              Take the first step towards your Canadian education journey.
+              Complete the application form below.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Application Form -->
+      <section class="py-24 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-4xl mx-auto">
+            <!-- Progress Bar -->
+            <div class="mb-8">
+              <div class="flex justify-between mb-2">
+                <span class="text-sm font-semibold text-gray-600"
+                  >Application Progress</span
+                >
+                <span
+                  class="text-sm font-semibold text-[#323A63]"
+                  id="progressPercentage"
+                  >0%</span
+                >
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div
+                  class="progress-bar"
+                  id="progressBar"
+                  style="width: 0%"></div>
+              </div>
+            </div>
+
+            <form id="applicationForm" class="application-form">
+              <!-- Student Information -->
+              <div class="form-section">
+                <h2
+                  class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  <span
+                    class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3"
+                    >1</span
+                  >
+                  Student Information
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="form-label">Full Name *</label
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="fullName"
+                      required />
+                  </div>
+                  <div>
+                    <label class="form-label">Date of Birth *</label
+                    ><input type="date" class="form-input" id="dob" required />
+                  </div>
+                  <div>
+                    <label class="form-label">Gender *</label>
+                    <select class="form-input" id="gender" required>
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                      <option value="prefer-not">Prefer not to say</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Nationality *</label
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="nationality"
+                      required />
+                  </div>
+                  <div>
+                    <label class="form-label">Current Grade/Level *</label>
+                    <select class="form-input" id="grade" required>
+                      <option value="">Select Grade</option>
+                      <option value="9">Grade 9</option>
+                      <option value="10">Grade 10</option>
+                      <option value="11">Grade 11</option>
+                      <option value="12">Grade 12</option>
+                      <option value="university">University Transfer</option>
+                      <option value="masters">Master's Preparation</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label class="form-label">Country of Residence *</label
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="country"
+                      required />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Parent/Guardian Information -->
+              <div class="form-section">
+                <h2
+                  class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  <span
+                    class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3"
+                    >2</span
+                  >
+                  Parent/Guardian Information
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="form-label">Parent/Guardian Full Name *</label
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="parentName"
+                      required />
+                  </div>
+                  <div>
+                    <label class="form-label">Relationship to Student *</label
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="relationship"
+                      required />
+                  </div>
+                  <div>
+                    <label class="form-label">Email *</label
+                    ><input
+                      type="email"
+                      class="form-input"
+                      id="parentEmail"
+                      required />
+                  </div>
+                  <div>
+                    <label class="form-label">Phone *</label
+                    ><input
+                      type="tel"
+                      class="form-input"
+                      id="parentPhone"
+                      required />
+                  </div>
+                  <div class="md:col-span-2">
+                    <label class="form-label">Address</label
+                    ><input type="text" class="form-input" id="parentAddress" />
+                  </div>
+                </div>
+              </div>
+
+              <!-- Program Selection -->
+              <div class="form-section">
+                <h2
+                  class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  <span
+                    class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3"
+                    >3</span
+                  >
+                  Program Selection
+                </h2>
+                <div class="space-y-4">
+                  <div>
+                    <label class="form-label">Select Program *</label>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <label
+                        class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                        ><input
+                          type="radio"
+                          name="program"
+                          value="high-school"
+                          class="mr-3"
+                          required />
+                        <div>
+                          <span class="font-semibold">High School Program</span>
+                          <p class="text-sm text-gray-500">2-4 years, OSSD</p>
+                        </div></label
+                      >
+                      <label
+                        class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                        ><input
+                          type="radio"
+                          name="program"
+                          value="look-see"
+                          class="mr-3" />
+                        <div>
+                          <span class="font-semibold">Look See Canada</span>
+                          <p class="text-sm text-gray-500">6-8 weeks, Summer</p>
+                        </div></label
+                      >
+                      <label
+                        class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                        ><input
+                          type="radio"
+                          name="program"
+                          value="etiquette"
+                          class="mr-3" />
+                        <div>
+                          <span class="font-semibold">School of Etiquette</span>
+                          <p class="text-sm text-gray-500">6-8 weeks</p>
+                        </div></label
+                      >
+                      <label
+                        class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                        ><input
+                          type="radio"
+                          name="program"
+                          value="university"
+                          class="mr-3" />
+                        <div>
+                          <span class="font-semibold">University Support</span>
+                          <p class="text-sm text-gray-500">
+                            Undergraduate/Master's
+                          </p>
+                        </div></label
+                      >
+                      <label
+                        class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                        ><input
+                          type="radio"
+                          name="program"
+                          value="science"
+                          class="mr-3" />
+                        <div>
+                          <span class="font-semibold">Science Lovers</span>
+                          <p class="text-sm text-gray-500">
+                            Summer Lab Program
+                          </p>
+                        </div></label
+                      >
+                    </div>
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+                    <div>
+                      <label class="form-label">Preferred Start Date</label
+                      ><input type="month" class="form-input" id="startDate" />
+                    </div>
+                    <div>
+                      <label class="form-label"
+                        >How did you hear about us?</label
+                      ><select class="form-input" id="hearAbout">
+                        <option value="">Select</option>
+                        <option value="agent">Education Agent</option>
+                        <option value="internet">Internet Search</option>
+                        <option value="social">Social Media</option>
+                        <option value="friend">Friend/Family</option>
+                        <option value="other">Other</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Contact Information -->
+              <div class="form-section">
+                <h2
+                  class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  <span
+                    class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3"
+                    >4</span
+                  >
+                  Contact Information
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label class="form-label">Student Email *</label
+                    ><input
+                      type="email"
+                      class="form-input"
+                      id="studentEmail"
+                      required />
+                  </div>
+                  <div>
+                    <label class="form-label">Student Phone *</label
+                    ><input
+                      type="tel"
+                      class="form-input"
+                      id="studentPhone"
+                      required />
+                  </div>
+                  <div>
+                    <label class="form-label">WhatsApp (if different)</label
+                    ><input type="tel" class="form-input" id="whatsapp" />
+                  </div>
+                  <div>
+                    <label class="form-label">Preferred Contact Method</label
+                    ><select class="form-input" id="contactMethod">
+                      <option value="email">Email</option>
+                      <option value="phone">Phone</option>
+                      <option value="whatsapp">WhatsApp</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Document Upload -->
+              <div class="form-section">
+                <h2
+                  class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  <span
+                    class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3"
+                    >5</span
+                  >
+                  Document Upload
+                </h2>
+                <div class="space-y-6">
+                  <div
+                    class="file-upload"
+                    onclick="document.getElementById('transcripts').click()">
+                    <input
+                      type="file"
+                      id="transcripts"
+                      class="hidden"
+                      accept=".pdf,.doc,.docx"
+                      required />
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <h3 class="text-lg font-semibold mb-2">
+                      Upload Academic Transcripts *
+                    </h3>
+                    <p class="text-sm text-gray-500">
+                      PDF, DOC, or DOCX (Max 5MB)
+                    </p>
+                    <p
+                      class="text-xs text-gray-400 mt-2"
+                      id="transcripts-filename">
+                      No file chosen
+                    </p>
+                  </div>
+                  <div
+                    class="file-upload"
+                    onclick="document.getElementById('passport').click()">
+                    <input
+                      type="file"
+                      id="passport"
+                      class="hidden"
+                      accept=".pdf,.jpg,.jpeg,.png"
+                      required />
+                    <i class="fas fa-id-card"></i>
+                    <h3 class="text-lg font-semibold mb-2">
+                      Upload Passport Copy *
+                    </h3>
+                    <p class="text-sm text-gray-500">
+                      PDF, JPG, or PNG (Max 5MB)
+                    </p>
+                    <p
+                      class="text-xs text-gray-400 mt-2"
+                      id="passport-filename">
+                      No file chosen
+                    </p>
+                  </div>
+                  <div
+                    class="file-upload"
+                    onclick="document.getElementById('english').click()">
+                    <input
+                      type="file"
+                      id="english"
+                      class="hidden"
+                      accept=".pdf" />
+                    <i class="fas fa-language"></i>
+                    <h3 class="text-lg font-semibold mb-2">
+                      English Proficiency Test (if applicable)
+                    </h3>
+                    <p class="text-sm text-gray-500">
+                      IELTS, TOEFL, or equivalent (PDF)
+                    </p>
+                    <p class="text-xs text-gray-400 mt-2" id="english-filename">
+                      No file chosen
+                    </p>
+                  </div>
+                  <div
+                    class="file-upload"
+                    onclick="document.getElementById('sop').click()">
+                    <input
+                      type="file"
+                      id="sop"
+                      class="hidden"
+                      accept=".pdf,.doc,.docx" />
+                    <i class="fas fa-file-alt"></i>
+                    <h3 class="text-lg font-semibold mb-2">
+                      Statement of Purpose
+                    </h3>
+                    <p class="text-sm text-gray-500">
+                      Tell us your story (PDF or DOC)
+                    </p>
+                    <p class="text-xs text-gray-400 mt-2" id="sop-filename">
+                      No file chosen
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Additional Information -->
+              <div class="form-section">
+                <h2
+                  class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                  <span
+                    class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3"
+                    >6</span
+                  >
+                  Additional Information
+                </h2>
+                <div class="space-y-4">
+                  <div>
+                    <label class="form-label"
+                      >Do you have any medical conditions we should be aware
+                      of?</label
+                    ><textarea
+                      class="form-input"
+                      rows="3"
+                      id="medical"></textarea>
+                  </div>
+                  <div>
+                    <label class="form-label"
+                      >Dietary Restrictions or Allergies</label
+                    ><textarea
+                      class="form-input"
+                      rows="3"
+                      id="dietary"></textarea>
+                  </div>
+                  <div>
+                    <label class="form-label">Emergency Contact Name *</label
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="emergencyName"
+                      required />
+                  </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                      <label class="form-label"
+                        >Emergency Contact Relationship</label
+                      ><input
+                        type="text"
+                        class="form-input"
+                        id="emergencyRelation" />
+                    </div>
+                    <div>
+                      <label class="form-label">Emergency Contact Phone *</label
+                      ><input
+                        type="tel"
+                        class="form-input"
+                        id="emergencyPhone"
+                        required />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terms and Submit -->
+              <div class="mt-8">
+                <label class="flex items-center mb-6">
+                  <input
+                    type="checkbox"
+                    class="mr-3 w-5 h-5"
+                    id="terms"
+                    required />
+                  <span class="text-gray-600"
+                    >I confirm that the information provided is accurate and
+                    complete. I agree to the
+                    <a href="#" class="text-[#323A63] hover:underline"
+                      >Terms and Conditions</a
+                    >
+                    and
+                    <a href="#" class="text-[#83A4A1] hover:underline"
+                      >Privacy Policy</a
+                    >.</span
+                  >
+                </label>
+                <button type="submit" class="btn-accent w-full text-lg py-4">
+                  Submit Application <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+                <p class="text-xs text-gray-500 text-center mt-4">
+                  By submitting this form, you agree to our terms and
+                  conditions. Application fee payment will be collected after
+                  submission.
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+
+      <!-- Need Help -->
+      <section class="py-24 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+              Need Help With Your Application?
+            </h2>
+            <p class="text-xl text-gray-600 mb-8">
+              Our admissions team is here to guide you through every step of the
+              process.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+              <a href="contact.html" class="btn-primary">Contact Admissions</a>
+              <a href="tel:+13658552137" class="btn-accent"
+                ><i class="fas fa-phone mr-2"></i> Call Us</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer (updated colours) -->
+    <footer class="bg-gray-900 text-white py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <div>
+            <div class="flex items-center space-x-3 mb-6">
+              <div
+                class="w-12 h-12 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-2xl flex items-center justify-center">
+                <span class="text-white text-2xl font-bold">B</span>
+              </div>
+              <span class="font-bold text-xl">@BestWeCare</span>
+            </div>
+            <p class="text-gray-400 mb-6 leading-relaxed">
+              From Arrival to Confidence. We walk the journey with international
+              students from high school to university and beyond.
+            </p>
+            <div class="flex space-x-4">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-facebook-f"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-instagram"></i></a
+              ><a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+            <ul class="space-y-3">
+              <li><a href="index.html" class="footer-link">Home</a></li>
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="programs.html" class="footer-link">Programs</a></li>
+              <li>
+                <a href="admissions.html" class="footer-link">Admissions</a>
+              </li>
+              <li><a href="apply.html" class="footer-link">Apply Now</a></li>
+              <li><a href="contact.html" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Our Programs</h4>
+            <ul class="space-y-3">
+              <li>
+                <a href="programs.html#high-school" class="footer-link"
+                  >High School Program</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#look-see" class="footer-link"
+                  >Look See Canada</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#etiquette" class="footer-link"
+                  >School of Etiquette</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#university" class="footer-link"
+                  >University Support</a
+                >
+              </li>
+              <li>
+                <a href="programs.html#science" class="footer-link"
+                  >For Science Lovers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg font-bold mb-6">Contact Info</h4>
+            <ul class="space-y-4">
+              <li class="flex items-start space-x-3">
+                <i class="fas fa-map-marker-alt text-[#DFB975] mt-1"></i
+                ><span class="text-gray-400">Hamilton, Ontario, Canada</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-phone text-[#83A4A1]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fab fa-whatsapp text-[#DFB975]"></i
+                ><span class="text-gray-400">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-envelope text-[#323A63]"></i
+                ><span class="text-gray-400">atbestwecareinc@gmail.com</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div
+          class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+          <p>
+            © 2024 @BestWeCare Inc. All rights reserved. | Business Registration
+            #: 770656601RC0001
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+    <script>
+      // Form Progress Tracking
+      const form = document.getElementById('applicationForm');
+      const inputs = form.querySelectorAll('input, select, textarea');
+      const progressBar = document.getElementById('progressBar');
+      const progressPercentage = document.getElementById('progressPercentage');
+
+      function updateProgress() {
+        let filled = 0,
+          total = 0;
+        inputs.forEach((input) => {
+          if (input.type !== 'file' && input.type !== 'checkbox') {
+            total++;
+            if (input.value.trim() !== '') filled++;
+          }
+        });
+        const transcripts = document.getElementById('transcripts');
+        const passport = document.getElementById('passport');
+        if (transcripts.files.length > 0) filled++;
+        total++;
+        if (passport.files.length > 0) filled++;
+        total++;
+        const percentage = Math.round((filled / total) * 100);
+        progressBar.style.width = percentage + '%';
+        progressPercentage.textContent = percentage + '%';
+      }
+
+      inputs.forEach((input) => {
+        input.addEventListener('input', updateProgress);
+        if (input.type === 'file') {
+          input.addEventListener('change', function () {
+            updateProgress();
+            const id = this.id;
+            const filenameSpan = document.getElementById(id + '-filename');
+            if (filenameSpan && this.files.length > 0) {
+              filenameSpan.textContent = this.files[0].name;
+              filenameSpan.classList.add('text-[#83A4A1]');
+            }
+          });
+        }
+      });
+
+      // Form Submission
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        document.getElementById('successMessage').classList.add('show');
+        this.reset();
+        updateProgress();
+        document.querySelectorAll('[id$="-filename"]').forEach((span) => {
+          span.textContent = 'No file chosen';
+          span.classList.remove('text-[#83A4A1]');
+        });
+        setTimeout(closeSuccessMessage, 5000);
+      });
+
+      function closeSuccessMessage() {
+        document.getElementById('successMessage').classList.remove('show');
+      }
+
+      // Mobile Menu
+      const menuToggle = document.getElementById('menuToggle');
+      const closeMenu = document.getElementById('closeMenu');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const menuOverlay = document.getElementById('menuOverlay');
+      const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+      function openMenu() {
+        mobileMenu.classList.add('active');
+        menuOverlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMenuFunc() {
+        mobileMenu.classList.remove('active');
+        menuOverlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+      menuToggle.addEventListener('click', openMenu);
+      closeMenu.addEventListener('click', closeMenuFunc);
+      menuOverlay.addEventListener('click', closeMenuFunc);
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener('click', closeMenuFunc);
+      });
+
+      // Back to Top
+      const backToTop = document.getElementById('backToTop');
+      window.addEventListener('scroll', function () {
+        window.scrollY > 500
+          ? backToTop.classList.add('visible')
+          : backToTop.classList.remove('visible');
+      });
+      backToTop.addEventListener('click', function () {
+        gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
+      });
+
+      // Navbar scroll effect
+      const nav = document.querySelector('nav');
+      window.addEventListener('scroll', function () {
+        if (window.scrollY > 50) {
+          nav.classList.add('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.98)';
+        } else {
+          nav.classList.remove('shadow-lg');
+          nav.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
+      });
+
+      // GSAP Animations
+      window.addEventListener('load', function () {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.utils.toArray('.form-section').forEach((section, i) => {
+          gsap.fromTo(
+            section,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: i * 0.2,
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
+        });
+      });
+    </script>
+  </body>
+</html>
