@@ -515,7 +515,12 @@
               </div>
             </div>
 
-            <form id="applicationForm" class="application-form">
+            <form
+              id="applicationForm"
+              class="application-form"
+              action="https://formspree.io/f/mreanddr"
+              method="POST"
+              enctype="multipart/form-data">
               <!-- Student Information -->
               <div class="form-section">
                 <h2
@@ -533,15 +538,25 @@
                       type="text"
                       class="form-input"
                       id="fullName"
+                      name="full-name"
                       required />
                   </div>
                   <div>
                     <label class="form-label">Date of Birth *</label
-                    ><input type="date" class="form-input" id="dob" required />
+                    ><input
+                      type="date"
+                      class="form-input"
+                      id="dob"
+                      name="date-of-birth"
+                      required />
                   </div>
                   <div>
                     <label class="form-label">Gender *</label>
-                    <select class="form-input" id="gender" required>
+                    <select
+                      class="form-input"
+                      id="gender"
+                      name="gender"
+                      required>
                       <option value="">Select Gender</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
@@ -553,11 +568,12 @@
                       type="text"
                       class="form-input"
                       id="nationality"
+                      name="nationality"
                       required />
                   </div>
                   <div>
                     <label class="form-label">Current Grade/Level *</label>
-                    <select class="form-input" id="grade" required>
+                    <select class="form-input" id="grade" name="grade" required>
                       <option value="">Select Grade</option>
                       <option value="9">Grade 9</option>
                       <option value="10">Grade 10</option>
@@ -573,6 +589,7 @@
                       type="text"
                       class="form-input"
                       id="country"
+                      name="country"
                       required />
                   </div>
                 </div>
@@ -595,6 +612,7 @@
                       type="text"
                       class="form-input"
                       id="parentName"
+                      name="parent-name"
                       required />
                   </div>
                   <div>
@@ -603,6 +621,7 @@
                       type="text"
                       class="form-input"
                       id="relationship"
+                      name="parent-relationship"
                       required />
                   </div>
                   <div>
@@ -611,6 +630,7 @@
                       type="email"
                       class="form-input"
                       id="parentEmail"
+                      name="parent-email"
                       required />
                   </div>
                   <div>
@@ -619,11 +639,16 @@
                       type="tel"
                       class="form-input"
                       id="parentPhone"
+                      name="parent-phone"
                       required />
                   </div>
                   <div class="md:col-span-2">
                     <label class="form-label">Address</label
-                    ><input type="text" class="form-input" id="parentAddress" />
+                    ><input
+                      type="text"
+                      class="form-input"
+                      id="parentAddress"
+                      name="parent-address" />
                   </div>
                 </div>
               </div>
@@ -648,6 +673,7 @@
                           type="radio"
                           name="program"
                           value="high-school"
+                          name="highschool-program"
                           class="mr-3"
                           required />
                         <div>
@@ -659,8 +685,8 @@
                         class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
                         ><input
                           type="radio"
-                          name="program"
                           value="look-see"
+                          name="look-see-program"
                           class="mr-3" />
                         <div>
                           <span class="font-semibold">Look See Canada</span>
@@ -671,7 +697,7 @@
                         class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
                         ><input
                           type="radio"
-                          name="program"
+                          name="etiquette-program"
                           value="etiquette"
                           class="mr-3" />
                         <div>
@@ -683,7 +709,7 @@
                         class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
                         ><input
                           type="radio"
-                          name="program"
+                          name="university-program"
                           value="university"
                           class="mr-3" />
                         <div>
@@ -697,7 +723,7 @@
                         class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
                         ><input
                           type="radio"
-                          name="program"
+                          name="science-program"
                           value="science"
                           class="mr-3" />
                         <div>
@@ -717,7 +743,10 @@
                     <div>
                       <label class="form-label"
                         >How did you hear about us?</label
-                      ><select class="form-input" id="hearAbout">
+                      ><select
+                        class="form-input"
+                        id="hearAbout"
+                        name="heard-about-us">
                         <option value="">Select</option>
                         <option value="agent">Education Agent</option>
                         <option value="internet">Internet Search</option>
@@ -747,6 +776,7 @@
                       type="email"
                       class="form-input"
                       id="studentEmail"
+                      name="student-email"
                       required />
                   </div>
                   <div>
@@ -755,15 +785,23 @@
                       type="tel"
                       class="form-input"
                       id="studentPhone"
+                      name="student-phone"
                       required />
                   </div>
                   <div>
                     <label class="form-label">WhatsApp (if different)</label
-                    ><input type="tel" class="form-input" id="whatsapp" />
+                    ><input
+                      type="tel"
+                      class="form-input"
+                      id="whatsapp"
+                      name="whatsapp" />
                   </div>
                   <div>
                     <label class="form-label">Preferred Contact Method</label
-                    ><select class="form-input" id="contactMethod">
+                    ><select
+                      class="form-input"
+                      id="contactMethod"
+                      name="contact-method">
                       <option value="email">Email</option>
                       <option value="phone">Phone</option>
                       <option value="whatsapp">WhatsApp</option>
@@ -789,6 +827,7 @@
                     <input
                       type="file"
                       id="transcripts"
+                      name="transcripts"
                       class="hidden"
                       accept=".pdf,.doc,.docx"
                       required />
@@ -811,6 +850,7 @@
                     <input
                       type="file"
                       id="passport"
+                      name="passport"
                       class="hidden"
                       accept=".pdf,.jpg,.jpeg,.png"
                       required />
@@ -833,6 +873,7 @@
                     <input
                       type="file"
                       id="english"
+                      name="english-test"
                       class="hidden"
                       accept=".pdf" />
                     <i class="fas fa-language"></i>
@@ -852,6 +893,7 @@
                     <input
                       type="file"
                       id="sop"
+                      name="statement-of-purpose"
                       class="hidden"
                       accept=".pdf,.doc,.docx" />
                     <i class="fas fa-file-alt"></i>
@@ -886,7 +928,8 @@
                     ><textarea
                       class="form-input"
                       rows="3"
-                      id="medical"></textarea>
+                      id="medical"
+                      name="medical-conditions"></textarea>
                   </div>
                   <div>
                     <label class="form-label"
@@ -894,7 +937,8 @@
                     ><textarea
                       class="form-input"
                       rows="3"
-                      id="dietary"></textarea>
+                      id="dietary"
+                      name="dietary-restrictions"></textarea>
                   </div>
                   <div>
                     <label class="form-label">Emergency Contact Name *</label
@@ -902,6 +946,7 @@
                       type="text"
                       class="form-input"
                       id="emergencyName"
+                      name="emergency-name"
                       required />
                   </div>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -911,7 +956,8 @@
                       ><input
                         type="text"
                         class="form-input"
-                        id="emergencyRelation" />
+                        id="emergencyRelation"
+                        name="emergency-relationship" />
                     </div>
                     <div>
                       <label class="form-label">Emergency Contact Phone *</label
@@ -919,6 +965,7 @@
                         type="tel"
                         class="form-input"
                         id="emergencyPhone"
+                        name="emergency-phone"
                         required />
                     </div>
                   </div>
@@ -932,6 +979,7 @@
                     type="checkbox"
                     class="mr-3 w-5 h-5"
                     id="terms"
+                    name="terms"
                     required />
                   <span class="text-gray-600"
                     >I confirm that the information provided is accurate and
@@ -1245,20 +1293,37 @@
 
       // Form Submission
       form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        document.getElementById('successMessage').classList.add('show');
-        this.reset();
-        updateProgress();
-        document.querySelectorAll('[id$="-filename"]').forEach((span) => {
-          span.textContent = 'No file chosen';
-          span.classList.remove('text-[#83A4A1]');
-        });
-        setTimeout(closeSuccessMessage, 5000);
-      });
+        e.preventDefault(); // 🚨 This stops the page redirect
 
-      function closeSuccessMessage() {
-        document.getElementById('successMessage').classList.remove('show');
-      }
+        const formData = new FormData(this);
+
+        fetch(this.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            Accept: 'application/json',
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              document.getElementById('successMessage').classList.add('show');
+              this.reset();
+              updateProgress();
+
+              document.querySelectorAll('[id$="-filename"]').forEach((span) => {
+                span.textContent = 'No file chosen';
+                span.classList.remove('text-[#83A4A1]');
+              });
+
+              setTimeout(closeSuccessMessage, 5000);
+            } else {
+              alert('Something went wrong. Please try again.');
+            }
+          })
+          .catch(() => {
+            alert('Network error. Please try again.');
+          });
+      });
 
       // Mobile Menu
       const menuToggle = document.getElementById('menuToggle');
@@ -1292,18 +1357,6 @@
       });
       backToTop.addEventListener('click', function () {
         gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
-      });
-
-      // Navbar scroll effect
-      const nav = document.querySelector('nav');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
-          nav.classList.add('shadow-lg');
-          nav.style.background = 'rgba(255, 255, 255, 0.98)';
-        } else {
-          nav.classList.remove('shadow-lg');
-          nav.style.background = 'rgba(255, 255, 255, 0.95)';
-        }
       });
 
       // GSAP Animations

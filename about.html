@@ -166,8 +166,6 @@
       }
 
       .leadership-card img {
-        width: 100%;
-        height: 500px;
         object-fit: cover;
         transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
       }
@@ -295,7 +293,6 @@
           font-size: 2rem !important;
         }
         .leadership-card img {
-          height: 400px;
         }
       }
 
@@ -578,10 +575,11 @@
           <div class="space-y-24">
             <!-- Colline -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div class="leadership-card">
+              <div class="leadership-card aspect-[3/4]">
                 <img
                   src="images/team/colline-tirivangani.png"
-                  alt="Colline Tirivangani" />
+                  alt="Colline Tirivangani"
+                  class="w-full h-full object-cover object-center" />
                 <div class="leadership-overlay">
                   <h3 class="text-2xl font-bold mb-1">Colline Tirivangani</h3>
                   <p class="text-[#DFB975] font-semibold mb-3">Founder</p>
@@ -594,7 +592,7 @@
                 <h3 class="text-3xl font-bold text-gray-800">
                   Colline Tirivangani
                 </h3>
-                <p class="text-xl text-[#323A63] font-semibold">
+                <p class="text-xl text-[#83A4A1] font-semibold">
                   Founder & Lead Mentor
                 </p>
                 <div class="space-y-4 text-gray-600">
@@ -650,10 +648,11 @@
                   </p>
                 </div>
               </div>
-              <div class="order-1 lg:order-2 leadership-card">
+              <div class="order-1 lg:order-2 leadership-card aspect-[3/4]">
                 <img
                   src="images/team/leona-muringani.jpg"
-                  alt="Leona Muringani" />
+                  alt="Leona Muringani"
+                  class="w-full h-full object-cover object-center" />
                 <div class="leadership-overlay">
                   <h3 class="text-2xl font-bold mb-1">Leona Muringani</h3>
                   <p class="text-[#DFB975] font-semibold mb-3">Cofounder</p>
@@ -663,8 +662,11 @@
             </div>
             <!-- Beverley -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div class="leadership-card">
-                <img src="images/team/beverly-allen.jpg" alt="Beverley Allen" />
+              <div class="leadership-card aspect-[3/4]">
+                <img
+                  src="images/team/beverly-allen.jpg"
+                  alt="Beverley Allen"
+                  class="w-full h-full object-cover object-center" />
                 <div class="leadership-overlay">
                   <h3 class="text-2xl font-bold mb-1">Beverley Allen</h3>
                   <p class="text-[#DFB975] font-semibold mb-3">
@@ -675,7 +677,7 @@
               </div>
               <div class="space-y-4">
                 <h3 class="text-3xl font-bold text-gray-800">Beverley Allen</h3>
-                <p class="text-xl text-[#323A63] font-semibold">
+                <p class="text-xl text-[#83A4A1] font-semibold">
                   Director of Programs
                 </p>
                 <div class="space-y-4 text-gray-600">
@@ -733,10 +735,11 @@
                   </p>
                 </div>
               </div>
-              <div class="order-1 lg:order-2 leadership-card">
+              <div class="order-1 lg:order-2 leadership-card aspect-[3/4]">
                 <img
                   src="images/team/janet-chifodya.jpg"
-                  alt="Janet Chifodya" />
+                  alt="Janet Chifodya"
+                  class="w-full h-full object-cover object-center" />
                 <div class="leadership-overlay">
                   <h3 class="text-2xl font-bold mb-1">Janet Chifodya</h3>
                   <p class="text-[#DFB975] font-semibold mb-3">
@@ -1136,17 +1139,6 @@
       });
       backToTop.addEventListener('click', function () {
         gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
-      });
-
-      const nav = document.querySelector('nav');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
-          nav.classList.add('shadow-lg');
-          nav.style.background = 'rgba(255, 255, 255, 0.98)';
-        } else {
-          nav.classList.remove('shadow-lg');
-          nav.style.background = 'rgba(255, 255, 255, 0.95)';
-        }
       });
     </script>
   </body>
