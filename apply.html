@@ -518,7 +518,7 @@
             <form
               id="applicationForm"
               class="application-form"
-              action="https://formspree.io/f/mreanddr"
+              action="https://formspree.io/f/xgonzgbe"
               method="POST"
               enctype="multipart/form-data">
               <!-- Student Information -->
@@ -1006,6 +1006,349 @@
           </div>
         </div>
       </section>
+
+      <!-- Add this hidden payment status checker -->
+      <div id="paymentStatus" data-paid="false" style="display: none"></div>
+
+      <!-- Payment Required Overlay -->
+      <div
+        id="paymentOverlay"
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        style="display: flex">
+        <div class="bg-white rounded-2xl p-8 max-w-md mx-4 shadow-2xl">
+          <div class="text-center mb-6">
+            <div
+              class="w-20 h-20 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-lock text-white text-3xl"></i>
+            </div>
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">
+              Application Fee Required
+            </h2>
+            <p class="text-gray-600 mb-4">
+              Please complete the payment to unlock the application form.
+            </p>
+            <div class="bg-gray-50 p-4 rounded-xl mb-6">
+              <p class="text-sm text-gray-500 mb-1">Application Fee</p>
+              <p class="text-3xl font-bold text-[#323A63]">$169 USD</p>
+              <p class="text-xs text-gray-400 mt-1">Non-refundable</p>
+            </div>
+            <button id="payNowBtn" class="btn-accent w-full text-lg py-4 mb-3">
+              Pay Now <i class="fas fa-arrow-right ml-2"></i>
+            </button>
+            <a href="https://atbestwecareinc.com">
+              <button
+                id="cancelPaymentBtn"
+                class="w-full bg-transparent border-2 border-gray-300 text-gray-600 text-lg font-semibold py-4 rounded-xl mb-3 mt-3 transition-all hover:bg-gray-50 hover:border-gray-400 active:scale-[0.98]">
+                Cancel
+              </button>
+            </a>
+            <p class="text-xs text-gray-500">
+              You'll be redirected to our secure payment page
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Payment Success Message (initially hidden) -->
+      <div
+        id="paymentSuccess"
+        class="bg-green-50 border border-green-200 rounded-xl p-6 mb-6"
+        style="display: none">
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <i class="fas fa-check-circle text-green-500 text-3xl"></i>
+          </div>
+          <div class="ml-4">
+            <h3 class="text-lg font-semibold text-green-800">
+              Payment Successful!
+            </h3>
+            <p class="text-green-600">
+              Thank you for your payment. You can now complete your application.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form with disabled state initially -->
+      <form
+        id="applicationForm"
+        class="application-form opacity-50 pointer-events-none"
+        action="https://formspree.io/f/xgonzgbe"
+        method="POST"
+        enctype="multipart/form-data">
+        <!-- Your existing form content here (unchanged) -->
+      </form>
+
+      <script>
+        // Store payment verification token in session/local storage
+        const PAYMENT_TOKEN_KEY = 'application_payment_verified';
+        const PAYMENT_EXPIRY_KEY = 'application_payment_expiry';
+
+        // Check if payment has been verified
+        function checkPaymentStatus() {
+          const verified = localStorage.getItem(PAYMENT_TOKEN_KEY);
+          const expiry = localStorage.getItem(PAYMENT_EXPIRY_KEY);
+
+          if (verified === 'true' && expiry) {
+            // Check if payment verification hasn't expired (24 hours)
+            if (Date.now() < parseInt(expiry)) {
+              unlockForm();
+              return true;
+            } else {
+              // Clear expired payment
+              localStorage.removeItem(PAYMENT_TOKEN_KEY);
+              localStorage.removeItem(PAYMENT_EXPIRY_KEY);
+            }
+          }
+          lockForm();
+          return false;
+        }
+
+        // Lock the form
+        function lockForm() {
+          document.getElementById('paymentOverlay').style.display = 'flex';
+          document
+            .getElementById('applicationForm')
+            .classList.add('opacity-50', 'pointer-events-none');
+          document.getElementById('paymentSuccess').style.display = 'none';
+        }
+
+        // Unlock the form
+        function unlockForm() {
+          document.getElementById('paymentOverlay').style.display = 'none';
+          document
+            .getElementById('applicationForm')
+            .classList.remove('opacity-50', 'pointer-events-none');
+          document.getElementById('paymentSuccess').style.display = 'block';
+        }
+
+        // Handle payment button click
+        document
+          .getElementById('payNowBtn')
+          .addEventListener('click', function () {
+            // Store current form data temporarily if needed
+            const formData = new FormData(
+              document.getElementById('applicationForm'),
+            );
+
+            // Redirect to Stripe payment page
+            // Include a return URL with a verification token
+            const returnUrl = encodeURIComponent(
+              window.location.href + '?payment=success&t=' + Date.now(),
+            );
+            window.location.href =
+              'https://buy.stripe.com/dRm00k4Bx6fO6sX2oBdZ601?prefilled_email=' +
+              encodeURIComponent(
+                document.getElementById('parentEmail')?.value || '',
+              ) +
+              '&return_url=' +
+              returnUrl;
+          });
+
+        // Check URL parameters for payment success
+        function checkUrlForPayment() {
+          const urlParams = new URLSearchParams(window.location.search);
+          if (urlParams.get('payment') === 'success') {
+            // Set payment verification
+            localStorage.setItem(PAYMENT_TOKEN_KEY, 'true');
+            // Set expiry to 24 hours from now
+            localStorage.setItem(
+              PAYMENT_EXPIRY_KEY,
+              (Date.now() + 24 * 60 * 60 * 1000).toString(),
+            );
+
+            // Remove payment params from URL without refreshing
+            window.history.replaceState(
+              {},
+              document.title,
+              window.location.pathname,
+            );
+
+            unlockForm();
+
+            // Show success message with animation
+            const successMsg = document.getElementById('paymentSuccess');
+            successMsg.style.display = 'block';
+            successMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function () {
+          checkUrlForPayment();
+          checkPaymentStatus();
+
+          // Add file upload name display functionality
+          setupFileUploads();
+
+          // Form submission validation
+          document
+            .getElementById('applicationForm')
+            .addEventListener('submit', function (e) {
+              if (!checkPaymentStatus()) {
+                e.preventDefault();
+                alert('Please complete the payment first.');
+                return false;
+              }
+            });
+        });
+
+        // Helper function for file uploads (your existing functionality)
+        function setupFileUploads() {
+          const fileInputs = ['transcripts', 'passport', 'english', 'sop'];
+          fileInputs.forEach((id) => {
+            const input = document.getElementById(id);
+            if (input) {
+              input.addEventListener('change', function () {
+                const filename = this.files[0]
+                  ? this.files[0].name
+                  : 'No file chosen';
+                document.getElementById(id + '-filename').textContent =
+                  filename;
+              });
+            }
+          });
+        }
+
+        // Optional: Clear payment verification (for testing)
+        // window.clearPaymentVerification = function () {
+        //   localStorage.removeItem(PAYMENT_TOKEN_KEY);
+        //   localStorage.removeItem(PAYMENT_EXPIRY_KEY);
+        //   lockForm();
+        // };
+
+        // Optional: Simulate payment success (for testing)
+        // window.simulatePaymentSuccess = function () {
+        //   localStorage.setItem(PAYMENT_TOKEN_KEY, 'true');
+        //   localStorage.setItem(
+        //     PAYMENT_EXPIRY_KEY,
+        //     (Date.now() + 24 * 60 * 60 * 1000).toString(),
+        //   );
+        //   unlockForm();
+        // };
+
+        // Handle case where user closes payment window
+        window.addEventListener('focus', function () {
+          // Could add logic to check if payment was completed while window was blurred
+          checkUrlForPayment();
+        });
+
+        // Lock form scroll before payment and unlock after payment
+        function lockScroll() {
+          document.body.style.overflow = 'hidden';
+          document.body.style.position = 'fixed';
+          document.body.style.top = `-${window.scrollY}px`;
+          document.body.style.width = '100%';
+        }
+
+        function unlockScroll() {
+          const scrollY = document.body.style.top;
+          document.body.style.overflow = '';
+          document.body.style.position = '';
+          document.body.style.top = '';
+          document.body.style.width = '';
+          window.scrollTo(0, parseInt(scrollY || '0') * -1);
+        }
+
+        // Modify your existing lockForm and unlockForm functions
+        function lockForm() {
+          document.getElementById('paymentOverlay').style.display = 'flex';
+          document
+            .getElementById('applicationForm')
+            .classList.add('opacity-50', 'pointer-events-none');
+          document.getElementById('paymentSuccess').style.display = 'none';
+          lockScroll(); // Lock scroll when modal opens
+        }
+
+        function unlockForm() {
+          document.getElementById('paymentOverlay').style.display = 'none';
+          document
+            .getElementById('applicationForm')
+            .classList.remove('opacity-50', 'pointer-events-none');
+          document.getElementById('paymentSuccess').style.display = 'block';
+          unlockScroll(); // Unlock scroll when modal closes
+        }
+
+        // Also handle escape key to prevent accidental closing (since modal shouldn't close without payment)
+        document.addEventListener('keydown', function (e) {
+          if (
+            e.key === 'Escape' &&
+            document.getElementById('paymentOverlay').style.display === 'flex'
+          ) {
+            // Optionally show a message that payment is required
+            alert(
+              'Please complete the payment to continue with your application.',
+            );
+            e.preventDefault();
+          }
+        });
+
+        // Handle touchmove on modal to prevent scrolling behind it
+        document.getElementById('paymentOverlay').addEventListener(
+          'touchmove',
+          function (e) {
+            e.preventDefault();
+          },
+          { passive: false },
+        );
+
+        document.getElementById('paymentOverlay').addEventListener(
+          'wheel',
+          function (e) {
+            e.preventDefault();
+          },
+          { passive: false },
+        );
+      </script>
+
+      <style>
+        /* Smooth transitions */
+        #paymentOverlay,
+        #paymentSuccess,
+        .application-form {
+          transition: all 0.3s ease-in-out;
+        }
+
+        .btn-accent {
+          background: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+          color: white;
+          padding: 12px 24px;
+          border-radius: 12px;
+          font-weight: 600;
+          transition: all 0.3s ease;
+          border: none;
+          cursor: pointer;
+        }
+
+        .btn-accent:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 25px -5px rgba(50, 58, 99, 0.4);
+        }
+
+        /* Add these to your existing CSS */
+        .fixed {
+          position: fixed;
+        }
+
+        .inset-0 {
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+        }
+
+        .z-50 {
+          z-index: 50;
+        }
+
+        .opacity-50 {
+          opacity: 0.5;
+        }
+
+        .pointer-events-none {
+          pointer-events: none;
+        }
+      </style>
 
       <!-- Need Help -->
       <section class="py-24 bg-gray-50">
