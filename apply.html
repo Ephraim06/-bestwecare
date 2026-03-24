@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Apply Now - @BestWeCare</title>
 
     <!-- Tailwind CSS -->
@@ -50,30 +50,22 @@
       body {
         font-family: 'Outfit', sans-serif;
         overflow-x: hidden;
-        /* soft background using new palette */
         background: linear-gradient(135deg, #f1f4f9 0%, #dbe7e5 100%);
       }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
+      h1, h2, h3, h4, h5, h6 {
         font-family: 'Space Grotesk', sans-serif;
       }
 
-      /* 🌟 NEW COLOR PALETTE */
       :root {
-        --primary: #323a63; /* deep navy */
-        --secondary: #83a4a1; /* muted teal */
-        --accent: #dfb975; /* warm gold */
+        --primary: #323a63;
+        --secondary: #83a4a1;
+        --accent: #dfb975;
         --dark: #1e2538;
         --light: #f7f9fc;
         --gradient-1: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
         --gradient-2: linear-gradient(135deg, #83a4a1 0%, #dfb975 100%);
         --gradient-3: linear-gradient(135deg, #dfb975 0%, #323a63 100%);
-        --gradient-4: linear-gradient(135deg, #323a63 0%, #dfb975 100%);
       }
 
       .nav-glass {
@@ -96,7 +88,6 @@
         color: white;
       }
 
-      /* 🌟 NEW BUTTON STYLES – exactly matching the provided example */
       .btn-primary {
         background-color: white;
         border-radius: 0.75rem;
@@ -114,9 +105,6 @@
       .btn-primary:hover {
         background-color: #f8fafc;
       }
-      .btn-primary:active {
-        background-color: #f1f5f9;
-      }
 
       .btn-accent {
         background-color: #dfb975;
@@ -124,9 +112,7 @@
         padding: 0.75rem 2rem;
         font-weight: 600;
         color: white;
-        box-shadow:
-          0 10px 15px -3px rgb(223 185 117 / 0.3),
-          0 4px 6px -4px rgb(223 185 117 / 0.3);
+        box-shadow: 0 10px 15px -3px rgb(223 185 117 / 0.3), 0 4px 6px -4px rgb(223 185 117 / 0.3);
         transition: all 0.15s ease;
         display: inline-flex;
         align-items: center;
@@ -137,35 +123,52 @@
       .btn-accent:hover {
         background-color: #c9a45c;
       }
-      .btn-accent:active {
-        background-color: #b38e4a;
-      }
 
       .application-form {
         background: rgba(255, 255, 255, 0.98);
         backdrop-filter: blur(10px);
         border-radius: 40px;
-        padding: 3rem;
+        padding: 2rem;
         box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
         border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      @media (min-width: 768px) {
+        .application-form {
+          padding: 3rem;
+        }
       }
 
       .form-section {
         background: rgba(50, 58, 99, 0.05);
         border-radius: 24px;
-        padding: 2rem;
-        margin-bottom: 2rem;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
         border: 1px solid rgba(50, 58, 99, 0.1);
+      }
+
+      @media (min-width: 768px) {
+        .form-section {
+          padding: 2rem;
+          margin-bottom: 2rem;
+        }
       }
 
       .form-input {
         width: 100%;
-        padding: 1rem 1.5rem;
+        padding: 0.875rem 1.25rem;
         border: 2px solid #e2e8f0;
         border-radius: 16px;
         transition: all 0.3s ease;
-        font-size: 1rem;
+        font-size: 0.95rem;
         background: white;
+      }
+
+      @media (min-width: 768px) {
+        .form-input {
+          padding: 1rem 1.5rem;
+          font-size: 1rem;
+        }
       }
 
       .form-input:focus {
@@ -180,27 +183,34 @@
         opacity: 0.7;
       }
 
-      select.form-input:disabled {
-        background-color: #f3f4f6;
-        cursor: not-allowed;
-      }
-
       .form-label {
         display: block;
         margin-bottom: 0.5rem;
         font-weight: 600;
         color: var(--dark);
-        font-size: 0.95rem;
+        font-size: 0.875rem;
+      }
+
+      @media (min-width: 768px) {
+        .form-label {
+          font-size: 0.95rem;
+        }
       }
 
       .file-upload {
         border: 2px dashed #e2e8f0;
         border-radius: 16px;
-        padding: 2rem;
+        padding: 1.5rem;
         text-align: center;
         transition: all 0.3s ease;
         cursor: pointer;
         background: white;
+      }
+
+      @media (min-width: 768px) {
+        .file-upload {
+          padding: 2rem;
+        }
       }
 
       .file-upload.disabled {
@@ -215,9 +225,16 @@
       }
 
       .file-upload i {
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: #323a63;
-        margin-bottom: 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      @media (min-width: 768px) {
+        .file-upload i {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
       }
 
       .progress-bar {
@@ -289,10 +306,10 @@
 
       #backToTop {
         position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
         background: var(--gradient-1);
         border-radius: 50%;
         display: flex;
@@ -306,51 +323,22 @@
         z-index: 100;
         box-shadow: 0 10px 20px rgba(50, 58, 99, 0.3);
       }
+
+      @media (min-width: 768px) {
+        #backToTop {
+          bottom: 2rem;
+          right: 2rem;
+          width: 50px;
+          height: 50px;
+        }
+      }
+
       #backToTop.visible {
         opacity: 1;
         visibility: visible;
       }
       #backToTop:hover {
         transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(50, 58, 99, 0.4);
-      }
-
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2.5rem !important;
-        }
-        h2 {
-          font-size: 2rem !important;
-        }
-        .application-form {
-          padding: 1.5rem;
-        }
-        .form-section {
-          padding: 1.5rem;
-        }
-      }
-
-      .floating-shape {
-        position: absolute;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        filter: blur(80px);
-        opacity: 0.2;
-        animation: float 20s infinite;
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translate(0, 0) rotate(0deg);
-        }
-        33% {
-          transform: translate(30px, -30px) rotate(120deg);
-        }
-        66% {
-          transform: translate(-30px, 30px) rotate(240deg);
-        }
       }
 
       .success-message {
@@ -360,12 +348,19 @@
         left: 50%;
         transform: translate(-50%, -50%);
         background: white;
-        padding: 2rem;
+        padding: 1.5rem;
         border-radius: 24px;
         box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
         z-index: 9999;
         text-align: center;
-        animation: slideUp 0.5s ease;
+        width: 90%;
+        max-width: 400px;
+      }
+
+      @media (min-width: 768px) {
+        .success-message {
+          padding: 2rem;
+        }
       }
 
       @keyframes slideUp {
@@ -381,30 +376,74 @@
 
       .success-message.show {
         display: block;
+        animation: slideUp 0.5s ease;
       }
       .success-message i {
-        font-size: 4rem;
+        font-size: 3rem;
         color: #83a4a1;
         margin-bottom: 1rem;
       }
 
-      /* Locked badge styling */
+      @media (min-width: 768px) {
+        .success-message i {
+          font-size: 4rem;
+        }
+      }
+
       .locked-badge {
         position: absolute;
-        top: 1rem;
-        right: 1rem;
+        top: 0.75rem;
+        right: 0.75rem;
         background: #f59e0b;
         color: white;
-        padding: 0.25rem 0.75rem;
+        padding: 0.2rem 0.6rem;
         border-radius: 9999px;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         font-weight: 600;
         z-index: 10;
+        display: flex;
         align-items: center;
         gap: 0.25rem;
       }
 
-      /* Payment modal */
+      @media (min-width: 768px) {
+        .locked-badge {
+          top: 1rem;
+          right: 1rem;
+          padding: 0.25rem 0.75rem;
+          font-size: 0.75rem;
+        }
+      }
+
+      .payment-banner {
+        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+        border-left: 4px solid #DFB975;
+        padding: 0.875rem;
+        border-radius: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .payment-banner {
+          padding: 1rem;
+        }
+      }
+
+      .payment-success-banner {
+        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+        border-left: 4px solid #10b981;
+        padding: 0.875rem;
+        border-radius: 0.75rem;
+        margin-bottom: 1.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .payment-success-banner {
+          padding: 1rem;
+        }
+      }
+
+      /* Improved Payment Modal Styles */
       #paymentModal {
         display: none;
         position: fixed;
@@ -412,16 +451,18 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background: rgba(0, 0, 0, 0.7);
+        background: rgba(0, 0, 0, 0.8);
+        backdrop-filter: blur(8px);
         z-index: 1000;
         align-items: center;
         justify-content: center;
-        animation: fadeIn 0.9s ease-out;
+        opacity: 0;
+        transition: opacity 0.3s ease;
       }
 
-      @keyframes fadeIn {
-        from { opacity: 0; }
-        to { opacity: 1; }
+      #paymentModal.active {
+        display: flex;
+        opacity: 1;
       }
 
       .payment-modal-content {
@@ -429,44 +470,332 @@
         border-radius: 1.5rem;
         max-width: 500px;
         width: 90%;
-        max-height: 90vh;
+        max-height: 85vh;
         overflow-y: auto;
-        animation: slideUp 0.3s ease-out;
+        transform: scale(0.95) translateY(20px);
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
       }
 
-      .payment-banner {
-        background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-        border-left: 4px solid #DFB975;
-        padding: 1rem;
-        border-radius: 0.75rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .payment-success-banner {
-        background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
-        border-left: 4px solid #10b981;
-        padding: 1rem;
-        border-radius: 0.75rem;
-        margin-bottom: 1.5rem;
-        animation: slideDown 0.5s ease-out;
-      }
-
-      @keyframes slideDown {
-        from {
-          opacity: 0;
-          transform: translateY(-20px);
+      @media (min-width: 768px) {
+        .payment-modal-content {
+          border-radius: 2rem;
         }
-        to {
-          opacity: 1;
-          transform: translateY(0);
+      }
+
+      #paymentModal.active .payment-modal-content {
+        transform: scale(1) translateY(0);
+      }
+
+      .payment-modal-content::-webkit-scrollbar {
+        width: 6px;
+      }
+
+      .payment-modal-content::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 10px;
+      }
+
+      .payment-modal-content::-webkit-scrollbar-thumb {
+        background: #dfb975;
+        border-radius: 10px;
+      }
+
+      .modal-header {
+        position: relative;
+        padding: 1.25rem 1.25rem 0 1.25rem;
+      }
+
+      @media (min-width: 768px) {
+        .modal-header {
+          padding: 1.5rem 1.5rem 0 1.5rem;
         }
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        width: 1.75rem;
+        height: 1.75rem;
+        border-radius: 50%;
+        background: #f3f4f6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        color: #6b7280;
+      }
+
+      @media (min-width: 768px) {
+        .modal-close {
+          top: 1rem;
+          right: 1rem;
+          width: 2rem;
+          height: 2rem;
+        }
+      }
+
+      .modal-close:hover {
+        background: #fee2e2;
+        color: #ef4444;
+        transform: rotate(90deg);
+      }
+
+      .modal-icon {
+        width: 4rem;
+        height: 4rem;
+        background: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+        border-radius: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 0.75rem;
+        box-shadow: 0 10px 25px -5px rgba(50, 58, 99, 0.3);
+        animation: pulse 2s infinite;
+      }
+
+      @media (min-width: 768px) {
+        .modal-icon {
+          width: 5rem;
+          height: 5rem;
+          border-radius: 2rem;
+          margin: 0 auto 1rem;
+        }
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+          box-shadow: 0 10px 25px -5px rgba(50, 58, 99, 0.3);
+        }
+        50% {
+          transform: scale(1.05);
+          box-shadow: 0 20px 35px -8px rgba(50, 58, 99, 0.4);
+        }
+      }
+
+      .modal-icon i {
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      @media (min-width: 768px) {
+        .modal-icon i {
+          font-size: 2rem;
+        }
+      }
+
+      .fee-card {
+        background: linear-gradient(135deg, #fef9e6 0%, #fff5e0 100%);
+        border-radius: 1rem;
+        padding: 1rem;
+        margin: 1rem;
+        border: 1px solid rgba(223, 185, 117, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      @media (min-width: 768px) {
+        .fee-card {
+          padding: 1.5rem;
+          margin: 1.5rem;
+        }
+      }
+
+      .fee-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, #dfb975, #83a4a1, #323a63);
+      }
+
+      .fee-amount {
+        font-size: 1.75rem;
+        font-weight: 800;
+        background: #323a63 ;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+
+      @media (min-width: 768px) {
+        .fee-amount {
+          font-size: 2.5rem;
+        }
+      }
+
+      .benefits-list {
+        margin: 0 1rem 1rem 1rem;
+        padding: 0;
+        list-style: none;
+      }
+
+      @media (min-width: 768px) {
+        .benefits-list {
+          margin: 0 1.5rem 1.5rem 1.5rem;
+        }
+      }
+
+      .benefits-list li {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        padding: 0.6rem 0;
+        border-bottom: 1px solid #f3f4f6;
+      }
+
+      @media (min-width: 768px) {
+        .benefits-list li {
+          padding: 0.75rem 0;
+        }
+      }
+
+      .benefits-list li:last-child {
+        border-bottom: none;
+      }
+
+      .benefits-list i {
+        width: 1.25rem;
+        color: #83a4a1;
+        font-size: 0.875rem;
+      }
+
+      @media (min-width: 768px) {
+        .benefits-list i {
+          width: 1.5rem;
+          font-size: 1rem;
+        }
+      }
+
+      .benefits-list span {
+        color: #4b5563;
+        font-size: 0.8rem;
+      }
+
+      @media (min-width: 768px) {
+        .benefits-list span {
+          font-size: 0.9rem;
+        }
+      }
+
+      .modal-buttons {
+        padding: 0 1rem 1rem 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+      }
+
+      @media (min-width: 768px) {
+        .modal-buttons {
+          padding: 0 1.5rem 1.5rem 1.5rem;
+          gap: 0.75rem;
+        }
+      }
+
+      .btn-modal-primary {
+        background: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+        border-radius: 0.75rem;
+        padding: 0.875rem 1rem;
+        font-weight: 600;
+        color: white;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        border: none;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        font-size: 0.9rem;
+      }
+
+      @media (min-width: 768px) {
+        .btn-modal-primary {
+          padding: 1rem 1.5rem;
+          gap: 0.75rem;
+          font-size: 1rem;
+        }
+      }
+
+      .btn-modal-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        transition: left 0.5s ease;
+      }
+
+      .btn-modal-primary:hover::before {
+        left: 100%;
+      }
+
+      .btn-modal-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 20px -5px rgba(50, 58, 99, 0.4);
+      }
+
+      .btn-modal-secondary {
+        background: transparent;
+        border-radius: 0.75rem;
+        padding: 0.875rem 1rem;
+        font-weight: 600;
+        color: #6b7280;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        border: 1px solid #e5e7eb;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      @media (min-width: 768px) {
+        .btn-modal-secondary {
+          padding: 1rem 1.5rem;
+          font-size: 1rem;
+        }
+      }
+
+      .btn-modal-secondary:hover {
+        background: #f9fafb;
+        border-color: #d1d5db;
+        color: #374151;
+      }
+
+      .payment-note {
+        text-align: center;
+        padding: 0 1rem 1rem 1rem;
+        font-size: 0.65rem;
+        color: #9ca3af;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+      }
+
+      @media (min-width: 768px) {
+        .payment-note {
+          padding: 0 1.5rem 1.5rem 1.5rem;
+          font-size: 0.7rem;
+        }
+      }
+
+      .payment-note i {
+        font-size: 0.7rem;
       }
 
       body.modal-open {
         overflow: hidden;
-        position: fixed;
-        width: 100%;
-        height: 100%;
       }
     </style>
   </head>
@@ -474,13 +803,9 @@
     <!-- Success Message -->
     <div class="success-message" id="successMessage">
       <i class="fas fa-check-circle"></i>
-      <h3 class="text-2xl font-bold text-gray-800 mb-2">
-        Application Submitted!
-      </h3>
-      <p class="text-gray-600 mb-4">
-        Thank you for applying. We'll contact you within 24-48 hours.
-      </p>
-      <button onclick="closeSuccessMessage()" class="btn-primary">Close</button>
+      <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2">Application Submitted!</h3>
+      <p class="text-gray-600 mb-4 text-sm md:text-base">Thank you for applying. We'll contact you within 24-48 hours.</p>
+      <button onclick="closeSuccessMessage()" class="btn-primary text-sm md:text-base">Close</button>
     </div>
 
     <!-- Mobile Menu Overlay -->
@@ -489,65 +814,28 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
       <div class="flex justify-between items-center mb-8">
-        <span
-          class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
-          >@BestWeCare</span
-        >
-        <button
-          id="closeMenu"
-          class="text-2xl text-gray-600 hover:text-[#323A63] transition">
-          <i class="fas fa-times"></i>
-        </button>
+        <span class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent">@BestWeCare</span>
+        <button id="closeMenu" class="text-2xl text-gray-600 hover:text-[#323A63] transition"><i class="fas fa-times"></i></button>
       </div>
       <nav class="flex flex-col space-y-4">
-        <a
-          href="index.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Home</a
-        >
-        <a
-          href="about.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >About</a
-        >
-        <a
-          href="programs.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Programs</a
-        >
-        <a
-          href="admissions.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Admissions</a
-        >
-        <a
-          href="apply.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Apply Now</a
-        >
-        <a
-          href="contact.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Contact</a
-        >
+        <a href="index.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Home</a>
+        <a href="about.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">About</a>
+        <a href="programs.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Programs</a>
+        <a href="admissions.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Admissions</a>
+        <a href="apply.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Apply Now</a>
+        <a href="contact.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Contact</a>
       </nav>
     </div>
 
     <!-- Navigation -->
     <nav class="fixed top-0 left-0 right-0 nav-glass z-50">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
+        <div class="flex justify-between items-center h-16 md:h-20">
           <a href="index.html" class="flex items-center space-x-3">
             <div class="logo">
-              <img
-                src="images/logo/no-bg-logo_2000x1333.png"
-                alt="BestWeCare Logo"
-                class="w-20 h-20" />
+              <img src="images/logo/no-bg-logo_2000x1333.png" alt="BestWeCare Logo" class="w-14 h-14 md:w-20 md:h-20" />
             </div>
-            <span
-              class="font-bold text-xl bg-[#323A63] bg-clip-text text-transparent hidden sm:block"
-              >@BestWeCare</span
-            >
+            <span class="font-bold text-lg md:text-xl bg-[#323A63] bg-clip-text text-transparent hidden sm:block">@BestWeCare</span>
           </a>
 
           <div class="hidden md:flex items-center space-x-1">
@@ -559,29 +847,26 @@
             <a href="contact.html" class="nav-link">Contact</a>
           </div>
 
-          <!-- CTA button – gold accent -->
           <div class="hidden md:block">
-            <a href="apply.html" class="btn-accent">Apply Now →</a>
+            <a href="apply.html" class="btn-accent text-sm">Apply Now →</a>
           </div>
 
-          <button
-            id="menuToggle"
-            class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
+          <button id="menuToggle" class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
             <i class="fas fa-bars"></i>
           </button>
         </div>
       </div>
     </nav>
 
-    <main class="pt-20">
-      <!-- Hero Section (navy->teal gradient) -->
-      <section class="relative py-32 bg-[#83A4A1] overflow-hidden">
+    <main class="pt-16 md:pt-20">
+      <!-- Hero Section -->
+      <section class="relative py-20 md:py-32 bg-[#83A4A1] overflow-hidden">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div class="max-w-4xl mx-auto text-center">
-            <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
+            <h1 class="text-4xl md:text-7xl font-bold text-white mb-4 md:mb-6">
               Apply <span class="text-[#DFB975]">Now</span>
             </h1>
-            <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+            <p class="text-lg md:text-2xl text-white/90 leading-relaxed">
               Take the first step towards your Canadian education journey.
               Complete the application form below.
             </p>
@@ -590,20 +875,20 @@
       </section>
 
       <!-- Application Form -->
-      <section class="py-24 bg-white">
+      <section class="py-16 md:py-24 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="max-w-4xl mx-auto">
             <!-- Payment Status Banner -->
             <div id="paymentStatusBanner" class="payment-banner" style="display: flex;">
-              <div class="flex items-center gap-10 justify-between">
+              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 justify-between">
                 <div class="flex items-center">
-                  <i class="fas fa-lock text-[#DFB975] text-2xl mr-3"></i>
+                  <i class="fas fa-lock text-[#DFB975] text-xl md:text-2xl mr-3"></i>
                   <div>
-                    <h3 class="font-semibold text-gray-800">Application Locked</h3>
-                    <p class="text-sm text-gray-600">Complete payment to unlock and submit your application</p>
+                    <h3 class="font-semibold text-gray-800 text-sm md:text-base">Application Locked</h3>
+                    <p class="text-xs md:text-sm text-gray-600">Complete payment to unlock and submit your application</p>
                   </div>
                 </div>
-                <button id="showPaymentModalBtn" class="btn-accent text-sm py-2 px-4">
+                <button id="showPaymentModalBtn" class="btn-accent text-sm py-2 px-4 w-full sm:w-auto">
                   Pay Now <i class="fas fa-arrow-right ml-2"></i>
                 </button>
               </div>
@@ -611,120 +896,43 @@
             
             <div id="paymentSuccessBanner" class="payment-success-banner" style="display: none;">
               <div class="flex items-center">
-                <i class="fas fa-check-circle text-green-600 text-2xl mr-3"></i>
+                <i class="fas fa-check-circle text-green-600 text-xl md:text-2xl mr-3"></i>
                 <div>
-                  <h3 class="font-semibold text-green-800">Payment Successful!</h3>
-                  <p class="text-sm text-green-700">Your application form is now unlocked. Please complete and submit your application.</p>
+                  <h3 class="font-semibold text-green-800 text-sm md:text-base">Payment Successful!</h3>
+                  <p class="text-xs md:text-sm text-green-700">Your application form is now unlocked. Please complete and submit your application.</p>
                 </div>
               </div>
             </div>
 
             <!-- Progress Bar -->
-            <div class="mb-8">
+            <div class="mb-6 md:mb-8">
               <div class="flex justify-between mb-2">
-                <span class="text-sm font-semibold text-gray-600"
-                  >Application Progress</span
-                >
-                <span
-                  class="text-sm font-semibold text-[#323A63]"
-                  id="progressPercentage"
-                  >0%</span
-                >
+                <span class="text-xs md:text-sm font-semibold text-gray-600">Application Progress</span>
+                <span class="text-xs md:text-sm font-semibold text-[#323A63]" id="progressPercentage">0%</span>
               </div>
               <div class="w-full bg-gray-200 rounded-full h-2">
-                <div
-                  class="progress-bar"
-                  id="progressBar"
-                  style="width: 0%"></div>
+                <div class="progress-bar" id="progressBar" style="width: 0%"></div>
               </div>
             </div>
 
-            <form
-              id="applicationForm"
-              class="application-form"
-              action="https://formspree.io/f/xgonzgbe"
-              method="POST"
-              enctype="multipart/form-data">
+            <form id="applicationForm" class="application-form" action="https://formspree.io/f/xgonzgbe" method="POST" enctype="multipart/form-data">
               <!-- Student Information -->
               <div class="form-section" id="section1">
                 <div class="relative">
                   <div id="lockBadge1" class="locked-badge" style="display: flex;">
                     <i class="fas fa-lock mr-1"></i> Locked
                   </div>
-                  <h2
-                    class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span
-                      class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">
-                      1
-                    </span>
+                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">1</span>
                     Student Information
                   </h2>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label class="form-label">Full Name *</label
-                      ><input
-                        type="text"
-                        class="form-input"
-                        id="fullName"
-                        name="full-name"
-                        required
-                        disabled />
-                    </div>
-                    <div>
-                      <label class="form-label">Date of Birth *</label
-                      ><input
-                        type="date"
-                        class="form-input"
-                        id="dob"
-                        name="date-of-birth"
-                        required
-                        disabled />
-                    </div>
-                    <div>
-                      <label class="form-label">Gender *</label>
-                      <select
-                        class="form-input"
-                        id="gender"
-                        name="gender"
-                        required
-                        disabled>
-                        <option value="">Select Gender</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label class="form-label">Nationality *</label
-                      ><input
-                        type="text"
-                        class="form-input"
-                        id="nationality"
-                        name="nationality"
-                        required
-                        disabled />
-                    </div>
-                    <div>
-                      <label class="form-label">Current Grade/Level *</label>
-                      <select class="form-input" id="grade" name="grade" required disabled>
-                        <option value="">Select Grade</option>
-                        <option value="9">Grade 9</option>
-                        <option value="10">Grade 10</option>
-                        <option value="11">Grade 11</option>
-                        <option value="12">Grade 12</option>
-                        <option value="university">University Transfer</option>
-                        <option value="masters">Master's Preparation</option>
-                      </select>
-                    </div>
-                    <div>
-                      <label class="form-label">Country of Residence *</label
-                      ><input
-                        type="text"
-                        class="form-input"
-                        id="country"
-                        name="country"
-                        required
-                        disabled />
-                    </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div><label class="form-label">Full Name *</label><input type="text" class="form-input" id="fullName" name="full-name" required disabled /></div>
+                    <div><label class="form-label">Date of Birth *</label><input type="date" class="form-input" id="dob" name="date-of-birth" required disabled /></div>
+                    <div><label class="form-label">Gender *</label><select class="form-input" id="gender" name="gender" required disabled><option value="">Select Gender</option><option value="male">Male</option><option value="female">Female</option></select></div>
+                    <div><label class="form-label">Nationality *</label><input type="text" class="form-input" id="nationality" name="nationality" required disabled /></div>
+                    <div><label class="form-label">Current Grade/Level *</label><select class="form-input" id="grade" name="grade" required disabled><option value="">Select Grade</option><option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option><option value="university">University Transfer</option><option value="masters">Master's Preparation</option></select></div>
+                    <div><label class="form-label">Country of Residence *</label><input type="text" class="form-input" id="country" name="country" required disabled /></div>
                   </div>
                 </div>
               </div>
@@ -732,67 +940,17 @@
               <!-- Parent/Guardian Information -->
               <div class="form-section" id="section2">
                 <div class="relative">
-                  <div id="lockBadge2" class="locked-badge" style="display: flex;">
-                    <i class="fas fa-lock mr-1"></i> Locked
-                  </div>
-                  <h2
-                    class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span
-                      class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
-                      >2</span
-                    >
+                  <div id="lockBadge2" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
+                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">2</span>
                     Parent/Guardian Information
                   </h2>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label class="form-label">Parent/Guardian Full Name *</label
-                      ><input
-                        type="text"
-                        class="form-input"
-                        id="parentName"
-                        name="parent-name"
-                        required
-                        disabled />
-                    </div>
-                    <div>
-                      <label class="form-label">Relationship to Student *</label
-                      ><input
-                        type="text"
-                        class="form-input"
-                        id="relationship"
-                        name="parent-relationship"
-                        required
-                        disabled />
-                    </div>
-                    <div>
-                      <label class="form-label">Email *</label
-                      ><input
-                        type="email"
-                        class="form-input"
-                        id="parentEmail"
-                        name="parent-email"
-                        required
-                        disabled />
-                    </div>
-                    <div>
-                      <label class="form-label">Phone *</label
-                      ><input
-                        type="tel"
-                        class="form-input"
-                        id="parentPhone"
-                        name="parent-phone"
-                        required
-                        disabled />
-                    </div>
-                    <div class="md:col-span-2">
-                      <label class="form-label">Address</label
-                      ><input
-                        type="text"
-                        class="form-input"
-                        id="parentAddress"
-                        name="parent-address"
-                        disabled />
-                    </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div><label class="form-label">Parent/Guardian Full Name *</label><input type="text" class="form-input" id="parentName" name="parent-name" required disabled /></div>
+                    <div><label class="form-label">Relationship to Student *</label><input type="text" class="form-input" id="relationship" name="parent-relationship" required disabled /></div>
+                    <div><label class="form-label">Email *</label><input type="email" class="form-input" id="parentEmail" name="parent-email" required disabled /></div>
+                    <div><label class="form-label">Phone *</label><input type="tel" class="form-input" id="parentPhone" name="parent-phone" required disabled /></div>
+                    <div class="md:col-span-2"><label class="form-label">Address</label><input type="text" class="form-input" id="parentAddress" name="parent-address" disabled /></div>
                   </div>
                 </div>
               </div>
@@ -800,114 +958,24 @@
               <!-- Program Selection -->
               <div class="form-section" id="section3">
                 <div class="relative">
-                  <div id="lockBadge3" class="locked-badge" style="display: flex;">
-                    <i class="fas fa-lock mr-1"></i> Locked
-                  </div>
-                  <h2
-                    class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span
-                      class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
-                      >3</span
-                    >
+                  <div id="lockBadge3" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
+                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">3</span>
                     Program Selection
                   </h2>
                   <div class="space-y-4">
-                    <div>
-                      <label class="form-label">Select Program *</label>
-                      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <label
-                          class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
-                          ><input
-                            type="radio"
-                            name="program"
-                            value="high-school"
-                            class="mr-3"
-                            required
-                            disabled />
-                          <div>
-                            <span class="font-semibold">High School Program</span>
-                            <p class="text-sm text-gray-500">2-4 years, OSSD</p>
-                          </div></label
-                        >
-                        <label
-                          class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
-                          ><input
-                            type="radio"
-                            value="look-see"
-                            name="look-see-program"
-                            class="mr-3"
-                            disabled />
-                          <div>
-                            <span class="font-semibold">Look See Canada</span>
-                            <p class="text-sm text-gray-500">6-8 weeks, Summer</p>
-                          </div></label
-                        >
-                        <label
-                          class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
-                          ><input
-                            type="radio"
-                            name="etiquette-program"
-                            value="etiquette"
-                            class="mr-3"
-                            disabled />
-                          <div>
-                            <span class="font-semibold">School of Etiquette</span>
-                            <p class="text-sm text-gray-500">6-8 weeks</p>
-                          </div></label
-                        >
-                        <label
-                          class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
-                          ><input
-                            type="radio"
-                            name="university-program"
-                            value="university"
-                            class="mr-3"
-                            disabled />
-                          <div>
-                            <span class="font-semibold">University Support</span>
-                            <p class="text-sm text-gray-500">
-                              Undergraduate/Master's
-                            </p>
-                          </div></label
-                        >
-                        <label
-                          class="flex items-center p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
-                          ><input
-                            type="radio"
-                            name="science-program"
-                            value="science"
-                            class="mr-3"
-                            disabled />
-                          <div>
-                            <span class="font-semibold">Science Lovers</span>
-                            <p class="text-sm text-gray-500">
-                              Summer Lab Program
-                            </p>
-                          </div></label
-                        >
+                    <div><label class="form-label">Select Program <span class="text-red-500">(required) *</span></label>
+                      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" name="program" value="high-school" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">High School Program</span><p class="text-xs md:text-sm text-gray-500">2-4 years, OSSD</p></div></label>
+                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" value="look-see" name="look-see-program" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">Look See Canada</span><p class="text-xs md:text-sm text-gray-500">6-8 weeks, Summer</p></div></label>
+                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" name="etiquette-program" value="etiquette" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">School of Etiquette</span><p class="text-xs md:text-sm text-gray-500">6-8 weeks</p></div></label>
+                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" name="university-program" value="university" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">University Support</span><p class="text-xs md:text-sm text-gray-500">Undergraduate/Master's</p></div></label>
+                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" name="science-program" value="science" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">Science Lovers</span><p class="text-xs md:text-sm text-gray-500">Summer Lab Program</p></div></label>
                       </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
-                      <div>
-                        <label class="form-label">Preferred Start Date</label
-                        ><input type="month" class="form-input" id="startDate" disabled />
-                      </div>
-                      <div>
-                        <label class="form-label"
-                          >How did you hear about us?</label
-                        ><select
-                          class="form-input"
-                          id="hearAbout"
-                          name="heard-about-us"
-                          disabled>
-                          <option value="">Select</option>
-                          <option value="agent">Education Agent</option>
-                          <option value="internet">Internet Search</option>
-                          <option value="social">Social Media</option>
-                          <option value="friend">Friend/Family</option>
-                          <option value="other">Other</option>
-                        </select>
-                      </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6">
+                      <div><label class="form-label">Preferred Start Date</label><input type="month" class="form-input" id="startDate" required disabled /></div>
+                      <div><label class="form-label">How did you hear about us?</label><select class="form-input" id="hearAbout" name="heard-about-us" required disabled><option value="">Select</option><option value="agent">Education Agent</option><option value="internet">Internet Search</option><option value="social">Social Media</option><option value="friend">Friend/Family</option><option value="other">Other</option></select></div>
                     </div>
                   </div>
                 </div>
@@ -916,59 +984,16 @@
               <!-- Contact Information -->
               <div class="form-section" id="section4">
                 <div class="relative">
-                  <div id="lockBadge4" class="locked-badge" style="display: flex;">
-                    <i class="fas fa-lock mr-1"></i> Locked
-                  </div>
-                  <h2
-                    class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span
-                      class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
-                      >4</span
-                    >
+                  <div id="lockBadge4" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
+                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">4</span>
                     Contact Information
                   </h2>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                      <label class="form-label">Student Email *</label
-                      ><input
-                        type="email"
-                        class="form-input"
-                        id="studentEmail"
-                        name="student-email"
-                        required
-                        disabled />
-                    </div>
-                    <div>
-                      <label class="form-label">Student Phone *</label
-                      ><input
-                        type="tel"
-                        class="form-input"
-                        id="studentPhone"
-                        name="student-phone"
-                        required
-                        disabled />
-                    </div>
-                    <div>
-                      <label class="form-label">WhatsApp (if different)</label
-                      ><input
-                        type="tel"
-                        class="form-input"
-                        id="whatsapp"
-                        name="whatsapp"
-                        disabled />
-                    </div>
-                    <div>
-                      <label class="form-label">Preferred Contact Method</label
-                      ><select
-                        class="form-input"
-                        id="contactMethod"
-                        name="contact-method"
-                        disabled>
-                        <option value="email">Email</option>
-                        <option value="phone">Phone</option>
-                        <option value="whatsapp">WhatsApp</option>
-                      </select>
-                    </div>
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                    <div><label class="form-label">Student Email *</label><input type="email" class="form-input" id="studentEmail" name="student-email" required disabled /></div>
+                    <div><label class="form-label">Student Phone *</label><input type="tel" class="form-input" id="studentPhone" name="student-phone" required disabled /></div>
+                    <div><label class="form-label">WhatsApp (if different)</label><input type="tel" class="form-input" id="whatsapp" name="whatsapp" disabled /></div>
+                    <div><label class="form-label">Preferred Contact Method</label><select class="form-input" id="contactMethod" name="contact-method" disabled><option value="email">Email</option><option value="phone">Phone</option><option value="whatsapp">WhatsApp</option></select></div>
                   </div>
                 </div>
               </div>
@@ -976,107 +1001,39 @@
               <!-- Document Upload -->
               <div class="form-section" id="section5">
                 <div class="relative">
-                  <div id="lockBadge5" class="locked-badge" style="display: flex;">
-                    <i class="fas fa-lock mr-1"></i> Locked
-                  </div>
-                  <h2
-                    class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span
-                      class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
-                      >5</span
-                    >
+                  <div id="lockBadge5" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
+                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">5</span>
                     Document Upload
                   </h2>
-                  <div class="space-y-6">
-                    <div
-                      class="file-upload disabled"
-                      id="uploadTranscripts">
-                      <input
-                        type="file"
-                        id="transcripts"
-                        name="transcripts"
-                        class="hidden"
-                        accept=".pdf,.doc,.docx"
-                        required
-                        disabled />
+                  <div class="space-y-4 md:space-y-6">
+                    <div class="file-upload disabled" id="uploadTranscripts">
+                      <input type="file" id="transcripts" name="transcripts" class="hidden" accept=".pdf,.doc,.docx" required disabled />
                       <i class="fas fa-cloud-upload-alt"></i>
-                      <h3 class="text-lg font-semibold mb-2">
-                        Upload Academic Transcripts *
-                      </h3>
-                      <p class="text-sm text-gray-500">
-                        PDF, DOC, or DOCX (Max 5MB)
-                      </p>
-                      <p
-                        class="text-xs text-gray-400 mt-2"
-                        id="transcripts-filename">
-                        No file chosen
-                      </p>
+                      <h3 class="text-base md:text-lg font-semibold mb-1 md:mb-2">Upload Academic Transcripts *</h3>
+                      <p class="text-xs md:text-sm text-gray-500">PDF, DOC, or DOCX (Max 5MB)</p>
+                      <p class="text-xs text-gray-400 mt-1 md:mt-2" id="transcripts-filename">No file chosen</p>
                     </div>
-                    <div
-                      class="file-upload disabled"
-                      id="uploadPassport">
-                      <input
-                        type="file"
-                        id="passport"
-                        name="passport"
-                        class="hidden"
-                        accept=".pdf,.jpg,.jpeg,.png"
-                        required
-                        disabled />
+                    <div class="file-upload disabled" id="uploadPassport">
+                      <input type="file" id="passport" name="passport" class="hidden" accept=".pdf,.jpg,.jpeg,.png" required disabled />
                       <i class="fas fa-id-card"></i>
-                      <h3 class="text-lg font-semibold mb-2">
-                        Upload Passport Copy *
-                      </h3>
-                      <p class="text-sm text-gray-500">
-                        PDF, JPG, or PNG (Max 5MB)
-                      </p>
-                      <p
-                        class="text-xs text-gray-400 mt-2"
-                        id="passport-filename">
-                        No file chosen
-                      </p>
+                      <h3 class="text-base md:text-lg font-semibold mb-1 md:mb-2">Upload Passport Copy *</h3>
+                      <p class="text-xs md:text-sm text-gray-500">PDF, JPG, or PNG (Max 5MB)</p>
+                      <p class="text-xs text-gray-400 mt-1 md:mt-2" id="passport-filename">No file chosen</p>
                     </div>
-                    <div
-                      class="file-upload disabled"
-                      id="uploadEnglish">
-                      <input
-                        type="file"
-                        id="english"
-                        name="english-test"
-                        class="hidden"
-                        accept=".pdf"
-                        disabled />
+                    <div class="file-upload disabled" id="uploadEnglish">
+                      <input type="file" id="english" name="english-test" class="hidden" accept=".pdf" disabled />
                       <i class="fas fa-language"></i>
-                      <h3 class="text-lg font-semibold mb-2">
-                        English Proficiency Test (if applicable)
-                      </h3>
-                      <p class="text-sm text-gray-500">
-                        IELTS, TOEFL, or equivalent (PDF)
-                      </p>
-                      <p class="text-xs text-gray-400 mt-2" id="english-filename">
-                        No file chosen
-                      </p>
+                      <h3 class="text-base md:text-lg font-semibold mb-1 md:mb-2">English Proficiency Test (if applicable)</h3>
+                      <p class="text-xs md:text-sm text-gray-500">IELTS, TOEFL, or equivalent (PDF)</p>
+                      <p class="text-xs text-gray-400 mt-1 md:mt-2" id="english-filename">No file chosen</p>
                     </div>
-                    <div
-                      class="file-upload disabled"
-                      id="uploadSOP">
-                      <input
-                        type="file"
-                        id="sop"
-                        name="statement-of-purpose"
-                        class="hidden"
-                        accept=".pdf,.doc,.docx"
-                        disabled />
+                    <div class="file-upload disabled" id="uploadSOP">
+                      <input type="file" id="sop" name="statement-of-purpose" class="hidden" accept=".pdf,.doc,.docx" disabled />
                       <i class="fas fa-file-alt"></i>
-                      <h3 class="text-lg font-semibold mb-2">
-                        Statement of Purpose
-                      </h3>
-                      <p class="text-sm text-gray-500">
-                        Tell us your story (PDF or DOC)
-                      </p>
-                      <p class="text-xs text-gray-400 mt-2" id="sop-filename">
-                        No file chosen
-                      </p>
+                      <h3 class="text-base md:text-lg font-semibold mb-1 md:mb-2">Statement of Purpose</h3>
+                      <p class="text-xs md:text-sm text-gray-500">Tell us your story (PDF or DOC)</p>
+                      <p class="text-xs text-gray-400 mt-1 md:mt-2" id="sop-filename">No file chosen</p>
                     </div>
                   </div>
                 </div>
@@ -1085,107 +1042,32 @@
               <!-- Additional Information -->
               <div class="form-section" id="section6">
                 <div class="relative">
-                  <div id="lockBadge6" class="locked-badge" style="display: flex;">
-                    <i class="fas fa-lock mr-1"></i> Locked
-                  </div>
-                  <h2
-                    class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-                    <span
-                      class="w-8 h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-sm mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
-                      >6</span
-                    >
+                  <div id="lockBadge6" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
+                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">6</span>
                     Additional Information
                   </h2>
                   <div class="space-y-4">
-                    <div>
-                      <label class="form-label"
-                        >Do you have any medical conditions we should be aware
-                        of?</label
-                      ><textarea
-                        class="form-input"
-                        rows="3"
-                        id="medical"
-                        name="medical-conditions"
-                        disabled></textarea>
-                    </div>
-                    <div>
-                      <label class="form-label"
-                        >Dietary Restrictions or Allergies</label
-                      ><textarea
-                        class="form-input"
-                        rows="3"
-                        id="dietary"
-                        name="dietary-restrictions"
-                        disabled></textarea>
-                    </div>
-                    <div>
-                      <label class="form-label">Emergency Contact Name *</label
-                      ><input
-                        type="text"
-                        class="form-input"
-                        id="emergencyName"
-                        name="emergency-name"
-                        required
-                        disabled />
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label class="form-label"
-                          >Emergency Contact Relationship</label
-                        ><input
-                          type="text"
-                          class="form-input"
-                          id="emergencyRelation"
-                          name="emergency-relationship"
-                          disabled />
-                      </div>
-                      <div>
-                        <label class="form-label">Emergency Contact Phone *</label
-                        ><input
-                          type="tel"
-                          class="form-input"
-                          id="emergencyPhone"
-                          name="emergency-phone"
-                          required
-                          disabled />
-                      </div>
+                    <div><label class="form-label">Do you have any medical conditions we should be aware of?</label><textarea class="form-input" rows="3" id="medical" name="medical-conditions" disabled></textarea></div>
+                    <div><label class="form-label">Dietary Restrictions or Allergies</label><textarea class="form-input" rows="3" id="dietary" name="dietary-restrictions" disabled></textarea></div>
+                    <div><label class="form-label">Emergency Contact Name *</label><input type="text" class="form-input" id="emergencyName" name="emergency-name" required disabled /></div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                      <div><label class="form-label">Emergency Contact Relationship</label><input type="text" class="form-input" id="emergencyRelation" name="emergency-relationship" disabled /></div>
+                      <div><label class="form-label">Emergency Contact Phone *</label><input type="tel" class="form-input" id="emergencyPhone" name="emergency-phone" required disabled /></div>
                     </div>
                   </div>
                 </div>
               </div>
 
               <!-- Terms and Submit -->
-              <div class="mt-8">
-                <label class="flex items-center mb-6">
-                  <input
-                    type="checkbox"
-                    class="mr-3 w-5 h-5"
-                    id="terms"
-                    name="terms"
-                    required
-                    disabled />
-                  <span class="text-gray-600"
-                    >I confirm that the information provided is accurate and
-                    complete. I agree to the
-                    <a href="#" class="text-[#323A63] hover:underline"
-                      >Terms and Conditions</a
-                    >
-                    and
-                    <a href="#" class="text-[#83A4A1] hover:underline"
-                      >Privacy Policy</a
-                    >.</span
-                  >
+              <div class="mt-6 md:mt-8">
+                <label class="flex items-center mb-4 md:mb-6">
+                  <input type="checkbox" class="mr-3 w-4 h-4 md:w-5 md:h-5" id="terms" name="terms" required disabled />
+                  <span class="text-gray-600 text-xs md:text-sm">I confirm that the information provided is accurate and complete. I agree to the <a href="#" class="text-[#323A63] hover:underline">Terms and Conditions</a> and <a href="#" class="text-[#83A4A1] hover:underline">Privacy Policy</a>.</span>
                 </label>
-                <button type="button" id="bottomPayButton" class="btn-accent w-full text-lg py-4 mb-4">
-                  <i class="fas fa-lock mr-2"></i> Pay to Unlock Application <i class="fas fa-arrow-right ml-2"></i>
-                </button>
-                <button type="submit" id="submitButton" class="btn-accent w-full text-lg py-4" style="display: none;">
-                  Submit Application <i class="fas fa-paper-plane ml-2"></i>
-                </button>
-                <p class="text-xs text-gray-500 text-center mt-4">
-                  By submitting this form, you agree to our terms and
-                  conditions. Application fee payment is required before submission.
-                </p>
+                <button type="button" id="bottomPayButton" class="btn-accent w-full text-base md:text-lg py-3 md:py-4 mb-3 md:mb-4"><i class="fas fa-lock mr-2"></i> Pay to Unlock Application <i class="fas fa-arrow-right ml-2"></i></button>
+                <button type="submit" id="submitButton" class="btn-accent w-full text-base md:text-lg py-3 md:py-4" style="display: none;">Submit Application <i class="fas fa-paper-plane ml-2"></i></button>
+                <p class="text-xs text-gray-500 text-center mt-3 md:mt-4">By submitting this form, you agree to our terms and conditions. Application fee payment is required before submission.</p>
               </div>
             </form>
           </div>
@@ -1194,247 +1076,75 @@
 
       <!-- Payment Modal -->
       <div id="paymentModal">
-        <div class="payment-modal-content p-8">
-          <div class="text-center mb-6">
-            <div
-              class="w-20 h-20 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center mx-auto mb-4">
-              <i class="fas fa-credit-card text-white text-3xl"></i>
-            </div>
-            <h2 class="text-2xl font-bold text-gray-800 mb-2">
-              Complete Your Payment
-            </h2>
-            <p class="text-gray-600">Pay the application fee to unlock and submit your form</p>
+        <div class="payment-modal-content">
+          <div class="modal-header">
+            <div class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></div>
           </div>
-          <div class="bg-gray-50 p-4 rounded-xl mb-6">
+          <div class="px-4 md:px-6 pb-2">
+            <div class="modal-icon"><i class="fas fa-credit-card"></i></div>
+            <h2 class="text-xl md:text-2xl font-bold text-center text-gray-800 mb-2">Application Fee</h2>
+            <p class="text-center text-gray-500 text-xs md:text-sm">Complete payment to unlock your application</p>
+          </div>
+          <div class="fee-card">
             <div class="flex justify-between items-center mb-2">
-              <span class="text-gray-600">Application Fee</span>
-              <span class="text-2xl font-bold text-[#323A63]">$180 USD</span>
+              <span class="text-gray-700 font-medium text-sm md:text-base">Application Processing Fee</span>
+              <span class="fee-amount">$180 USD</span>
             </div>
-            <p class="text-xs text-gray-400">Non-refundable. Includes application processing and assessment.</p>
+            <div class="mt-2 md:mt-3 pt-2 md:pt-3 border-t border-white/50">
+              <div class="flex justify-between text-xs md:text-sm"><span class="text-gray-600">Includes:</span><span class="text-green-600 font-medium">Immediate Access</span></div>
+            </div>
           </div>
-          <button id="modalPayButton" class="btn-accent w-full text-lg py-4 mb-3">
-            Proceed to Payment <i class="fas fa-arrow-right ml-2"></i>
-          </button>
-          <button id="closeModalBtn" class="w-full bg-transparent border-2 border-gray-300 text-gray-600 text-lg font-semibold py-4 rounded-xl transition-all hover:bg-gray-50 hover:border-gray-400 active:scale-[0.98]">
-            Cancel
-          </button>
+          <ul class="benefits-list">
+            <li><i class="fas fa-check-circle"></i><span>Unlock full application form</span></li>
+            <li><i class="fas fa-check-circle"></i><span>Submit your application immediately</span></li>
+            <li><i class="fas fa-check-circle"></i><span>Priority application review</span></li>
+            <li><i class="fas fa-check-circle"></i><span>24/7 admissions support</span></li>
+            <li><i class="fas fa-shield-alt"></i><span>Secure payment via Stripe</span></li>
+          </ul>
+          <div class="modal-buttons">
+            <button id="modalPayButton" class="btn-modal-primary"><i class="fas fa-lock"></i> Proceed to Secure Payment <i class="fas fa-arrow-right"></i></button>
+            <button id="closeModalBtn2" class="btn-modal-secondary"><i class="fas fa-times"></i> Cancel</button>
+          </div>
+          <div class="payment-note"><i class="fas fa-credit-card"></i><span>100% secure payment • No hidden fees</span><i class="fas fa-lock"></i></div>
         </div>
       </div>
 
       <!-- Need Help -->
-      <section class="py-24 bg-gray-50">
+      <section class="py-16 md:py-24 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-4xl md:text-5xl font-bold text-[#DFB975] mb-6">
-              Need Help With Your Application?
-            </h2>
-            <p class="text-xl text-gray-600 mb-8">
-              Our admissions team is here to guide you through every step of the
-              process.
-            </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="contact.html" class="btn-primary">Contact Admissions</a>
-              <a href="tel:+13658552137" class="btn-accent"
-                ><i class="fas fa-phone mr-2"></i> Call Us</a
-              >
+            <h2 class="text-3xl md:text-5xl font-bold text-[#DFB975] mb-4 md:mb-6">Need Help With Your Application?</h2>
+            <p class="text-base md:text-xl text-gray-600 mb-6 md:mb-8">Our admissions team is here to guide you through every step of the process.</p>
+            <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+              <a href="contact.html" class="btn-primary text-sm md:text-base">Contact Admissions</a>
+              <a href="tel:+13658552137" class="btn-accent text-sm md:text-base"><i class="fas fa-phone mr-2"></i> Call Us</a>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <!-- Footer (updated colours) -->
-    <footer class="bg-white text-gray-700 py-16 border-t border-gray-200">
+    <!-- Footer -->
+    <footer class="bg-[#1e2538] text-gray-400 py-12 md:py-16">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <!-- Column 1: Logo & About -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           <div>
-            <div class="flex items-center space-x-3 mb-6">
-              <a href="index.html" class="flex items-center space-x-3 group">
-                <div
-                  class="logo transform transition-transform group-hover:scale-105">
-                  <img
-                    src="images/logo/no-bg-logo_2000x1333.png"
-                    alt="BestWeCare Logo"
-                    class="w-20 h-20" />
-                </div>
-                <span
-                  class="font-bold text-xl text-[#323A63] hidden sm:block transition-all group-hover:bg-gradient-to-r group-hover:from-[#323A63] group-hover:to-[#83A4A1] group-hover:bg-clip-text group-hover:text-transparent"
-                  >@BestWeCare</span
-                >
-              </a>
+            <div class="flex items-center space-x-3 mb-4 md:mb-6">
+              <img src="images/logo/no-bg-logo_2000x1333.png" alt="BestWeCare Logo" class="w-14 h-14 md:w-20 md:h-20" />
+              <span class="font-bold text-lg md:text-xl text-white">@BestWeCare</span>
             </div>
-            <p class="text-gray-600 mb-6 leading-relaxed">
-              From Arrival to Confidence. We walk the journey with international
-              students from high school to university and beyond.
-            </p>
-            <div class="flex space-x-4">
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#323A63] hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transform hover:scale-110 transition-all duration-300">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#323A63] hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transform hover:scale-110 transition-all duration-300">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#323A63] hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transform hover:scale-110 transition-all duration-300">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
+            <p class="text-sm md:text-base text-gray-400 mb-4 md:mb-6 leading-relaxed">From Arrival to Confidence. We walk the journey with international students from high school to university and beyond.</p>
+            <div class="flex space-x-3 md:space-x-4">
+              <a href="#" class="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"><i class="fab fa-facebook-f text-sm md:text-base"></i></a>
+              <a href="#" class="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"><i class="fab fa-instagram text-sm md:text-base"></i></a>
+              <a href="#" class="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"><i class="fab fa-linkedin-in text-sm md:text-base"></i></a>
             </div>
           </div>
-
-          <!-- Column 2: Quick Links -->
-          <div>
-            <h4
-              class="text-lg font-bold text-[#323A63] mb-6 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-[#323A63] after:to-[#83A4A1]">
-              Quick Links
-            </h4>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="index.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="about.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Programs</a
-                >
-              </li>
-              <li>
-                <a
-                  href="admissions.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Admissions</a
-                >
-              </li>
-              <li>
-                <a
-                  href="apply.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Apply Now</a
-                >
-              </li>
-              <li>
-                <a
-                  href="contact.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Contact</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 3: Programs -->
-          <div>
-            <h4
-              class="text-lg font-bold text-[#323A63] mb-6 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-[#323A63] after:to-[#83A4A1]">
-              Our Programs
-            </h4>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="programs.html#high-school"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >High School Program</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html#look-see"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Look See Canada</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html#etiquette"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >School of Etiquette</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html#university"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >University Support</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html#science"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >For Science Lovers</a
-                >
-              </li>
-            </ul>
-          </div>
-
-          <!-- Column 4: Contact Info -->
-          <div>
-            <h4
-              class="text-lg font-bold text-[#323A63] mb-6 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-[#323A63] after:to-[#83A4A1]">
-              Contact Info
-            </h4>
-            <ul class="space-y-4">
-              <li class="flex items-start space-x-3 group">
-                <i
-                  class="fas fa-map-marker-alt text-[#DFB975] mt-1 transition-transform group-hover:scale-110"></i>
-                <span
-                  class="text-gray-600 group-hover:text-[#323A63] transition-colors"
-                  >Hamilton, Ontario, Canada</span
-                >
-              </li>
-              <li class="flex items-center space-x-3 group">
-                <i
-                  class="fas fa-phone text-[#83A4A1] transition-transform group-hover:scale-110"></i>
-                <span
-                  class="text-gray-600 group-hover:text-[#323A63] transition-colors"
-                  >+1 365 855 2137</span
-                >
-              </li>
-              <li class="flex items-center space-x-3 group">
-                <i
-                  class="fab fa-whatsapp text-[#DFB975] transition-transform group-hover:scale-110"></i>
-                <span
-                  class="text-gray-600 group-hover:text-[#323A63] transition-colors"
-                  >+1 365 855 2137</span
-                >
-              </li>
-              <li class="flex items-center space-x-3 group">
-                <i
-                  class="fas fa-envelope text-[#323A63] transition-transform group-hover:scale-110"></i>
-                <span
-                  class="text-gray-600 group-hover:text-[#323A63] transition-colors"
-                  >atbestwecareinc@gmail.com</span
-                >
-              </li>
-            </ul>
-          </div>
+          <div><h4 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Quick Links</h4><ul class="space-y-2 md:space-y-3"><li><a href="index.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Home</a></li><li><a href="about.html" class="hover:text-[#DFB975] transition text-sm md:text-base">About Us</a></li><li><a href="programs.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Programs</a></li><li><a href="admissions.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Admissions</a></li><li><a href="apply.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Apply Now</a></li><li><a href="contact.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Contact</a></li></ul></div>
+          <div><h4 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Our Programs</h4><ul class="space-y-2 md:space-y-3"><li><a href="programs.html#high-school" class="hover:text-[#DFB975] transition text-sm md:text-base">High School Program</a></li><li><a href="programs.html#look-see" class="hover:text-[#DFB975] transition text-sm md:text-base">Look See Canada</a></li><li><a href="programs.html#etiquette" class="hover:text-[#DFB975] transition text-sm md:text-base">School of Etiquette</a></li><li><a href="programs.html#university" class="hover:text-[#DFB975] transition text-sm md:text-base">University Support</a></li><li><a href="programs.html#science" class="hover:text-[#DFB975] transition text-sm md:text-base">For Science Lovers</a></li></ul></div>
+          <div><h4 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Contact Info</h4><ul class="space-y-3 md:space-y-4"><li class="flex items-start space-x-3"><i class="fas fa-map-marker-alt text-[#DFB975] mt-1 text-sm md:text-base"></i><span class="text-sm md:text-base">Hamilton, Ontario, Canada</span></li><li class="flex items-center space-x-3"><i class="fas fa-phone text-[#83A4A1] text-sm md:text-base"></i><span class="text-sm md:text-base">+1 365 855 2137</span></li><li class="flex items-center space-x-3"><i class="fab fa-whatsapp text-[#DFB975] text-sm md:text-base"></i><span class="text-sm md:text-base">+1 365 855 2137</span></li><li class="flex items-center space-x-3"><i class="fas fa-envelope text-[#323A63] text-sm md:text-base"></i><span class="text-sm md:text-base">atbestwecareinc@gmail.com</span></li></ul></div>
         </div>
-
-        <!-- Bottom Bar -->
-        <div
-          class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500 hover:text-[#323A63] transition-colors duration-300">
-          <p>
-            © 2026 @BestWeCare Inc. All rights reserved. | Business Registration
-            #: 770656601RC0001
-          </p>
-        </div>
+        <div class="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-gray-500 text-xs md:text-sm"><p>© 2026 @BestWeCare Inc. All rights reserved. | Business Registration #: 770656601RC0001</p></div>
       </div>
     </footer>
 
@@ -1453,70 +1163,58 @@
       const bottomPayButton = document.getElementById('bottomPayButton');
       const submitButton = document.getElementById('submitButton');
       const modalPayButton = document.getElementById('modalPayButton');
-      const closeModalBtn = document.getElementById('closeModalBtn');
       const showPaymentModalBtn = document.getElementById('showPaymentModalBtn');
       
-      // All form inputs to disable/enable
+      // All form inputs
       const formInputs = form.querySelectorAll('input, select, textarea');
       const fileUploads = document.querySelectorAll('.file-upload');
       const lockBadges = document.querySelectorAll('.locked-badge');
       
-      // Lock scroll function
-      function lockScroll() {
-        document.body.classList.add('modal-open');
-      }
-      
-      function unlockScroll() {
-        document.body.classList.remove('modal-open');
-      }
-      
-      // Show payment modal
+      // Show payment modal - IMPROVED VERSION
       function showPaymentModal() {
-        paymentModal.style.display = 'flex';
-        lockScroll();
+        if (paymentModal) {
+          paymentModal.style.display = 'flex';
+          paymentModal.offsetHeight; // Force reflow
+          paymentModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          document.body.style.paddingRight = window.innerWidth - document.documentElement.clientWidth + 'px';
+        }
       }
       
+      // Hide payment modal - IMPROVED VERSION
       function hidePaymentModal() {
-        paymentModal.style.display = 'none';
-        unlockScroll();
+        if (paymentModal) {
+          paymentModal.classList.remove('active');
+          setTimeout(() => {
+            paymentModal.style.display = 'none';
+            document.body.style.overflow = '';
+            document.body.style.paddingRight = '';
+          }, 300);
+        }
       }
       
       // Enable all form fields
       function enableFormFields() {
-        formInputs.forEach(input => {
-          input.disabled = false;
-        });
-        
+        formInputs.forEach(input => { input.disabled = false; });
         fileUploads.forEach(upload => {
           upload.classList.remove('disabled');
           const fileInput = upload.querySelector('input[type="file"]');
           if (fileInput) fileInput.disabled = false;
         });
-        
-        lockBadges.forEach(badge => {
-          badge.style.display = 'none';
-        });
-        
+        lockBadges.forEach(badge => { badge.style.display = 'none'; });
         bottomPayButton.style.display = 'none';
         submitButton.style.display = 'block';
       }
       
       // Disable all form fields
       function disableFormFields() {
-        formInputs.forEach(input => {
-          input.disabled = true;
-        });
-        
+        formInputs.forEach(input => { input.disabled = true; });
         fileUploads.forEach(upload => {
           upload.classList.add('disabled');
           const fileInput = upload.querySelector('input[type="file"]');
           if (fileInput) fileInput.disabled = true;
         });
-        
-        lockBadges.forEach(badge => {
-          badge.style.display = 'flex';
-        });
-        
+        lockBadges.forEach(badge => { badge.style.display = 'flex'; });
         bottomPayButton.style.display = 'block';
         submitButton.style.display = 'none';
       }
@@ -1529,7 +1227,7 @@
         paymentSuccessBanner.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
       
-      // Lock form (initial state)
+      // Lock form
       function lockForm() {
         disableFormFields();
         paymentStatusBanner.style.display = 'flex';
@@ -1540,7 +1238,6 @@
       function checkPaymentStatus() {
         const verified = localStorage.getItem(PAYMENT_TOKEN_KEY);
         const expiry = localStorage.getItem(PAYMENT_EXPIRY_KEY);
-        
         if (verified === 'true' && expiry && Date.now() < parseInt(expiry)) {
           unlockForm();
           return true;
@@ -1570,8 +1267,6 @@
           localStorage.setItem(PAYMENT_EXPIRY_KEY, (Date.now() + 24 * 60 * 60 * 1000).toString());
           window.history.replaceState({}, document.title, window.location.pathname);
           unlockForm();
-          paymentSuccessBanner.style.display = 'block';
-          paymentSuccessBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
       }
       
@@ -1606,22 +1301,17 @@
           { id: 'english', filenameId: 'english-filename' },
           { id: 'sop', filenameId: 'sop-filename' }
         ];
-        
         fileInputs.forEach(({ id, filenameId }) => {
           const input = document.getElementById(id);
           if (input) {
             input.addEventListener('change', function() {
               const filename = this.files[0] ? this.files[0].name : 'No file chosen';
               const span = document.getElementById(filenameId);
-              if (span) {
-                span.textContent = filename;
-                span.classList.add('text-[#83A4A1]');
-              }
+              if (span) span.textContent = filename;
               updateProgress();
             });
           }
         });
-        
         document.querySelectorAll('.file-upload').forEach(upload => {
           upload.addEventListener('click', function(e) {
             if (!this.classList.contains('disabled')) {
@@ -1639,7 +1329,6 @@
           showPaymentModal();
           return false;
         }
-        
         e.preventDefault();
         const formData = new FormData(this);
         fetch(this.action, {
@@ -1654,7 +1343,6 @@
               updateProgress();
               document.querySelectorAll('[id$="-filename"]').forEach((span) => {
                 span.textContent = 'No file chosen';
-                span.classList.remove('text-[#83A4A1]');
               });
               setTimeout(() => {
                 document.getElementById('successMessage').classList.remove('show');
@@ -1668,11 +1356,15 @@
           });
       });
       
-      // Event listeners
+      // Event listeners for modal
       if (bottomPayButton) bottomPayButton.addEventListener('click', showPaymentModal);
       if (showPaymentModalBtn) showPaymentModalBtn.addEventListener('click', showPaymentModal);
       if (modalPayButton) modalPayButton.addEventListener('click', processPayment);
-      if (closeModalBtn) closeModalBtn.addEventListener('click', hidePaymentModal);
+      
+      const closeModalButtons = document.querySelectorAll('#closeModalBtn, #closeModalBtn2');
+      closeModalButtons.forEach(btn => {
+        if (btn) btn.addEventListener('click', hidePaymentModal);
+      });
       
       if (paymentModal) {
         paymentModal.addEventListener('click', function(e) {
@@ -1686,7 +1378,7 @@
         }
       });
       
-      // Form input listeners for progress
+      // Form input listeners
       const allInputs = form.querySelectorAll('input, select, textarea');
       allInputs.forEach((input) => {
         input.addEventListener('input', updateProgress);
@@ -1712,16 +1404,12 @@
       if (menuToggle) menuToggle.addEventListener('click', openMenu);
       if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenuFunc);
       if (menuOverlay) menuOverlay.addEventListener('click', closeMenuFunc);
-      mobileNavLinks.forEach((link) => {
-        link.addEventListener('click', closeMenuFunc);
-      });
+      mobileNavLinks.forEach((link) => { link.addEventListener('click', closeMenuFunc); });
       
       // Back to Top
       const backToTop = document.getElementById('backToTop');
       window.addEventListener('scroll', function () {
-        window.scrollY > 500
-          ? backToTop.classList.add('visible')
-          : backToTop.classList.remove('visible');
+        window.scrollY > 500 ? backToTop.classList.add('visible') : backToTop.classList.remove('visible');
       });
       backToTop.addEventListener('click', function () {
         gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
@@ -1731,26 +1419,14 @@
       window.addEventListener('load', function () {
         gsap.registerPlugin(ScrollTrigger);
         gsap.utils.toArray('.form-section').forEach((section, i) => {
-          gsap.fromTo(
-            section,
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              delay: i * 0.2,
-              scrollTrigger: {
-                trigger: section,
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none reverse',
-              },
-            },
-          );
+          gsap.fromTo(section, { opacity: 0, y: 50 }, {
+            opacity: 1, y: 0, duration: 0.8, delay: i * 0.2,
+            scrollTrigger: { trigger: section, start: 'top 80%', end: 'bottom 20%', toggleActions: 'play none none reverse' }
+          });
         });
       });
       
-      // Close success message function
+      // Close success message
       window.closeSuccessMessage = function() {
         document.getElementById('successMessage').classList.remove('show');
       };
@@ -1762,8 +1438,8 @@
         setupFileUploads();
         updateProgress();
       });
-      
-      // Testing functions (remove in production)
+
+       // Testing functions (remove in production)
       // window.simulatePayment = function() {
       //   localStorage.setItem(PAYMENT_TOKEN_KEY, 'true');
       //   localStorage.setItem(PAYMENT_EXPIRY_KEY, (Date.now() + 24 * 60 * 60 * 1000).toString());
