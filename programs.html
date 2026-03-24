@@ -1,1531 +1,1297 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Our Programs - @BestWeCare</title>
 
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Programs - @BestWeCare</title>
 
-    <!-- Favicon -->
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="images/favicon-32x32.png" />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="16x16"
-      href="images/favicon-16x16.png" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="images/apple-touch-icon.png" />
-    <link rel="manifest" href="images/site.webmanifest" />
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <link rel="manifest" href="images/site.webmanifest" />
 
-    <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
 
-    <!-- Google Fonts -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
-      rel="stylesheet" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
-    <style>
-      * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #f1f4f9 0%, #dbe7e5 100%);
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    /* 🌟 NEW COLOR PALETTE */
+    :root {
+      --primary: #323a63;
+      /* deep navy */
+      --secondary: #83a4a1;
+      /* muted teal */
+      --accent: #dfb975;
+      /* warm gold */
+      --dark: #1e2538;
+      --light: #f7f9fc;
+      --gradient-1: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+      --gradient-2: linear-gradient(135deg, #83a4a1 0%, #dfb975 100%);
+      --gradient-3: linear-gradient(135deg, #dfb975 0%, #323a63 100%);
+      --gradient-4: linear-gradient(135deg, #323a63 0%, #dfb975 100%);
+    }
+
+    .shadcn-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-radius: 24px;
+      padding: 2rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .shadcn-card:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    }
+
+    .nav-glass {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .nav-link {
+      position: relative;
+      font-weight: 600;
+      color: var(--dark);
+      transition: all 0.3s ease;
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+    }
+
+    .nav-link:hover {
+      background: var(--gradient-1);
+      color: white;
+    }
+
+    /* 🌟 NEW BUTTON STYLES – exactly matching the provided example */
+    .btn-primary {
+      background-color: white;
+      border-radius: 0.75rem;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      transition: all 0.15s ease;
+      color: #1e293b;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .btn-primary:hover {
+      background-color: #f8fafc;
+    }
+
+    .btn-primary:active {
+      background-color: #f1f5f9;
+    }
+
+    .btn-accent {
+      background-color: #dfb975;
+      border-radius: 0.75rem;
+      padding: 0.75rem 2rem;
+      font-weight: 600;
+      color: white;
+      box-shadow:
+        0 10px 15px -3px rgb(223 185 117 / 0.3),
+        0 4px 6px -4px rgb(223 185 117 / 0.3);
+      transition: all 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border: none;
+    }
+
+    .btn-accent:hover {
+      background-color: #c9a45c;
+    }
+
+    .btn-accent:active {
+      background-color: #b38e4a;
+    }
+
+    .program-hero-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 3rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .program-tab {
+      padding: 1rem 2rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      background: white;
+      color: var(--dark);
+      border: 2px solid transparent;
+    }
+
+    .program-tab:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .program-tab.active {
+      background: #83a4a1;
+      color: white;
+      border-color: white;
+    }
+
+    .program-detail {
+      display: none;
+      animation: fadeIn 0.5s ease;
+    }
+
+    .program-detail.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
 
-      body {
-        font-family: 'Outfit', sans-serif;
-        overflow-x: hidden;
-        background: linear-gradient(135deg, #f1f4f9 0%, #dbe7e5 100%);
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .feature-card {
+      background: rgba(50, 58, 99, 0.05);
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 1px solid rgba(50, 58, 99, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-5px);
+      background: rgba(50, 58, 99, 0.1);
+      border-color: rgba(50, 58, 99, 0.3);
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 400px;
+      height: 100vh;
+      background: white;
+      z-index: 1000;
+      padding: 2rem;
+      transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-menu-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(5px);
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .footer-link {
+      color: rgba(255, 255, 255, 0.7);
+      transition: all 0.3s ease;
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .footer-link:hover {
+      color: white;
+      transform: translateX(5px);
+    }
+
+    .footer-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #dfb975;
+      transition: width 0.3s ease;
+    }
+
+    .footer-link:hover::after {
+      width: 100%;
+    }
+
+    #backToTop {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 50px;
+      height: 50px;
+      background: var(--gradient-1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 100;
+      box-shadow: 0 10px 20px rgba(50, 58, 99, 0.3);
+    }
+
+    #backToTop.visible {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    #backToTop:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(50, 58, 99, 0.4);
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.5rem !important;
       }
 
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        font-family: 'Space Grotesk', sans-serif;
-      }
-
-      /* 🌟 NEW COLOR PALETTE */
-      :root {
-        --primary: #323a63; /* deep navy */
-        --secondary: #83a4a1; /* muted teal */
-        --accent: #dfb975; /* warm gold */
-        --dark: #1e2538;
-        --light: #f7f9fc;
-        --gradient-1: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
-        --gradient-2: linear-gradient(135deg, #83a4a1 0%, #dfb975 100%);
-        --gradient-3: linear-gradient(135deg, #dfb975 0%, #323a63 100%);
-        --gradient-4: linear-gradient(135deg, #323a63 0%, #dfb975 100%);
-      }
-
-      .shadcn-card {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-radius: 24px;
-        padding: 2rem;
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
-
-      .shadcn-card:hover {
-        transform: translateY(-10px) scale(1.02);
-        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
-      }
-
-      .nav-glass {
-        background: rgba(255, 255, 255, 0.95);
-        backdrop-filter: blur(10px);
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-      }
-
-      .nav-link {
-        position: relative;
-        font-weight: 600;
-        color: var(--dark);
-        transition: all 0.3s ease;
-        padding: 0.5rem 1rem;
-        border-radius: 9999px;
-      }
-
-      .nav-link:hover {
-        background: var(--gradient-1);
-        color: white;
-      }
-
-      /* 🌟 NEW BUTTON STYLES – exactly matching the provided example */
-      .btn-primary {
-        background-color: white;
-        border-radius: 0.75rem;
-        padding: 0.75rem 2rem;
-        font-weight: 600;
-        border: 1px solid #e2e8f0;
-        box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-        transition: all 0.15s ease;
-        color: #1e293b;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-      }
-      .btn-primary:hover {
-        background-color: #f8fafc;
-      }
-      .btn-primary:active {
-        background-color: #f1f5f9;
-      }
-
-      .btn-accent {
-        background-color: #dfb975;
-        border-radius: 0.75rem;
-        padding: 0.75rem 2rem;
-        font-weight: 600;
-        color: white;
-        box-shadow:
-          0 10px 15px -3px rgb(223 185 117 / 0.3),
-          0 4px 6px -4px rgb(223 185 117 / 0.3);
-        transition: all 0.15s ease;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-        border: none;
-      }
-      .btn-accent:hover {
-        background-color: #c9a45c;
-      }
-      .btn-accent:active {
-        background-color: #b38e4a;
-      }
-
-      .program-hero-card {
-        background: rgba(255, 255, 255, 0.1);
-        backdrop-filter: blur(10px);
-        border-radius: 30px;
-        padding: 3rem;
-        border: 1px solid rgba(255, 255, 255, 0.2);
+      h2 {
+        font-size: 2rem !important;
       }
 
       .program-tab {
-        padding: 1rem 2rem;
-        border-radius: 9999px;
-        font-weight: 600;
-        transition: all 0.3s ease;
-        cursor: pointer;
-        background: white;
-        color: var(--dark);
-        border: 2px solid transparent;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.9rem;
       }
+    }
+  </style>
+</head>
 
-      .program-tab:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
+<body>
+  <!-- Mobile Menu Overlay -->
+  <div class="mobile-menu-overlay" id="menuOverlay"></div>
 
-      .program-tab.active {
-        background: #83a4a1;
-        color: white;
-        border-color: white;
-      }
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <div class="flex justify-between items-center mb-8">
+      <span
+        class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent">@BestWeCare</span>
+      <button id="closeMenu" class="text-2xl text-gray-600 hover:text-[#323A63] transition">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col space-y-4">
+      <a href="index.html"
+        class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Home</a>
+      <a href="about.html"
+        class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">About</a>
+      <a href="programs.html"
+        class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Programs</a>
+      <a href="admissions.html"
+        class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Admissions</a>
+      <a href="apply.html"
+        class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Apply
+        Now</a>
+      <a href="contact.html"
+        class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Contact</a>
+    </nav>
+  </div>
 
-      .program-detail {
-        display: none;
-        animation: fadeIn 0.5s ease;
-      }
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 nav-glass z-50">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="logo">
+            <img src="images/logo/no-bg-logo_2000x1333.png" alt="BestWeCare Logo" class="w-20 h-20" />
+          </div>
+          <span class="font-bold text-xl bg-[#323A63] bg-clip-text text-transparent hidden sm:block">@BestWeCare</span>
+        </a>
 
-      .program-detail.active {
-        display: block;
-      }
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="programs.html" class="nav-link">Programs</a>
+          <a href="admissions.html" class="nav-link">Admissions</a>
+          <a href="apply.html" class="nav-link">Apply Now</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </div>
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+        <!-- CTA button – gold accent -->
+        <div class="hidden md:block">
+          <a href="apply.html" class="btn-accent">Apply Now →</a>
+        </div>
 
-      .feature-card {
-        background: rgba(50, 58, 99, 0.05);
-        border-radius: 20px;
-        padding: 1.5rem;
-        border: 1px solid rgba(50, 58, 99, 0.2);
-        transition: all 0.3s ease;
-      }
-
-      .feature-card:hover {
-        transform: translateY(-5px);
-        background: rgba(50, 58, 99, 0.1);
-        border-color: rgba(50, 58, 99, 0.3);
-      }
-
-      .mobile-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 400px;
-        height: 100vh;
-        background: white;
-        z-index: 1000;
-        padding: 2rem;
-        transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .mobile-menu.active {
-        right: 0;
-      }
-      .mobile-menu-overlay {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5);
-        backdrop-filter: blur(5px);
-        z-index: 999;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-      }
-      .mobile-menu-overlay.active {
-        opacity: 1;
-        visibility: visible;
-      }
-
-      .footer-link {
-        color: rgba(255, 255, 255, 0.7);
-        transition: all 0.3s ease;
-        position: relative;
-        padding-bottom: 2px;
-      }
-      .footer-link:hover {
-        color: white;
-        transform: translateX(5px);
-      }
-      .footer-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #dfb975;
-        transition: width 0.3s ease;
-      }
-      .footer-link:hover::after {
-        width: 100%;
-      }
-
-      #backToTop {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 50px;
-        height: 50px;
-        background: var(--gradient-1);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: white;
-        cursor: pointer;
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s ease;
-        z-index: 100;
-        box-shadow: 0 10px 20px rgba(50, 58, 99, 0.3);
-      }
-      #backToTop.visible {
-        opacity: 1;
-        visibility: visible;
-      }
-      #backToTop:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 30px rgba(50, 58, 99, 0.4);
-      }
-
-      @media (max-width: 768px) {
-        h1 {
-          font-size: 2.5rem !important;
-        }
-        h2 {
-          font-size: 2rem !important;
-        }
-        .program-tab {
-          padding: 0.75rem 1.5rem;
-          font-size: 0.9rem;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <!-- Mobile Menu Overlay -->
-    <div class="mobile-menu-overlay" id="menuOverlay"></div>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu" id="mobileMenu">
-      <div class="flex justify-between items-center mb-8">
-        <span
-          class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
-          >@BestWeCare</span
-        >
-        <button
-          id="closeMenu"
-          class="text-2xl text-gray-600 hover:text-[#323A63] transition">
-          <i class="fas fa-times"></i>
+        <button id="menuToggle" class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
+          <i class="fas fa-bars"></i>
         </button>
       </div>
-      <nav class="flex flex-col space-y-4">
-        <a
-          href="index.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Home</a
-        >
-        <a
-          href="about.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >About</a
-        >
-        <a
-          href="programs.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Programs</a
-        >
-        <a
-          href="admissions.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Admissions</a
-        >
-        <a
-          href="apply.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Apply Now</a
-        >
-        <a
-          href="contact.html"
-          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
-          >Contact</a
-        >
-      </nav>
     </div>
+  </nav>
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 right-0 nav-glass z-50">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-20">
-          <a href="index.html" class="flex items-center space-x-3">
-            <div class="logo">
-              <img
-                src="images/logo/no-bg-logo_2000x1333.png"
-                alt="BestWeCare Logo"
-                class="w-20 h-20" />
-            </div>
-            <span
-              class="font-bold text-xl bg-[#323A63] bg-clip-text text-transparent hidden sm:block"
-              >@BestWeCare</span
-            >
-          </a>
-
-          <div class="hidden md:flex items-center space-x-1">
-            <a href="index.html" class="nav-link">Home</a>
-            <a href="about.html" class="nav-link">About</a>
-            <a href="programs.html" class="nav-link">Programs</a>
-            <a href="admissions.html" class="nav-link">Admissions</a>
-            <a href="apply.html" class="nav-link">Apply Now</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-          </div>
-
-          <!-- CTA button – gold accent -->
-          <div class="hidden md:block">
-            <a href="apply.html" class="btn-accent">Apply Now →</a>
-          </div>
-
-          <button
-            id="menuToggle"
-            class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
-            <i class="fas fa-bars"></i>
-          </button>
+  <main class="pt-20">
+    <!-- Hero Section (navy->teal gradient) -->
+    <section class="relative py-32 bg-[#83A4A1] overflow-hidden">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="program-hero-card max-w-4xl mx-auto text-center">
+          <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
+            Our <span class="text-[#DFB975]">Programs</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+            Discover comprehensive pathways designed to guide students at
+            every stage of their Canadian journey, from high school to
+            university and beyond.
+          </p>
         </div>
       </div>
-    </nav>
+    </section>
 
-    <main class="pt-20">
-      <!-- Hero Section (navy->teal gradient) -->
-      <section class="relative py-32 bg-[#83A4A1] overflow-hidden">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div class="program-hero-card max-w-4xl mx-auto text-center">
-            <h1 class="text-6xl md:text-7xl font-bold text-white mb-6">
-              Our <span class="text-[#DFB975]">Programs</span>
-            </h1>
-            <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
-              Discover comprehensive pathways designed to guide students at
-              every stage of their Canadian journey, from high school to
-              university and beyond.
-            </p>
-          </div>
+    <!-- Program Tabs -->
+    <section class="py-16 bg-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-wrap justify-center gap-4 mb-12">
+          <button class="program-tab active" data-program="high-school">
+            High School
+          </button>
+          <button class="program-tab" data-program="look-see">
+            Look See Canada
+          </button>
+          <button class="program-tab" data-program="look-see-africa">
+            Look See Africa
+          </button>
+          <button class="program-tab" data-program="etiquette">
+            School of Etiquette
+          </button>
+          <button class="program-tab" data-program="university">
+            University Support
+          </button>
+          <button class="program-tab" data-program="science">
+            Science Lovers
+          </button>
         </div>
-      </section>
 
-      <!-- Program Tabs -->
-      <section class="py-16 bg-white">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex flex-wrap justify-center gap-4 mb-12">
-            <button class="program-tab active" data-program="high-school">
-              High School
-            </button>
-            <button class="program-tab" data-program="look-see">
-              Look See Canada
-            </button>
-            <button class="program-tab" data-program="look-see-africa">
-              Look See Africa
-            </button>
-            <button class="program-tab" data-program="etiquette">
-              School of Etiquette
-            </button>
-            <button class="program-tab" data-program="university">
-              University Support
-            </button>
-            <button class="program-tab" data-program="science">
-              Science Lovers
-            </button>
-          </div>
-
-          <!-- Program Details -->
-          <div class="max-w-5xl mx-auto">
-            <!-- High School Program -->
-            <div id="high-school" class="program-detail active">
-              <div class="shadcn-card">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  <div>
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">
-                      Study in High School
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                      Students complete 2-4 years at one of our partnered
-                      Christian high schools and graduate with the Ontario
-                      Secondary School Diploma (OSSD), equivalent to A-Level/IB
-                      qualifications.
-                    </p>
-                    <div class="space-y-6 mb-8">
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i
-                            class="fas fa-user-graduate text-[#323A63] mr-3"></i
-                          >Who It's For
-                        </h3>
-                        <p class="text-gray-600">
-                          International students seeking a complete high school
-                          experience in Canada with Christian values and
-                          comprehensive support.
-                        </p>
-                      </div>
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i class="fas fa-clock text-[#83A4A1] mr-3"></i
-                          >Timeline
-                        </h3>
-                        <p class="text-gray-600">
-                          2-4 years | Semester 1 begins September
-                        </p>
-                      </div>
+        <!-- Program Details -->
+        <div class="max-w-5xl mx-auto">
+          <!-- High School Program -->
+          <div id="high-school" class="program-detail active">
+            <div class="shadcn-card">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                  <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    Study in High School
+                  </h2>
+                  <p class="text-lg text-gray-600 mb-6">
+                    Students complete 2-4 years at one of our partnered
+                    Christian high schools and graduate with the Ontario
+                    Secondary School Diploma (OSSD), equivalent to A-Level/IB
+                    qualifications.
+                  </p>
+                  <div class="space-y-6 mb-8">
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-user-graduate text-[#323A63] mr-3"></i>Who It's For
+                      </h3>
+                      <p class="text-gray-600">
+                        International students seeking a complete high school
+                        experience in Canada with Christian values and
+                        comprehensive support.
+                      </p>
                     </div>
-                    <a
-                      href="apply.html"
-                      class="btn-primary inline-flex items-center"
-                      ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="w-5 h-5 text-[#323A63]">
-                        <path d="M5 12h14" />
-                        <path d="M12 5v14" /></svg
-                      >Apply Now</a
-                    >
-                  </div>
-                  <div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                      What's Included
-                    </h3>
-                    <div class="grid grid-cols-1 gap-4">
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span
-                          >Student accommodation (our own — a home away from
-                          home)</span
-                        >
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Birthday & holiday celebrations</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Medical appointment accompaniment</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Health card, banking, SIN assistance</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Driving school enrollment support</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>First Aid certification</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Ongoing parent communication</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Look See Canada -->
-            <div id="look-see" class="program-detail">
-              <div class="shadcn-card">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  <div>
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">
-                      Look See Canada
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                      We invite students to spend 6-8 weeks with us in Canada —
-                      not just visiting, but truly experiencing daily life. This
-                      program is designed for families who want their child to
-                      explore Canada before committing to long-term study
-                      abroad.
-                    </p>
-                    <div class="space-y-6 mb-8">
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i
-                            class="fas fa-user-graduate text-[#323A63] mr-3"></i
-                          >Who It's For
-                        </h3>
-                        <p class="text-gray-600">
-                          Students considering studying in Canada who want to
-                          experience Canadian life firsthand.
-                        </p>
-                      </div>
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i class="fas fa-clock text-[#83A4A1] mr-3"></i
-                          >Timeline
-                        </h3>
-                        <p class="text-gray-600">
-                          6-8 weeks | Summer intake (July-August)
-                        </p>
-                      </div>
-                    </div>
-                    <a
-                      href="apply.html"
-                      class="btn-primary inline-flex items-center"
-                      ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="w-5 h-5 text-[#323A63]">
-                        <path d="M5 12h14" />
-                        <path d="M12 5v14" /></svg
-                      >Apply Now</a
-                    >
-                  </div>
-                  <div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                      Activities Include
-                    </h3>
-                    <div class="grid grid-cols-1 gap-4">
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Sports & leadership camps</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Wildlife experiences</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Canoeing & kayaking</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>High ropes courses</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Theatre & creative arts</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Hockey & figure skating</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Cultural excursions</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Look See Africa -->
-            <div id="look-see-africa" class="program-detail">
-              <div class="shadcn-card">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  <div>
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">
-                      Look See Africa
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                      We invite students to spend 6-8 weeks with us in Africa —
-                      not just visiting, but truly experiencing daily life
-                      across this beautiful continent. This program is designed
-                      for families who want their child to explore Africa's rich
-                      cultural heritage and natural wonders before committing to
-                      long-term study abroad.
-                    </p>
-                    <div class="space-y-6 mb-8">
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i
-                            class="fas fa-user-graduate text-[#323A63] mr-3"></i
-                          >Who It's For
-                        </h3>
-                        <p class="text-gray-600">
-                          Students considering studying in Africa who want to
-                          experience African life, culture, and education
-                          firsthand.
-                        </p>
-                      </div>
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i class="fas fa-clock text-[#83A4A1] mr-3"></i
-                          >Timeline
-                        </h3>
-                        <p class="text-gray-600">
-                          6-8 weeks | Multiple intakes (June-August &
-                          December-January)
-                        </p>
-                      </div>
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i
-                            class="fas fa-map-marker-alt text-[#DFB975] mr-3"></i
-                          >Destinations
-                        </h3>
-                        <p class="text-gray-600">
-                          South Africa, Kenya, Ghana, Morocco, Rwanda, and
-                          Botswana
-                        </p>
-                      </div>
-                    </div>
-                    <a
-                      href="apply.html"
-                      class="btn-primary inline-flex items-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="w-5 h-5 text-[#323A63]">
-                        <path d="M5 12h14" />
-                        <path d="M12 5v14" /></svg
-                      >Apply Now
-                    </a>
-                  </div>
-                  <div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                      Activities & Experiences Include
-                    </h3>
-                    <div class="grid grid-cols-1 gap-4">
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
-                        <span>Safari wildlife experiences (Big 5 viewing)</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
-                        <span
-                          >Cultural village visits & traditional
-                          ceremonies</span
-                        >
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
-                        <span>Swahili language & drumming workshops</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
-                        <span>Community service & conservation projects</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
-                        <span>Table Mountain hiking & coastal exploration</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
-                        <span>African music, dance & storytelling</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
-                        <span>Victoria Falls adventure activities</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
-                        <span>Local school visits & cultural exchange</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
-                        <span>African cuisine cooking classes</span>
-                      </div>
-                    </div>
-
-                    <!-- Optional: Add a highlights section -->
-                    <div
-                      class="mt-6 p-4 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-xl text-white">
-                      <h4 class="font-semibold mb-2 flex items-center">
-                        <i class="fas fa-star mr-2"></i>Program Highlights
-                      </h4>
-                      <p class="text-sm opacity-90">
-                        Experience the warmth of African hospitality, learn from
-                        local elders, and gain a deeper understanding of
-                        Africa's diverse cultures, all while making lifelong
-                        friendships.
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-clock text-[#83A4A1] mr-3"></i>Timeline
+                      </h3>
+                      <p class="text-gray-600">
+                        2-4 years | Semester 1 begins September
                       </p>
                     </div>
                   </div>
+                  <a href="apply.html" class="btn-primary inline-flex items-center"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="w-5 h-5 text-[#323A63]">
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>Apply Now</a>
                 </div>
-              </div>
-            </div>
-
-            <!-- School of Etiquette -->
-            <div id="etiquette" class="program-detail">
-              <div class="shadcn-card">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  <div>
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">
-                      School of Etiquette
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                      A 6-8 week program focused on developing poise,
-                      confidence, and essential social skills. Students learn
-                      Canadian cultural norms, professional etiquette, and build
-                      the confidence needed to thrive in social and academic
-                      settings.
-                    </p>
-                    <div class="space-y-6 mb-8">
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i
-                            class="fas fa-user-graduate text-[#323A63] mr-3"></i
-                          >Who It's For
-                        </h3>
-                        <p class="text-gray-600">
-                          Students preparing for Canadian academic and social
-                          life who want to build confidence and cultural
-                          awareness.
-                        </p>
-                      </div>
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i class="fas fa-clock text-[#83A4A1] mr-3"></i
-                          >Timeline
-                        </h3>
-                        <p class="text-gray-600">
-                          6-8 weeks | Flexible scheduling year-round
-                        </p>
-                      </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                    What's Included
+                  </h3>
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Student accommodation (our
+                        own — a home away from
+                        home)</span>
                     </div>
-                    <a
-                      href="apply.html"
-                      class="btn-primary inline-flex items-center"
-                      ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="w-5 h-5 text-[#323A63]">
-                        <path d="M5 12h14" />
-                        <path d="M12 5v14" /></svg
-                      >Apply Now</a
-                    >
-                  </div>
-                  <div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                      Curriculum Highlights
-                    </h3>
-                    <div class="grid grid-cols-1 gap-4">
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Canadian cultural norms & values</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Professional communication skills</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Dining etiquette</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Social confidence building</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Interview preparation</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Networking skills</span>
-                      </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Birthday & holiday
+                        celebrations</span>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- University Support -->
-            <div id="university" class="program-detail">
-              <div class="shadcn-card">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  <div>
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">
-                      University Support
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                      Comprehensive guidance for undergraduate and master's
-                      applications. We help students navigate the complex
-                      university admission process, from selecting the right
-                      programs to crafting compelling applications.
-                    </p>
-                    <div class="space-y-6 mb-8">
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i
-                            class="fas fa-user-graduate text-[#323A63] mr-3"></i
-                          >Who It's For
-                        </h3>
-                        <p class="text-gray-600">
-                          High school graduates and university transfer students
-                          seeking admission to Canadian universities.
-                        </p>
-                      </div>
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i class="fas fa-clock text-[#83A4A1] mr-3"></i
-                          >Success Rate
-                        </h3>
-                        <p class="text-gray-600">
-                          93% graduate acceptance rate into Canadian
-                          universities
-                        </p>
-                      </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Medical appointment
+                        accompaniment</span>
                     </div>
-                    <a
-                      href="apply.html"
-                      class="btn-primary inline-flex items-center"
-                      ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="w-5 h-5 text-[#323A63]">
-                        <path d="M5 12h14" />
-                        <path d="M12 5v14" /></svg
-                      >Apply Now</a
-                    >
-                  </div>
-                  <div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                      Services Include
-                    </h3>
-                    <div class="grid grid-cols-1 gap-4">
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>University selection guidance</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Application essay coaching</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Interview preparation</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Scholarship applications</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Visa guidance</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Pre-departure orientation</span>
-                      </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Health card, banking, SIN
+                        assistance</span>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Science Lovers -->
-            <div id="science" class="program-detail">
-              <div class="shadcn-card">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                  <div>
-                    <h2 class="text-4xl font-bold text-gray-800 mb-4">
-                      For Science Lovers
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                      Pre-University Science Lab program offering hands-on
-                      experience in Physics, Biology, and Chemistry. Students
-                      work in actual university labs, conduct experiments, and
-                      prepare for science-focused university programs.
-                    </p>
-                    <div class="space-y-6 mb-8">
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i
-                            class="fas fa-user-graduate text-[#323A63] mr-3"></i
-                          >Who It's For
-                        </h3>
-                        <p class="text-gray-600">
-                          Students passionate about science who want hands-on
-                          lab experience before university.
-                        </p>
-                      </div>
-                      <div class="feature-card">
-                        <h3
-                          class="text-xl font-bold text-gray-800 mb-2 flex items-center">
-                          <i class="fas fa-clock text-[#83A4A1] mr-3"></i
-                          >Timeline
-                        </h3>
-                        <p class="text-gray-600">
-                          June 29 - July 31 | Summer intensive program
-                        </p>
-                      </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Driving school enrollment
+                        support</span>
                     </div>
-                    <a
-                      href="apply.html"
-                      class="btn-primary inline-flex items-center"
-                      ><svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="w-5 h-5 text-[#323A63]">
-                        <path d="M5 12h14" />
-                        <path d="M12 5v14" /></svg
-                      >Apply Now</a
-                    >
-                  </div>
-                  <div>
-                    <h3 class="text-2xl font-bold text-gray-800 mb-6">
-                      Lab Experiences
-                    </h3>
-                    <div class="grid grid-cols-1 gap-4">
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i class="fas fa-flask text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Advanced Physics experiments</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i class="fas fa-dna text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Molecular Biology labs</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i class="fas fa-atom text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Chemistry synthesis projects</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-microscope text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Microscopy techniques</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i
-                          class="fas fa-chart-line text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Data analysis & presentation</span>
-                      </div>
-                      <div class="flex items-center p-3 bg-gray-50 rounded-xl">
-                        <i class="fas fa-users text-[#83A4A1] mr-3 text-xl"></i
-                        ><span>Research team collaboration</span>
-                      </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>First Aid
+                        certification</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Ongoing parent
+                        communication</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- Program Comparison -->
-      <section class="py-24 bg-gray-50">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2
-            class="text-5xl md:text-6xl font-bold text-[#DFB975] text-center mb-16">
-            Find Your Path
-          </h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="shadcn-card text-center">
-              <div
-                class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-full flex items-center justify-center mb-6">
-                <span class="text-white text-2xl font-bold">9-12</span>
+          <!-- Look See Canada -->
+          <div id="look-see" class="program-detail">
+            <div class="shadcn-card">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                  <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    Look See Canada
+                  </h2>
+                  <p class="text-lg text-gray-600 mb-6">
+                    We invite students to spend 6-8 weeks with us in Canada —
+                    not just visiting, but truly experiencing daily life. This
+                    program is designed for families who want their child to
+                    explore Canada before committing to long-term study
+                    abroad.
+                  </p>
+                  <div class="space-y-6 mb-8">
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-user-graduate text-[#323A63] mr-3"></i>Who It's For
+                      </h3>
+                      <p class="text-gray-600">
+                        Students considering studying in Canada who want to
+                        experience Canadian life firsthand.
+                      </p>
+                    </div>
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-clock text-[#83A4A1] mr-3"></i>Timeline
+                      </h3>
+                      <p class="text-gray-600">
+                        6-8 weeks | Summer intake (July-August)
+                      </p>
+                    </div>
+                  </div>
+                  <a href="apply.html" class="btn-primary inline-flex items-center"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="w-5 h-5 text-[#323A63]">
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>Apply Now</a>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                    Activities Include
+                  </h3>
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Sports & leadership
+                        camps</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Wildlife experiences</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Canoeing & kayaking</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>High ropes courses</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Theatre & creative
+                        arts</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Hockey & figure
+                        skating</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Cultural excursions</span>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <h3 class="text-2xl font-bold text-gray-800 mb-3">High School</h3>
-              <p class="text-gray-600 mb-4">
-                Complete your secondary education in Canada
-              </p>
-              <p class="text-sm text-gray-500">Duration: 2-4 years</p>
-            </div>
-            <div class="shadcn-card text-center">
-              <div
-                class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-full flex items-center justify-center mb-6">
-                <span class="text-white text-2xl font-bold">6-8</span>
-              </div>
-              <h3 class="text-2xl font-bold text-gray-800 mb-3">Look See</h3>
-              <p class="text-gray-600 mb-4">
-                Weeks of immersive Canadian experience
-              </p>
-              <p class="text-sm text-gray-500">Duration: 6-8 weeks</p>
-            </div>
-            <div class="shadcn-card text-center">
-              <div
-                class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-full flex items-center justify-center mb-6">
-                <span class="text-white text-2xl font-bold">93%</span>
-              </div>
-              <h3 class="text-2xl font-bold text-gray-800 mb-3">University</h3>
-              <p class="text-gray-600 mb-4">Acceptance rate with our support</p>
-              <p class="text-sm text-gray-500">Ongoing guidance</p>
             </div>
           </div>
-        </div>
-      </section>
 
-      <!-- CTA (navy->teal gradient, gold button) -->
-      <section class="py-24 bg-[#83A4A1]">
-        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
-            Ready to <span class="text-[#DFB975]">Begin</span>?
-          </h2>
-          <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-            Choose your path and start your journey to success in Canada with
-            @BestWeCare.
-          </p>
-          <a href="apply.html" class="btn-accent text-lg px-12 py-5"
-            >Apply Now <i class="fas fa-arrow-right ml-2"></i
-          ></a>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer (updated colours) -->
-    <footer class="bg-white text-gray-700 py-16 border-t border-gray-200">
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-          <!-- Column 1: Logo & About -->
-          <div>
-            <div class="flex items-center space-x-3 mb-6">
-              <a href="index.html" class="flex items-center space-x-3 group">
-                <div
-                  class="logo transform transition-transform group-hover:scale-105">
-                  <img
-                    src="images/logo/no-bg-logo_2000x1333.png"
-                    alt="BestWeCare Logo"
-                    class="w-20 h-20" />
-                </div>
-                <span
-                  class="font-bold text-xl text-[#323A63] hidden sm:block transition-all group-hover:bg-gradient-to-r group-hover:from-[#323A63] group-hover:to-[#83A4A1] group-hover:bg-clip-text group-hover:text-transparent"
-                  >@BestWeCare</span
-                >
-              </a>
-            </div>
-            <p class="text-gray-600 mb-6 leading-relaxed">
-              From Arrival to Confidence. We walk the journey with international
-              students from high school to university and beyond.
+         <!-- Look See Africa -->
+<div id="look-see-africa" class="program-detail">
+  <div class="shadcn-card">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-4xl font-bold text-gray-800 mb-4">
+          Look See Africa: The Discovery Expedition
+        </h2>
+        <p class="text-lg text-gray-600 mb-6">
+          While most students spend their breaks at home, Look See Africa invites Canadian high schoolers to step into a different world through a high-impact, stand-alone travel program designed for those seeking more out of their summer or winter holidays. Over the course of 2 to 4 weeks, students travel through the soul of Southern and East Africa—visiting Zimbabwe, South Africa, Zambia, Rwanda, and Namibia—where they transition from tourists to active participants in local life. Whether it is a missionary service trip, a milestone birthday celebration, or an unforgettable safari vacation, students will stand at the edge of the majestic Victoria Falls, engage in surf outreach and youth mentoring in South Africa, and perform meaningful missionary work in Rwanda while learning from the resilience and wisdom of local elders. The journey is packed with world-class safari experiences, from tracking the "Big Five" on sunrise drives and canoeing past hippos on the Zambezi to soaring in hot air balloons over the ancient Namib Desert and participating in hands-on wildlife conservation efforts. Under the world's clearest stars, students engage in authentic cultural exchanges, share traditional meals, and learn ancient bushcraft from local guides, ensuring every adventure is met with intention and a lifelong connection to the heart of Africa.
+        </p>
+        <div class="space-y-6 mb-8">
+          <div class="feature-card">
+            <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+              <i class="fas fa-user-graduate text-[#323A63] mr-3"></i>Who It's For
+            </h3>
+            <p class="text-gray-600">
+              Students considering studying in Africa who want to experience African life, culture, and education firsthand, as well as those seeking meaningful travel experiences, missionary opportunities, or unforgettable adventure expeditions.
             </p>
-            <div class="flex space-x-4">
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#323A63] hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transform hover:scale-110 transition-all duration-300">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#323A63] hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transform hover:scale-110 transition-all duration-300">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a
-                href="#"
-                class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#323A63] hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transform hover:scale-110 transition-all duration-300">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-            </div>
           </div>
-
-          <!-- Column 2: Quick Links -->
-          <div>
-            <h4
-              class="text-lg font-bold text-[#323A63] mb-6 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-[#323A63] after:to-[#83A4A1]">
-              Quick Links
-            </h4>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="index.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Home</a
-                >
-              </li>
-              <li>
-                <a
-                  href="about.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >About Us</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Programs</a
-                >
-              </li>
-              <li>
-                <a
-                  href="admissions.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Admissions</a
-                >
-              </li>
-              <li>
-                <a
-                  href="apply.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Apply Now</a
-                >
-              </li>
-              <li>
-                <a
-                  href="contact.html"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Contact</a
-                >
-              </li>
-            </ul>
+          <div class="feature-card">
+            <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+              <i class="fas fa-clock text-[#83A4A1] mr-3"></i>Timeline
+            </h3>
+            <p class="text-gray-600">
+              2-4 weeks | Multiple intakes (June-August & December-January)
+            </p>
           </div>
-
-          <!-- Column 3: Programs -->
-          <div>
-            <h4
-              class="text-lg font-bold text-[#323A63] mb-6 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-[#323A63] after:to-[#83A4A1]">
-              Our Programs
-            </h4>
-            <ul class="space-y-3">
-              <li>
-                <a
-                  href="programs.html#high-school"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >High School Program</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html#look-see"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >Look See Canada</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html#etiquette"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >School of Etiquette</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html#university"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >University Support</a
-                >
-              </li>
-              <li>
-                <a
-                  href="programs.html#science"
-                  class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1"
-                  >For Science Lovers</a
-                >
-              </li>
-            </ul>
+          <div class="feature-card">
+            <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+              <i class="fas fa-map-marker-alt text-[#DFB975] mr-3"></i>Destinations
+            </h3>
+            <p class="text-gray-600">
+              Zimbabwe, South Africa, Zambia, Rwanda, and Namibia
+            </p>
           </div>
-
-          <!-- Column 4: Contact Info -->
-          <div>
-            <h4
-              class="text-lg font-bold text-[#323A63] mb-6 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-[#323A63] after:to-[#83A4A1]">
-              Contact Info
-            </h4>
-            <ul class="space-y-4">
-              <li class="flex items-start space-x-3 group">
-                <i
-                  class="fas fa-map-marker-alt text-[#DFB975] mt-1 transition-transform group-hover:scale-110"></i>
-                <span
-                  class="text-gray-600 group-hover:text-[#323A63] transition-colors"
-                  >Hamilton, Ontario, Canada</span
-                >
-              </li>
-              <li class="flex items-center space-x-3 group">
-                <i
-                  class="fas fa-phone text-[#83A4A1] transition-transform group-hover:scale-110"></i>
-                <span
-                  class="text-gray-600 group-hover:text-[#323A63] transition-colors"
-                  >+1 365 855 2137</span
-                >
-              </li>
-              <li class="flex items-center space-x-3 group">
-                <i
-                  class="fab fa-whatsapp text-[#DFB975] transition-transform group-hover:scale-110"></i>
-                <span
-                  class="text-gray-600 group-hover:text-[#323A63] transition-colors"
-                  >+1 365 855 2137</span
-                >
-              </li>
-              <li class="flex items-center space-x-3 group">
-                <i
-                  class="fas fa-envelope text-[#323A63] transition-transform group-hover:scale-110"></i>
-                <span
-                  class="text-gray-600 group-hover:text-[#323A63] transition-colors"
-                  >atbestwecareinc@gmail.com</span
-                >
-              </li>
-            </ul>
+        </div>
+        <a href="apply.html" class="btn-primary inline-flex items-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+            class="w-5 h-5 text-[#323A63] mr-2">
+            <path d="M5 12h14" />
+            <path d="M12 5v14" />
+          </svg>Apply Now
+        </a>
+      </div>
+      <div>
+        <h3 class="text-2xl font-bold text-gray-800 mb-6">
+          Activities & Experiences Include
+        </h3>
+        <div class="grid grid-cols-1 gap-4">
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Missionary service trips & youth mentoring programs</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Victoria Falls adventure activities (bungee jumping, white water rafting)</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Surf outreach & coastal community engagement</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Safari wildlife experiences (Big 5 viewing on sunrise drives)</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Canoeing on the Zambezi River with hippo sightings</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Hot air balloon safaris over the ancient Namib Desert</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Wildlife conservation & anti-poaching initiatives</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Cultural exchanges with local elders & traditional storytelling</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Bushcraft skills & ancient survival techniques</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Traditional meals & cooking classes</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Stargazing under Africa's clearest night skies</span>
+          </div>
+          <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+            <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i>
+            <span>Local school visits & educational exchanges</span>
           </div>
         </div>
 
-        <!-- Bottom Bar -->
-        <div
-          class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500 hover:text-[#323A63] transition-colors duration-300">
-          <p>
-            © 2026 @BestWeCare Inc. All rights reserved. | Business Registration
-            #: 770656601RC0001
+        <!-- Highlights Section -->
+        <div class="mt-6 p-4 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-xl text-white">
+          <h4 class="font-semibold mb-2 flex items-center">
+            <i class="fas fa-star mr-2"></i>Program Highlights
+          </h4>
+          <p class="text-sm opacity-90">
+            Every adventure is met with intention—whether tracking the Big Five at sunrise, engaging in missionary work, or sharing traditional meals under the stars. Students leave with not just memories, but a lifelong connection to the heart of Africa, its people, and its wild places.
           </p>
         </div>
       </div>
-    </footer>
+    </div>
+  </div>
+</div>
 
-    <!-- Add these styles to your existing CSS -->
-    <style>
-      .footer-link {
-        position: relative;
-        padding-bottom: 2px;
-      }
+          <!-- School of Etiquette -->
+          <div id="etiquette" class="program-detail">
+            <div class="shadcn-card">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                  <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    School of Etiquette
+                  </h2>
+                  <p class="text-lg text-gray-600 mb-6">
+                    A 6-8 week program focused on developing poise,
+                    confidence, and essential social skills. Students learn
+                    Canadian cultural norms, professional etiquette, and build
+                    the confidence needed to thrive in social and academic
+                    settings.
+                  </p>
+                  <div class="space-y-6 mb-8">
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-user-graduate text-[#323A63] mr-3"></i>Who It's For
+                      </h3>
+                      <p class="text-gray-600">
+                        Students preparing for Canadian academic and social
+                        life who want to build confidence and cultural
+                        awareness.
+                      </p>
+                    </div>
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-clock text-[#83A4A1] mr-3"></i>Timeline
+                      </h3>
+                      <p class="text-gray-600">
+                        6-8 weeks | Flexible scheduling year-round
+                      </p>
+                    </div>
+                  </div>
+                  <a href="apply.html" class="btn-primary inline-flex items-center"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="w-5 h-5 text-[#323A63]">
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>Apply Now</a>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                    Curriculum Highlights
+                  </h3>
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Canadian cultural norms &
+                        values</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Professional communication
+                        skills</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Dining etiquette</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Social confidence
+                        building</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Interview preparation</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Networking skills</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      .footer-link::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
-        transition: width 0.3s ease;
-      }
+          <!-- University Support -->
+          <div id="university" class="program-detail">
+            <div class="shadcn-card">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                  <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    University Support
+                  </h2>
+                  <p class="text-lg text-gray-600 mb-6">
+                    Comprehensive guidance for undergraduate and master's
+                    applications. We help students navigate the complex
+                    university admission process, from selecting the right
+                    programs to crafting compelling applications.
+                  </p>
+                  <div class="space-y-6 mb-8">
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-user-graduate text-[#323A63] mr-3"></i>Who It's For
+                      </h3>
+                      <p class="text-gray-600">
+                        High school graduates and university transfer students
+                        seeking admission to Canadian universities.
+                      </p>
+                    </div>
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-clock text-[#83A4A1] mr-3"></i>Success Rate
+                      </h3>
+                      <p class="text-gray-600">
+                        93% graduate acceptance rate into Canadian
+                        universities
+                      </p>
+                    </div>
+                  </div>
+                  <a href="apply.html" class="btn-primary inline-flex items-center"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="w-5 h-5 text-[#323A63]">
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>Apply Now</a>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                    Services Include
+                  </h3>
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>University selection
+                        guidance</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Application essay
+                        coaching</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Interview preparation</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Scholarship
+                        applications</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Visa guidance</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-check-circle text-[#83A4A1] mr-3 text-xl"></i><span>Pre-departure
+                        orientation</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
 
-      .footer-link:hover::after {
-        width: 100%;
-      }
-    </style>
+          <!-- Science Lovers -->
+          <div id="science" class="program-detail">
+            <div class="shadcn-card">
+              <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div>
+                  <h2 class="text-4xl font-bold text-gray-800 mb-4">
+                    For Science Lovers
+                  </h2>
+                  <p class="text-lg text-gray-600 mb-6">
+                    Pre-University Science Lab program offering hands-on
+                    experience in Physics, Biology, and Chemistry. Students
+                    work in actual university labs, conduct experiments, and
+                    prepare for science-focused university programs.
+                  </p>
+                  <div class="space-y-6 mb-8">
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-user-graduate text-[#323A63] mr-3"></i>Who It's For
+                      </h3>
+                      <p class="text-gray-600">
+                        Students passionate about science who want hands-on
+                        lab experience before university.
+                      </p>
+                    </div>
+                    <div class="feature-card">
+                      <h3 class="text-xl font-bold text-gray-800 mb-2 flex items-center">
+                        <i class="fas fa-clock text-[#83A4A1] mr-3"></i>Timeline
+                      </h3>
+                      <p class="text-gray-600">
+                        June 29 - July 31 | Summer intensive program
+                      </p>
+                    </div>
+                  </div>
+                  <a href="apply.html" class="btn-primary inline-flex items-center"><svg
+                      xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                      class="w-5 h-5 text-[#323A63]">
+                      <path d="M5 12h14" />
+                      <path d="M12 5v14" />
+                    </svg>Apply Now</a>
+                </div>
+                <div>
+                  <h3 class="text-2xl font-bold text-gray-800 mb-6">
+                    Lab Experiences
+                  </h3>
+                  <div class="grid grid-cols-1 gap-4">
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-flask text-[#83A4A1] mr-3 text-xl"></i><span>Advanced Physics experiments</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-dna text-[#83A4A1] mr-3 text-xl"></i><span>Molecular Biology labs</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-atom text-[#83A4A1] mr-3 text-xl"></i><span>Chemistry synthesis projects</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-microscope text-[#83A4A1] mr-3 text-xl"></i><span>Microscopy techniques</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-chart-line text-[#83A4A1] mr-3 text-xl"></i><span>Data analysis &
+                        presentation</span>
+                    </div>
+                    <div class="flex items-center p-3 bg-gray-50 rounded-xl">
+                      <i class="fas fa-users text-[#83A4A1] mr-3 text-xl"></i><span>Research team collaboration</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+    <!-- Program Comparison -->
+    <section class="py-24 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-5xl md:text-6xl font-bold text-[#DFB975] text-center mb-16">
+          Find Your Path
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="shadcn-card text-center">
+            <div class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-full flex items-center justify-center mb-6">
+              <span class="text-white text-2xl font-bold">9-12</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">High School</h3>
+            <p class="text-gray-600 mb-4">
+              Complete your secondary education in Canada
+            </p>
+            <p class="text-sm text-gray-500">Duration: 2-4 years</p>
+          </div>
+          <div class="shadcn-card text-center">
+            <div class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-full flex items-center justify-center mb-6">
+              <span class="text-white text-2xl font-bold">6-8</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">Look See</h3>
+            <p class="text-gray-600 mb-4">
+              Weeks of immersive Canadian experience
+            </p>
+            <p class="text-sm text-gray-500">Duration: 6-8 weeks</p>
+          </div>
+          <div class="shadcn-card text-center">
+            <div class="w-20 h-20 mx-auto bg-[#83A4A1] rounded-full flex items-center justify-center mb-6">
+              <span class="text-white text-2xl font-bold">93%</span>
+            </div>
+            <h3 class="text-2xl font-bold text-gray-800 mb-3">University</h3>
+            <p class="text-gray-600 mb-4">Acceptance rate with our support</p>
+            <p class="text-sm text-gray-500">Ongoing guidance</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    <script>
-      window.addEventListener('load', function () {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.from('.program-hero-card', {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          delay: 0.3,
-        });
+    <!-- CTA (navy->teal gradient, gold button) -->
+    <section class="py-24 bg-[#83A4A1]">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-5xl md:text-6xl font-bold text-white mb-6">
+          Ready to <span class="text-[#DFB975]">Begin</span>?
+        </h2>
+        <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
+          Choose your path and start your journey to success in Canada with
+          @BestWeCare.
+        </p>
+        <a href="apply.html" class="btn-accent text-lg px-12 py-5">Apply Now <i class="fas fa-arrow-right ml-2"></i></a>
+      </div>
+    </section>
+  </main>
 
-        const tabs = document.querySelectorAll('.program-tab');
-        const details = document.querySelectorAll('.program-detail');
-        tabs.forEach((tab) => {
-          tab.addEventListener('click', function () {
-            tabs.forEach((t) => t.classList.remove('active'));
-            this.classList.add('active');
-            details.forEach((detail) => {
-              detail.classList.remove('active');
-            });
-            const programId = this.getAttribute('data-program');
-            const selectedDetail = document.getElementById(programId);
-            if (selectedDetail) {
-              selectedDetail.classList.add('active');
-              gsap.fromTo(
-                selectedDetail,
-                { opacity: 0, y: 30 },
-                { opacity: 1, y: 0, duration: 0.5 },
-              );
-            }
+  <!-- Footer (updated colours) -->
+  <footer class="bg-white text-gray-700 py-16 border-t border-gray-200">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <!-- Column 1: Logo & About -->
+        <div>
+          <div class="flex items-center space-x-3 mb-6">
+            <a href="index.html" class="flex items-center space-x-3 group">
+              <div class="logo transform transition-transform group-hover:scale-105">
+                <img src="images/logo/no-bg-logo_2000x1333.png" alt="BestWeCare Logo" class="w-20 h-20" />
+              </div>
+              <span
+                class="font-bold text-xl text-[#323A63] hidden sm:block transition-all group-hover:bg-gradient-to-r group-hover:from-[#323A63] group-hover:to-[#83A4A1] group-hover:bg-clip-text group-hover:text-transparent">@BestWeCare</span>
+            </a>
+          </div>
+          <p class="text-gray-600 mb-6 leading-relaxed">
+            From Arrival to Confidence. We walk the journey with international
+            students from high school to university and beyond.
+          </p>
+          <div class="flex space-x-4">
+            <a href="#"
+              class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#323A63] hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transform hover:scale-110 transition-all duration-300">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#323A63] hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transform hover:scale-110 transition-all duration-300">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#"
+              class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-[#323A63] hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transform hover:scale-110 transition-all duration-300">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4
+            class="text-lg font-bold text-[#323A63] mb-6 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-[#323A63] after:to-[#83A4A1]">
+            Quick Links
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="index.html"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">Home</a>
+            </li>
+            <li>
+              <a href="about.html"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">About
+                Us</a>
+            </li>
+            <li>
+              <a href="programs.html"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">Programs</a>
+            </li>
+            <li>
+              <a href="admissions.html"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">Admissions</a>
+            </li>
+            <li>
+              <a href="apply.html"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">Apply
+                Now</a>
+            </li>
+            <li>
+              <a href="contact.html"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Programs -->
+        <div>
+          <h4
+            class="text-lg font-bold text-[#323A63] mb-6 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-[#323A63] after:to-[#83A4A1]">
+            Our Programs
+          </h4>
+          <ul class="space-y-3">
+            <li>
+              <a href="programs.html#high-school"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">High
+                School Program</a>
+            </li>
+            <li>
+              <a href="programs.html#look-see"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">Look
+                See Canada</a>
+            </li>
+            <li>
+              <a href="programs.html#etiquette"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">School
+                of Etiquette</a>
+            </li>
+            <li>
+              <a href="programs.html#university"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">University
+                Support</a>
+            </li>
+            <li>
+              <a href="programs.html#science"
+                class="footer-link text-gray-600 hover:text-[#323A63] transition-all duration-300 inline-block hover:translate-x-1">For
+                Science Lovers</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact Info -->
+        <div>
+          <h4
+            class="text-lg font-bold text-[#323A63] mb-6 relative inline-block after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-12 after:h-0.5 after:bg-gradient-to-r after:from-[#323A63] after:to-[#83A4A1]">
+            Contact Info
+          </h4>
+          <ul class="space-y-4">
+            <li class="flex items-start space-x-3 group">
+              <i class="fas fa-map-marker-alt text-[#DFB975] mt-1 transition-transform group-hover:scale-110"></i>
+              <span class="text-gray-600 group-hover:text-[#323A63] transition-colors">Hamilton, Ontario, Canada</span>
+            </li>
+            <li class="flex items-center space-x-3 group">
+              <i class="fas fa-phone text-[#83A4A1] transition-transform group-hover:scale-110"></i>
+              <span class="text-gray-600 group-hover:text-[#323A63] transition-colors">+1 365 855 2137</span>
+            </li>
+            <li class="flex items-center space-x-3 group">
+              <i class="fab fa-whatsapp text-[#DFB975] transition-transform group-hover:scale-110"></i>
+              <span class="text-gray-600 group-hover:text-[#323A63] transition-colors">+1 365 855 2137</span>
+            </li>
+            <li class="flex items-center space-x-3 group">
+              <i class="fas fa-envelope text-[#323A63] transition-transform group-hover:scale-110"></i>
+              <span class="text-gray-600 group-hover:text-[#323A63] transition-colors">atbestwecareinc@gmail.com</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div
+        class="border-t border-gray-200 mt-12 pt-8 text-center text-gray-500 hover:text-[#323A63] transition-colors duration-300">
+        <p>
+          © 2026 @BestWeCare Inc. All rights reserved. | Business Registration
+          #: 770656601RC0001
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Add these styles to your existing CSS -->
+  <style>
+    .footer-link {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    .footer-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #323a63 0%, #83a4a1 100%);
+      transition: width 0.3s ease;
+    }
+
+    .footer-link:hover::after {
+      width: 100%;
+    }
+  </style>
+
+  <div id="backToTop"><i class="fas fa-arrow-up"></i></div>
+
+  <script>
+    window.addEventListener('load', function () {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.program-hero-card', {
+        opacity: 0,
+        y: 50,
+        duration: 1,
+        delay: 0.3,
+      });
+
+      const tabs = document.querySelectorAll('.program-tab');
+      const details = document.querySelectorAll('.program-detail');
+      tabs.forEach((tab) => {
+        tab.addEventListener('click', function () {
+          tabs.forEach((t) => t.classList.remove('active'));
+          this.classList.add('active');
+          details.forEach((detail) => {
+            detail.classList.remove('active');
           });
-        });
-
-        document.querySelectorAll('.program-link').forEach((link) => {
-          link.addEventListener('click', function (e) {
-            e.preventDefault();
-            const programId = this.getAttribute('data-program');
-            const tab = document.querySelector(
-              `.program-tab[data-program="${programId}"]`,
+          const programId = this.getAttribute('data-program');
+          const selectedDetail = document.getElementById(programId);
+          if (selectedDetail) {
+            selectedDetail.classList.add('active');
+            gsap.fromTo(
+              selectedDetail,
+              { opacity: 0, y: 30 },
+              { opacity: 1, y: 0, duration: 0.5 },
             );
-            if (tab) {
-              tab.click();
-              gsap.to(window, {
-                duration: 1,
-                scrollTo: { y: '#programs', offsetY: 100 },
-              });
-            }
-          });
+          }
         });
+      });
 
-        gsap.utils.toArray('.shadcn-card').forEach((card, i) => {
-          gsap.fromTo(
-            card,
-            { opacity: 0, y: 50 },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 0.8,
-              delay: i * 0.1,
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none reverse',
-              },
-            },
+      document.querySelectorAll('.program-link').forEach((link) => {
+        link.addEventListener('click', function (e) {
+          e.preventDefault();
+          const programId = this.getAttribute('data-program');
+          const tab = document.querySelector(
+            `.program-tab[data-program="${programId}"]`,
           );
-        });
-        gsap.utils.toArray('.feature-card').forEach((card, i) => {
-          gsap.fromTo(
-            card,
-            { opacity: 0, x: -30 },
-            {
-              opacity: 1,
-              x: 0,
-              duration: 0.6,
-              delay: i * 0.1,
-              scrollTrigger: {
-                trigger: card,
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none reverse',
-              },
-            },
-          );
-        });
-      });
-
-      const menuToggle = document.getElementById('menuToggle'),
-        closeMenu = document.getElementById('closeMenu'),
-        mobileMenu = document.getElementById('mobileMenu'),
-        menuOverlay = document.getElementById('menuOverlay'),
-        mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-      function openMenu() {
-        mobileMenu.classList.add('active');
-        menuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-      function closeMenuFunc() {
-        mobileMenu.classList.remove('active');
-        menuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-      menuToggle.addEventListener('click', openMenu);
-      closeMenu.addEventListener('click', closeMenuFunc);
-      menuOverlay.addEventListener('click', closeMenuFunc);
-      mobileNavLinks.forEach((l) => l.addEventListener('click', closeMenuFunc));
-
-      const backToTop = document.getElementById('backToTop');
-      window.addEventListener('scroll', function () {
-        window.scrollY > 500
-          ? backToTop.classList.add('visible')
-          : backToTop.classList.remove('visible');
-      });
-      backToTop.addEventListener('click', function () {
-        gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
-      });
-
-      const nav = document.querySelector('nav');
-      window.addEventListener('scroll', function () {
-        if (window.scrollY > 50) {
-          nav.classList.add('shadow-lg');
-          nav.style.background = 'rgba(255, 255, 255, 0.98)';
-        } else {
-          nav.classList.remove('shadow-lg');
-          nav.style.background = 'rgba(255, 255, 255, 0.95)';
-        }
-      });
-
-      if (window.location.hash) {
-        const hash = window.location.hash.substring(1);
-        const tab = document.querySelector(
-          `.program-tab[data-program="${hash}"]`,
-        );
-        if (tab) {
-          setTimeout(() => {
+          if (tab) {
             tab.click();
-          }, 100);
-        }
+            gsap.to(window, {
+              duration: 1,
+              scrollTo: { y: '#programs', offsetY: 100 },
+            });
+          }
+        });
+      });
+
+      gsap.utils.toArray('.shadcn-card').forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, y: 50 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: i * 0.1,
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      });
+      gsap.utils.toArray('.feature-card').forEach((card, i) => {
+        gsap.fromTo(
+          card,
+          { opacity: 0, x: -30 },
+          {
+            opacity: 1,
+            x: 0,
+            duration: 0.6,
+            delay: i * 0.1,
+            scrollTrigger: {
+              trigger: card,
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse',
+            },
+          },
+        );
+      });
+    });
+
+    const menuToggle = document.getElementById('menuToggle'),
+      closeMenu = document.getElementById('closeMenu'),
+      mobileMenu = document.getElementById('mobileMenu'),
+      menuOverlay = document.getElementById('menuOverlay'),
+      mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+    function openMenu() {
+      mobileMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeMenuFunc() {
+      mobileMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+    menuToggle.addEventListener('click', openMenu);
+    closeMenu.addEventListener('click', closeMenuFunc);
+    menuOverlay.addEventListener('click', closeMenuFunc);
+    mobileNavLinks.forEach((l) => l.addEventListener('click', closeMenuFunc));
+
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', function () {
+      window.scrollY > 500
+        ? backToTop.classList.add('visible')
+        : backToTop.classList.remove('visible');
+    });
+    backToTop.addEventListener('click', function () {
+      gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
+    });
+
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        nav.classList.add('shadow-lg');
+        nav.style.background = 'rgba(255, 255, 255, 0.98)';
+      } else {
+        nav.classList.remove('shadow-lg');
+        nav.style.background = 'rgba(255, 255, 255, 0.95)';
       }
-    </script>
-  </body>
+    });
+
+    if (window.location.hash) {
+      const hash = window.location.hash.substring(1);
+      const tab = document.querySelector(
+        `.program-tab[data-program="${hash}"]`,
+      );
+      if (tab) {
+        setTimeout(() => {
+          tab.click();
+        }, 100);
+      }
+    }
+  </script>
+</body>
+
 </html>
