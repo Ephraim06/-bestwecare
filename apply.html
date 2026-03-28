@@ -1261,7 +1261,7 @@
       function processPayment() {
         const email = document.getElementById('parentEmail')?.value || '';
         const returnUrl = encodeURIComponent(window.location.href + '?payment=success&t=' + Date.now());
-        const stripeUrl = `https://buy.stripe.com/dRm00k4Bx6fO6sX2oBdZ601?prefilled_email=${encodeURIComponent(email)}&return_url=${returnUrl}`;
+        const stripeUrl = `https://buy.stripe.com/14AaEY1pl1Zyg3xfbndZ602?prefilled_email=${encodeURIComponent(email)}&return_url=${returnUrl}`;
         window.location.href = stripeUrl;
       }
       
