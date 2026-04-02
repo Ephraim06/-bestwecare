@@ -2,7 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Apply Now - @BestWeCare</title>
 
     <!-- Tailwind CSS -->
@@ -53,7 +55,12 @@
         background: linear-gradient(135deg, #f1f4f9 0%, #dbe7e5 100%);
       }
 
-      h1, h2, h3, h4, h5, h6 {
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
         font-family: 'Space Grotesk', sans-serif;
       }
 
@@ -112,7 +119,9 @@
         padding: 0.75rem 2rem;
         font-weight: 600;
         color: white;
-        box-shadow: 0 10px 15px -3px rgb(223 185 117 / 0.3), 0 4px 6px -4px rgb(223 185 117 / 0.3);
+        box-shadow:
+          0 10px 15px -3px rgb(223 185 117 / 0.3),
+          0 4px 6px -4px rgb(223 185 117 / 0.3);
         transition: all 0.15s ease;
         display: inline-flex;
         align-items: center;
@@ -417,7 +426,7 @@
 
       .payment-banner {
         background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
-        border-left: 4px solid #DFB975;
+        border-left: 4px solid #dfb975;
         padding: 0.875rem;
         border-radius: 0.75rem;
         margin-bottom: 1.5rem;
@@ -566,7 +575,8 @@
       }
 
       @keyframes pulse {
-        0%, 100% {
+        0%,
+        100% {
           transform: scale(1);
           box-shadow: 0 10px 25px -5px rgba(50, 58, 99, 0.3);
         }
@@ -617,7 +627,7 @@
       .fee-amount {
         font-size: 1.75rem;
         font-weight: 800;
-        background: #323a63 ;
+        background: #323a63;
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
@@ -730,7 +740,12 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
         transition: left 0.5s ease;
       }
 
@@ -803,9 +818,17 @@
     <!-- Success Message -->
     <div class="success-message" id="successMessage">
       <i class="fas fa-check-circle"></i>
-      <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2">Application Submitted!</h3>
-      <p class="text-gray-600 mb-4 text-sm md:text-base">Thank you for applying. We'll contact you within 24-48 hours.</p>
-      <button onclick="closeSuccessMessage()" class="btn-primary text-sm md:text-base">Close</button>
+      <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-2">
+        Application Submitted!
+      </h3>
+      <p class="text-gray-600 mb-4 text-sm md:text-base">
+        Thank you for applying. We'll contact you within 24-48 hours.
+      </p>
+      <button
+        onclick="closeSuccessMessage()"
+        class="btn-primary text-sm md:text-base">
+        Close
+      </button>
     </div>
 
     <!-- Mobile Menu Overlay -->
@@ -814,16 +837,47 @@
     <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
       <div class="flex justify-between items-center mb-8">
-        <span class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent">@BestWeCare</span>
-        <button id="closeMenu" class="text-2xl text-gray-600 hover:text-[#323A63] transition"><i class="fas fa-times"></i></button>
+        <span
+          class="text-2xl font-bold bg-gradient-to-r from-[#323A63] to-[#83A4A1] bg-clip-text text-transparent"
+          >@BestWeCare</span
+        >
+        <button
+          id="closeMenu"
+          class="text-2xl text-gray-600 hover:text-[#323A63] transition">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
       <nav class="flex flex-col space-y-4">
-        <a href="index.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Home</a>
-        <a href="about.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">About</a>
-        <a href="programs.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Programs</a>
-        <a href="admissions.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Admissions</a>
-        <a href="apply.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Apply Now</a>
-        <a href="contact.html" class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition">Contact</a>
+        <a
+          href="index.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Home</a
+        >
+        <a
+          href="about.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >About</a
+        >
+        <a
+          href="programs.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Programs</a
+        >
+        <a
+          href="admissions.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Admissions</a
+        >
+        <a
+          href="apply.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Apply Now</a
+        >
+        <a
+          href="contact.html"
+          class="mobile-nav-link px-4 py-3 rounded-xl hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] hover:text-white transition"
+          >Contact</a
+        >
       </nav>
     </div>
 
@@ -833,9 +887,15 @@
         <div class="flex justify-between items-center h-16 md:h-20">
           <a href="index.html" class="flex items-center space-x-3">
             <div class="logo">
-              <img src="images/logo/no-bg-logo_2000x1333.png" alt="BestWeCare Logo" class="w-14 h-14 md:w-20 md:h-20" />
+              <img
+                src="images/logo/no-bg-logo_2000x1333.png"
+                alt="BestWeCare Logo"
+                class="w-14 h-14 md:w-20 md:h-20" />
             </div>
-            <span class="font-bold text-lg md:text-xl bg-[#323A63] bg-clip-text text-transparent hidden sm:block">@BestWeCare</span>
+            <span
+              class="font-bold text-lg md:text-xl bg-[#323A63] bg-clip-text text-transparent hidden sm:block"
+              >@BestWeCare</span
+            >
           </a>
 
           <div class="hidden md:flex items-center space-x-1">
@@ -851,7 +911,9 @@
             <a href="apply.html" class="btn-accent text-sm">Apply Now →</a>
           </div>
 
-          <button id="menuToggle" class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
+          <button
+            id="menuToggle"
+            class="md:hidden text-2xl text-gray-700 hover:text-[#323A63] transition">
             <i class="fas fa-bars"></i>
           </button>
         </div>
@@ -879,27 +941,48 @@
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="max-w-4xl mx-auto">
             <!-- Payment Status Banner -->
-            <div id="paymentStatusBanner" class="payment-banner" style="display: flex;">
-              <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 justify-between">
+            <div
+              id="paymentStatusBanner"
+              class="payment-banner"
+              style="display: flex">
+              <div
+                class="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-10 justify-between">
                 <div class="flex items-center">
-                  <i class="fas fa-lock text-[#DFB975] text-xl md:text-2xl mr-3"></i>
+                  <i
+                    class="fas fa-lock text-[#DFB975] text-xl md:text-2xl mr-3"></i>
                   <div>
-                    <h3 class="font-semibold text-gray-800 text-sm md:text-base">Application Locked</h3>
-                    <p class="text-xs md:text-sm text-gray-600">Complete payment to unlock and submit your application</p>
+                    <h3
+                      class="font-semibold text-gray-800 text-sm md:text-base">
+                      Application Locked
+                    </h3>
+                    <p class="text-xs md:text-sm text-gray-600">
+                      Complete payment to unlock and submit your application
+                    </p>
                   </div>
                 </div>
-                <button id="showPaymentModalBtn" class="btn-accent text-sm py-2 px-4 w-full sm:w-auto">
+                <button
+                  id="showPaymentModalBtn"
+                  class="btn-accent text-sm py-2 px-4 w-full sm:w-auto">
                   Pay Now <i class="fas fa-arrow-right ml-2"></i>
                 </button>
               </div>
             </div>
-            
-            <div id="paymentSuccessBanner" class="payment-success-banner" style="display: none;">
+
+            <div
+              id="paymentSuccessBanner"
+              class="payment-success-banner"
+              style="display: none">
               <div class="flex items-center">
-                <i class="fas fa-check-circle text-green-600 text-xl md:text-2xl mr-3"></i>
+                <i
+                  class="fas fa-check-circle text-green-600 text-xl md:text-2xl mr-3"></i>
                 <div>
-                  <h3 class="font-semibold text-green-800 text-sm md:text-base">Payment Successful!</h3>
-                  <p class="text-xs md:text-sm text-green-700">Your application form is now unlocked. Please complete and submit your application.</p>
+                  <h3 class="font-semibold text-green-800 text-sm md:text-base">
+                    Payment Successful!
+                  </h3>
+                  <p class="text-xs md:text-sm text-green-700">
+                    Your application form is now unlocked. Please complete and
+                    submit your application.
+                  </p>
                 </div>
               </div>
             </div>
@@ -907,32 +990,117 @@
             <!-- Progress Bar -->
             <div class="mb-6 md:mb-8">
               <div class="flex justify-between mb-2">
-                <span class="text-xs md:text-sm font-semibold text-gray-600">Application Progress</span>
-                <span class="text-xs md:text-sm font-semibold text-[#323A63]" id="progressPercentage">0%</span>
+                <span class="text-xs md:text-sm font-semibold text-gray-600"
+                  >Application Progress</span
+                >
+                <span
+                  class="text-xs md:text-sm font-semibold text-[#323A63]"
+                  id="progressPercentage"
+                  >0%</span
+                >
               </div>
               <div class="w-full bg-gray-200 rounded-full h-2">
-                <div class="progress-bar" id="progressBar" style="width: 0%"></div>
+                <div
+                  class="progress-bar"
+                  id="progressBar"
+                  style="width: 0%"></div>
               </div>
             </div>
 
-            <form id="applicationForm" class="application-form" action="https://formspree.io/f/xgonzgbe" method="POST" enctype="multipart/form-data">
+            <form
+              id="applicationForm"
+              class="application-form"
+              action="https://formspree.io/f/xgonzgbe"
+              method="POST"
+              enctype="multipart/form-data">
               <!-- Student Information -->
               <div class="form-section" id="section1">
                 <div class="relative">
-                  <div id="lockBadge1" class="locked-badge" style="display: flex;">
+                  <div
+                    id="lockBadge1"
+                    class="locked-badge"
+                    style="display: flex">
                     <i class="fas fa-lock mr-1"></i> Locked
                   </div>
-                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
-                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">1</span>
+                  <h2
+                    class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span
+                      class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
+                      >1</span
+                    >
                     Student Information
                   </h2>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    <div><label class="form-label">Full Name *</label><input type="text" class="form-input" id="fullName" name="full-name" required disabled /></div>
-                    <div><label class="form-label">Date of Birth *</label><input type="date" class="form-input" id="dob" name="date-of-birth" required disabled /></div>
-                    <div><label class="form-label">Gender *</label><select class="form-input" id="gender" name="gender" required disabled><option value="">Select Gender</option><option value="male">Male</option><option value="female">Female</option></select></div>
-                    <div><label class="form-label">Nationality *</label><input type="text" class="form-input" id="nationality" name="nationality" required disabled /></div>
-                    <div><label class="form-label">Current Grade/Level *</label><select class="form-input" id="grade" name="grade" required disabled><option value="">Select Grade</option><option value="9">Grade 9</option><option value="10">Grade 10</option><option value="11">Grade 11</option><option value="12">Grade 12</option><option value="university">University Transfer</option><option value="masters">Master's Preparation</option></select></div>
-                    <div><label class="form-label">Country of Residence *</label><input type="text" class="form-input" id="country" name="country" required disabled /></div>
+                    <div>
+                      <label class="form-label">Full Name *</label
+                      ><input
+                        type="text"
+                        class="form-input"
+                        id="fullName"
+                        name="full-name"
+                        required
+                        disabled />
+                    </div>
+                    <div>
+                      <label class="form-label">Date of Birth *</label
+                      ><input
+                        type="date"
+                        class="form-input"
+                        id="dob"
+                        name="date-of-birth"
+                        required
+                        disabled />
+                    </div>
+                    <div>
+                      <label class="form-label">Gender *</label
+                      ><select
+                        class="form-input"
+                        id="gender"
+                        name="gender"
+                        required
+                        disabled>
+                        <option value="">Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="form-label">Nationality *</label
+                      ><input
+                        type="text"
+                        class="form-input"
+                        id="nationality"
+                        name="nationality"
+                        required
+                        disabled />
+                    </div>
+                    <div>
+                      <label class="form-label">Current Grade/Level *</label
+                      ><select
+                        class="form-input"
+                        id="grade"
+                        name="grade"
+                        required
+                        disabled>
+                        <option value="">Select Grade</option>
+                        <option value="9">Grade 9</option>
+                        <option value="10">Grade 10</option>
+                        <option value="11">Grade 11</option>
+                        <option value="12">Grade 12</option>
+                        <option value="university">University Transfer</option>
+                        <option value="masters">Master's Preparation</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label class="form-label">Country of Residence *</label
+                      ><input
+                        type="text"
+                        class="form-input"
+                        id="country"
+                        name="country"
+                        required
+                        disabled />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -940,17 +1108,71 @@
               <!-- Parent/Guardian Information -->
               <div class="form-section" id="section2">
                 <div class="relative">
-                  <div id="lockBadge2" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
-                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
-                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">2</span>
+                  <div
+                    id="lockBadge2"
+                    class="locked-badge"
+                    style="display: flex">
+                    <i class="fas fa-lock mr-1"></i> Locked
+                  </div>
+                  <h2
+                    class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span
+                      class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
+                      >2</span
+                    >
                     Parent/Guardian Information
                   </h2>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    <div><label class="form-label">Parent/Guardian Full Name *</label><input type="text" class="form-input" id="parentName" name="parent-name" required disabled /></div>
-                    <div><label class="form-label">Relationship to Student *</label><input type="text" class="form-input" id="relationship" name="parent-relationship" required disabled /></div>
-                    <div><label class="form-label">Email *</label><input type="email" class="form-input" id="parentEmail" name="parent-email" required disabled /></div>
-                    <div><label class="form-label">Phone *</label><input type="tel" class="form-input" id="parentPhone" name="parent-phone" required disabled /></div>
-                    <div class="md:col-span-2"><label class="form-label">Address</label><input type="text" class="form-input" id="parentAddress" name="parent-address" disabled /></div>
+                    <div>
+                      <label class="form-label"
+                        >Parent/Guardian Full Name *</label
+                      ><input
+                        type="text"
+                        class="form-input"
+                        id="parentName"
+                        name="parent-name"
+                        required
+                        disabled />
+                    </div>
+                    <div>
+                      <label class="form-label">Relationship to Student *</label
+                      ><input
+                        type="text"
+                        class="form-input"
+                        id="relationship"
+                        name="parent-relationship"
+                        required
+                        disabled />
+                    </div>
+                    <div>
+                      <label class="form-label">Email *</label
+                      ><input
+                        type="email"
+                        class="form-input"
+                        id="parentEmail"
+                        name="parent-email"
+                        required
+                        disabled />
+                    </div>
+                    <div>
+                      <label class="form-label">Phone *</label
+                      ><input
+                        type="tel"
+                        class="form-input"
+                        id="parentPhone"
+                        name="parent-phone"
+                        required
+                        disabled />
+                    </div>
+                    <div class="md:col-span-2">
+                      <label class="form-label">Address</label
+                      ><input
+                        type="text"
+                        class="form-input"
+                        id="parentAddress"
+                        name="parent-address"
+                        disabled />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -958,24 +1180,179 @@
               <!-- Program Selection -->
               <div class="form-section" id="section3">
                 <div class="relative">
-                  <div id="lockBadge3" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
-                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
-                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">3</span>
+                  <div
+                    id="lockBadge3"
+                    class="locked-badge"
+                    style="display: flex">
+                    <i class="fas fa-lock mr-1"></i> Locked
+                  </div>
+                  <h2
+                    class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span
+                      class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
+                      >3</span
+                    >
                     Program Selection
                   </h2>
                   <div class="space-y-4">
-                    <div><label class="form-label">Select Program <span class="text-red-500">(required) *</span></label>
-                      <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" name="program" value="high-school" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">High School Program</span><p class="text-xs md:text-sm text-gray-500">2-4 years, OSSD</p></div></label>
-                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" value="look-see" name="look-see-program" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">Look See Canada</span><p class="text-xs md:text-sm text-gray-500">6-8 weeks, Summer</p></div></label>
-                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" name="etiquette-program" value="etiquette" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">School of Etiquette</span><p class="text-xs md:text-sm text-gray-500">6-8 weeks</p></div></label>
-                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" name="university-program" value="university" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">University Support</span><p class="text-xs md:text-sm text-gray-500">Undergraduate/Master's</p></div></label>
-                        <label class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"><input type="radio" name="science-program" value="science" class="mr-3" disabled /><div><span class="font-semibold text-sm md:text-base">Science Lovers</span><p class="text-xs md:text-sm text-gray-500">Summer Lab Program</p></div></label>
+                    <div>
+                      <label class="form-label"
+                        >Select Program
+                        <span class="text-red-500">(required) *</span></label
+                      >
+                      <div
+                        class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
+                        <label
+                          class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                          ><input
+                            type="radio"
+                            name="program"
+                            value="high-school"
+                            class="mr-3"
+                            disabled />
+                          <div>
+                            <span class="font-semibold text-sm md:text-base"
+                              >High School Program</span
+                            >
+                            <p class="text-xs md:text-sm text-gray-500">
+                              2-4 years, OSSD
+                            </p>
+                          </div></label
+                        >
+                        <label
+                          class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                          ><input
+                            type="radio"
+                            value="look-see"
+                            name="look-see-program"
+                            class="mr-3"
+                            disabled />
+                          <div>
+                            <span class="font-semibold text-sm md:text-base"
+                              >Look See Canada</span
+                            >
+                            <p class="text-xs md:text-sm text-gray-500">
+                              6-8 weeks, Summer
+                            </p>
+                          </div></label
+                        >
+                        <label
+                          class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                          ><input
+                            type="radio"
+                            name="etiquette-program"
+                            value="etiquette"
+                            class="mr-3"
+                            disabled />
+                          <div>
+                            <span class="font-semibold text-sm md:text-base"
+                              >School of Etiquette</span
+                            >
+                            <p class="text-xs md:text-sm text-gray-500">
+                              6-8 weeks
+                            </p>
+                          </div></label
+                        >
+                        <label
+                          class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                          ><input
+                            type="radio"
+                            name="university-program"
+                            value="university"
+                            class="mr-3"
+                            disabled />
+                          <div>
+                            <span class="font-semibold text-sm md:text-base"
+                              >University Support</span
+                            >
+                            <p class="text-xs md:text-sm text-gray-500">
+                              Undergraduate/Master's
+                            </p>
+                          </div></label
+                        >
+                        <label
+                          class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                          ><input
+                            type="radio"
+                            name="science-program"
+                            value="science"
+                            class="mr-3"
+                            disabled />
+                          <div>
+                            <span class="font-semibold text-sm md:text-base"
+                              >Science Lovers</span
+                            >
+                            <p class="text-xs md:text-sm text-gray-500">
+                              Summer Lab Program
+                            </p>
+                          </div></label
+                        >
+                        <!-- NEW: International Elementary School Program -->
+                        <label
+                          class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                          ><input
+                            type="radio"
+                            name="elementary-program"
+                            value="elementary"
+                            class="mr-3"
+                            disabled />
+                          <div>
+                            <span class="font-semibold text-sm md:text-base"
+                              >International Elementary School</span
+                            >
+                            <p class="text-xs md:text-sm text-gray-500">
+                              JK – Grade 8, ELL Support
+                            </p>
+                          </div></label
+                        >
+                        <!-- NEW: University & College Pathway -->
+                        <label
+                          class="flex items-center p-3 md:p-4 border-2 rounded-xl hover:border-[#323A63] transition cursor-pointer"
+                          ><input
+                            type="radio"
+                            name="college-pathway-program"
+                            value="college-pathway"
+                            class="mr-3"
+                            disabled />
+                          <div>
+                            <span class="font-semibold text-sm md:text-base"
+                              >University & College Pathway</span
+                            >
+                            <p class="text-xs md:text-sm text-gray-500">
+                              High School to Uni + Graduate Advancement
+                            </p>
+                          </div></label
+                        >
                       </div>
                     </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6">
-                      <div><label class="form-label">Preferred Start Date</label><input type="month" class="form-input" id="startDate" required disabled /></div>
-                      <div><label class="form-label">How did you hear about us?</label><select class="form-input" id="hearAbout" name="heard-about-us" required disabled><option value="">Select</option><option value="agent">Education Agent</option><option value="internet">Internet Search</option><option value="social">Social Media</option><option value="friend">Friend/Family</option><option value="other">Other</option></select></div>
+                    <div
+                      class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-4 md:mt-6">
+                      <div>
+                        <label class="form-label">Preferred Start Date</label
+                        ><input
+                          type="month"
+                          class="form-input"
+                          id="startDate"
+                          required
+                          disabled />
+                      </div>
+                      <div>
+                        <label class="form-label"
+                          >How did you hear about us?</label
+                        ><select
+                          class="form-input"
+                          id="hearAbout"
+                          name="heard-about-us"
+                          required
+                          disabled>
+                          <option value="">Select</option>
+                          <option value="agent">Education Agent</option>
+                          <option value="internet">Internet Search</option>
+                          <option value="social">Social Media</option>
+                          <option value="friend">Friend/Family</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -984,16 +1361,62 @@
               <!-- Contact Information -->
               <div class="form-section" id="section4">
                 <div class="relative">
-                  <div id="lockBadge4" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
-                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
-                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">4</span>
+                  <div
+                    id="lockBadge4"
+                    class="locked-badge"
+                    style="display: flex">
+                    <i class="fas fa-lock mr-1"></i> Locked
+                  </div>
+                  <h2
+                    class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span
+                      class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
+                      >4</span
+                    >
                     Contact Information
                   </h2>
                   <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                    <div><label class="form-label">Student Email *</label><input type="email" class="form-input" id="studentEmail" name="student-email" required disabled /></div>
-                    <div><label class="form-label">Student Phone *</label><input type="tel" class="form-input" id="studentPhone" name="student-phone" required disabled /></div>
-                    <div><label class="form-label">WhatsApp (if different)</label><input type="tel" class="form-input" id="whatsapp" name="whatsapp" disabled /></div>
-                    <div><label class="form-label">Preferred Contact Method</label><select class="form-input" id="contactMethod" name="contact-method" disabled><option value="email">Email</option><option value="phone">Phone</option><option value="whatsapp">WhatsApp</option></select></div>
+                    <div>
+                      <label class="form-label">Student Email *</label
+                      ><input
+                        type="email"
+                        class="form-input"
+                        id="studentEmail"
+                        name="student-email"
+                        required
+                        disabled />
+                    </div>
+                    <div>
+                      <label class="form-label">Student Phone *</label
+                      ><input
+                        type="tel"
+                        class="form-input"
+                        id="studentPhone"
+                        name="student-phone"
+                        required
+                        disabled />
+                    </div>
+                    <div>
+                      <label class="form-label">WhatsApp (if different)</label
+                      ><input
+                        type="tel"
+                        class="form-input"
+                        id="whatsapp"
+                        name="whatsapp"
+                        disabled />
+                    </div>
+                    <div>
+                      <label class="form-label">Preferred Contact Method</label
+                      ><select
+                        class="form-input"
+                        id="contactMethod"
+                        name="contact-method"
+                        disabled>
+                        <option value="email">Email</option>
+                        <option value="phone">Phone</option>
+                        <option value="whatsapp">WhatsApp</option>
+                      </select>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1001,39 +1424,110 @@
               <!-- Document Upload -->
               <div class="form-section" id="section5">
                 <div class="relative">
-                  <div id="lockBadge5" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
-                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
-                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">5</span>
+                  <div
+                    id="lockBadge5"
+                    class="locked-badge"
+                    style="display: flex">
+                    <i class="fas fa-lock mr-1"></i> Locked
+                  </div>
+                  <h2
+                    class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span
+                      class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
+                      >5</span
+                    >
                     Document Upload
                   </h2>
                   <div class="space-y-4 md:space-y-6">
                     <div class="file-upload disabled" id="uploadTranscripts">
-                      <input type="file" id="transcripts" name="transcripts" class="hidden" accept=".pdf,.doc,.docx" required disabled />
+                      <input
+                        type="file"
+                        id="transcripts"
+                        name="transcripts"
+                        class="hidden"
+                        accept=".pdf,.doc,.docx"
+                        required
+                        disabled />
                       <i class="fas fa-cloud-upload-alt"></i>
-                      <h3 class="text-base md:text-lg font-semibold mb-1 md:mb-2">Upload Academic Transcripts *</h3>
-                      <p class="text-xs md:text-sm text-gray-500">PDF, DOC, or DOCX (Max 5MB)</p>
-                      <p class="text-xs text-gray-400 mt-1 md:mt-2" id="transcripts-filename">No file chosen</p>
+                      <h3
+                        class="text-base md:text-lg font-semibold mb-1 md:mb-2">
+                        Upload Academic Transcripts *
+                      </h3>
+                      <p class="text-xs md:text-sm text-gray-500">
+                        PDF, DOC, or DOCX (Max 5MB)
+                      </p>
+                      <p
+                        class="text-xs text-gray-400 mt-1 md:mt-2"
+                        id="transcripts-filename">
+                        No file chosen
+                      </p>
                     </div>
                     <div class="file-upload disabled" id="uploadPassport">
-                      <input type="file" id="passport" name="passport" class="hidden" accept=".pdf,.jpg,.jpeg,.png" required disabled />
+                      <input
+                        type="file"
+                        id="passport"
+                        name="passport"
+                        class="hidden"
+                        accept=".pdf,.jpg,.jpeg,.png"
+                        required
+                        disabled />
                       <i class="fas fa-id-card"></i>
-                      <h3 class="text-base md:text-lg font-semibold mb-1 md:mb-2">Upload Passport Copy *</h3>
-                      <p class="text-xs md:text-sm text-gray-500">PDF, JPG, or PNG (Max 5MB)</p>
-                      <p class="text-xs text-gray-400 mt-1 md:mt-2" id="passport-filename">No file chosen</p>
+                      <h3
+                        class="text-base md:text-lg font-semibold mb-1 md:mb-2">
+                        Upload Passport Copy *
+                      </h3>
+                      <p class="text-xs md:text-sm text-gray-500">
+                        PDF, JPG, or PNG (Max 5MB)
+                      </p>
+                      <p
+                        class="text-xs text-gray-400 mt-1 md:mt-2"
+                        id="passport-filename">
+                        No file chosen
+                      </p>
                     </div>
                     <div class="file-upload disabled" id="uploadEnglish">
-                      <input type="file" id="english" name="english-test" class="hidden" accept=".pdf" disabled />
+                      <input
+                        type="file"
+                        id="english"
+                        name="english-test"
+                        class="hidden"
+                        accept=".pdf"
+                        disabled />
                       <i class="fas fa-language"></i>
-                      <h3 class="text-base md:text-lg font-semibold mb-1 md:mb-2">English Proficiency Test (if applicable)</h3>
-                      <p class="text-xs md:text-sm text-gray-500">IELTS, TOEFL, or equivalent (PDF)</p>
-                      <p class="text-xs text-gray-400 mt-1 md:mt-2" id="english-filename">No file chosen</p>
+                      <h3
+                        class="text-base md:text-lg font-semibold mb-1 md:mb-2">
+                        English Proficiency Test (if applicable)
+                      </h3>
+                      <p class="text-xs md:text-sm text-gray-500">
+                        IELTS, TOEFL, or equivalent (PDF)
+                      </p>
+                      <p
+                        class="text-xs text-gray-400 mt-1 md:mt-2"
+                        id="english-filename">
+                        No file chosen
+                      </p>
                     </div>
                     <div class="file-upload disabled" id="uploadSOP">
-                      <input type="file" id="sop" name="statement-of-purpose" class="hidden" accept=".pdf,.doc,.docx" disabled />
+                      <input
+                        type="file"
+                        id="sop"
+                        name="statement-of-purpose"
+                        class="hidden"
+                        accept=".pdf,.doc,.docx"
+                        disabled />
                       <i class="fas fa-file-alt"></i>
-                      <h3 class="text-base md:text-lg font-semibold mb-1 md:mb-2">Statement of Purpose</h3>
-                      <p class="text-xs md:text-sm text-gray-500">Tell us your story (PDF or DOC)</p>
-                      <p class="text-xs text-gray-400 mt-1 md:mt-2" id="sop-filename">No file chosen</p>
+                      <h3
+                        class="text-base md:text-lg font-semibold mb-1 md:mb-2">
+                        Statement of Purpose
+                      </h3>
+                      <p class="text-xs md:text-sm text-gray-500">
+                        Tell us your story (PDF or DOC)
+                      </p>
+                      <p
+                        class="text-xs text-gray-400 mt-1 md:mt-2"
+                        id="sop-filename">
+                        No file chosen
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -1042,18 +1536,74 @@
               <!-- Additional Information -->
               <div class="form-section" id="section6">
                 <div class="relative">
-                  <div id="lockBadge6" class="locked-badge" style="display: flex;"><i class="fas fa-lock mr-1"></i> Locked</div>
-                  <h2 class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
-                    <span class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white">6</span>
+                  <div
+                    id="lockBadge6"
+                    class="locked-badge"
+                    style="display: flex">
+                    <i class="fas fa-lock mr-1"></i> Locked
+                  </div>
+                  <h2
+                    class="text-xl md:text-2xl font-bold text-gray-800 mb-4 md:mb-6 flex items-center">
+                    <span
+                      class="w-7 h-7 md:w-8 md:h-8 bg-gradient-to-r from-[#323A63] to-[#83A4A1] rounded-full flex items-center justify-center text-white text-xs md:text-sm mr-2 md:mr-3 ring-2 ring-[#DFB975] ring-offset-2 ring-offset-white"
+                      >6</span
+                    >
                     Additional Information
                   </h2>
                   <div class="space-y-4">
-                    <div><label class="form-label">Do you have any medical conditions we should be aware of?</label><textarea class="form-input" rows="3" id="medical" name="medical-conditions" disabled></textarea></div>
-                    <div><label class="form-label">Dietary Restrictions or Allergies</label><textarea class="form-input" rows="3" id="dietary" name="dietary-restrictions" disabled></textarea></div>
-                    <div><label class="form-label">Emergency Contact Name *</label><input type="text" class="form-input" id="emergencyName" name="emergency-name" required disabled /></div>
+                    <div>
+                      <label class="form-label"
+                        >Do you have any medical conditions we should be aware
+                        of?</label
+                      ><textarea
+                        class="form-input"
+                        rows="3"
+                        id="medical"
+                        name="medical-conditions"
+                        disabled></textarea>
+                    </div>
+                    <div>
+                      <label class="form-label"
+                        >Dietary Restrictions or Allergies</label
+                      ><textarea
+                        class="form-input"
+                        rows="3"
+                        id="dietary"
+                        name="dietary-restrictions"
+                        disabled></textarea>
+                    </div>
+                    <div>
+                      <label class="form-label">Emergency Contact Name *</label
+                      ><input
+                        type="text"
+                        class="form-input"
+                        id="emergencyName"
+                        name="emergency-name"
+                        required
+                        disabled />
+                    </div>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-                      <div><label class="form-label">Emergency Contact Relationship</label><input type="text" class="form-input" id="emergencyRelation" name="emergency-relationship" disabled /></div>
-                      <div><label class="form-label">Emergency Contact Phone *</label><input type="tel" class="form-input" id="emergencyPhone" name="emergency-phone" required disabled /></div>
+                      <div>
+                        <label class="form-label"
+                          >Emergency Contact Relationship</label
+                        ><input
+                          type="text"
+                          class="form-input"
+                          id="emergencyRelation"
+                          name="emergency-relationship"
+                          disabled />
+                      </div>
+                      <div>
+                        <label class="form-label"
+                          >Emergency Contact Phone *</label
+                        ><input
+                          type="tel"
+                          class="form-input"
+                          id="emergencyPhone"
+                          name="emergency-phone"
+                          required
+                          disabled />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -1062,12 +1612,44 @@
               <!-- Terms and Submit -->
               <div class="mt-6 md:mt-8">
                 <label class="flex items-center mb-4 md:mb-6">
-                  <input type="checkbox" class="mr-3 w-4 h-4 md:w-5 md:h-5" id="terms" name="terms" required disabled />
-                  <span class="text-gray-600 text-xs md:text-sm">I confirm that the information provided is accurate and complete. I agree to the <a href="#" class="text-[#323A63] hover:underline">Terms and Conditions</a> and <a href="#" class="text-[#83A4A1] hover:underline">Privacy Policy</a>.</span>
+                  <input
+                    type="checkbox"
+                    class="mr-3 w-4 h-4 md:w-5 md:h-5"
+                    id="terms"
+                    name="terms"
+                    required
+                    disabled />
+                  <span class="text-gray-600 text-xs md:text-sm"
+                    >I confirm that the information provided is accurate and
+                    complete. I agree to the
+                    <a href="#" class="text-[#323A63] hover:underline"
+                      >Terms and Conditions</a
+                    >
+                    and
+                    <a href="#" class="text-[#83A4A1] hover:underline"
+                      >Privacy Policy</a
+                    >.</span
+                  >
                 </label>
-                <button type="button" id="bottomPayButton" class="btn-accent w-full text-base md:text-lg py-3 md:py-4 mb-3 md:mb-4"><i class="fas fa-lock mr-2"></i> Pay to Unlock Application <i class="fas fa-arrow-right ml-2"></i></button>
-                <button type="submit" id="submitButton" class="btn-accent w-full text-base md:text-lg py-3 md:py-4" style="display: none;">Submit Application <i class="fas fa-paper-plane ml-2"></i></button>
-                <p class="text-xs text-gray-500 text-center mt-3 md:mt-4">By submitting this form, you agree to our terms and conditions. Application fee payment is required before submission.</p>
+                <button
+                  type="button"
+                  id="bottomPayButton"
+                  class="btn-accent w-full text-base md:text-lg py-3 md:py-4 mb-3 md:mb-4">
+                  <i class="fas fa-lock mr-2"></i> Pay to Unlock Application
+                  <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+                <button
+                  type="submit"
+                  id="submitButton"
+                  class="btn-accent w-full text-base md:text-lg py-3 md:py-4"
+                  style="display: none">
+                  Submit Application <i class="fas fa-paper-plane ml-2"></i>
+                </button>
+                <p class="text-xs text-gray-500 text-center mt-3 md:mt-4">
+                  By submitting this form, you agree to our terms and
+                  conditions. Application fee payment is required before
+                  submission.
+                </p>
               </div>
             </form>
           </div>
@@ -1078,40 +1660,73 @@
       <div id="paymentModal">
         <div class="payment-modal-content">
           <div class="modal-header">
-            <div class="modal-close" id="closeModalBtn"><i class="fas fa-times"></i></div>
+            <div class="modal-close" id="closeModalBtn">
+              <i class="fas fa-times"></i>
+            </div>
           </div>
           <div class="px-4 md:px-6 pb-2">
             <div class="modal-icon"><i class="fas fa-credit-card"></i></div>
-            <h2 class="text-xl md:text-2xl font-bold text-center text-gray-800 mb-2">Application Fee</h2>
-            <p class="text-center text-gray-500 text-xs md:text-sm">Complete payment to unlock your application</p>
+            <h2
+              class="text-xl md:text-2xl font-bold text-center text-gray-800 mb-2">
+              Application Fee
+            </h2>
+            <p class="text-center text-gray-500 text-xs md:text-sm">
+              Complete payment to unlock your application
+            </p>
           </div>
           <div class="fee-card">
-  <div class="flex justify-between items-start mb-2">
-    <div>
-      <span class="text-gray-700 font-medium text-sm md:text-base">Application Processing Fee</span>
-      <p class="text-xs text-gray-500 mt-1">Non-refundable</p>
-    </div>
-    <span class="fee-amount">$180 USD</span>
-  </div>
-  <div class="mt-2 md:mt-3 pt-2 md:pt-3 border-t border-white/50">
-    <div class="flex justify-between text-xs md:text-sm">
-      <span class="text-gray-600">Includes:</span>
-      <span class="text-green-600 font-medium">Immediate Access</span>
-    </div>
-  </div>
-</div>
+            <div class="flex justify-between items-start mb-2">
+              <div>
+                <span class="text-gray-700 font-medium text-sm md:text-base"
+                  >Application Processing Fee</span
+                >
+                <p class="text-xs text-gray-500 mt-1">Non-refundable</p>
+              </div>
+              <span class="fee-amount">$180 USD</span>
+            </div>
+            <div class="mt-2 md:mt-3 pt-2 md:pt-3 border-t border-white/50">
+              <div class="flex justify-between text-xs md:text-sm">
+                <span class="text-gray-600">Includes:</span>
+                <span class="text-green-600 font-medium">Immediate Access</span>
+              </div>
+            </div>
+          </div>
           <ul class="benefits-list">
-            <li><i class="fas fa-check-circle"></i><span>Unlock full application form</span></li>
-            <li><i class="fas fa-check-circle"></i><span>Submit your application immediately</span></li>
-            <li><i class="fas fa-check-circle"></i><span>Priority application review</span></li>
-            <li><i class="fas fa-check-circle"></i><span>24/7 admissions support</span></li>
-            <li><i class="fas fa-shield-alt"></i><span>Secure payment via Stripe</span></li>
+            <li>
+              <i class="fas fa-check-circle"></i
+              ><span>Unlock full application form</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i
+              ><span>Submit your application immediately</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i
+              ><span>Priority application review</span>
+            </li>
+            <li>
+              <i class="fas fa-check-circle"></i
+              ><span>24/7 admissions support</span>
+            </li>
+            <li>
+              <i class="fas fa-shield-alt"></i
+              ><span>Secure payment via Stripe</span>
+            </li>
           </ul>
           <div class="modal-buttons">
-            <button id="modalPayButton" class="btn-modal-primary"><i class="fas fa-lock"></i> Proceed to Secure Payment <i class="fas fa-arrow-right"></i></button>
-            <button id="closeModalBtn2" class="btn-modal-secondary"><i class="fas fa-times"></i> Cancel</button>
+            <button id="modalPayButton" class="btn-modal-primary">
+              <i class="fas fa-lock"></i> Proceed to Secure Payment
+              <i class="fas fa-arrow-right"></i>
+            </button>
+            <button id="closeModalBtn2" class="btn-modal-secondary">
+              <i class="fas fa-times"></i> Cancel
+            </button>
           </div>
-          <div class="payment-note"><i class="fas fa-credit-card"></i><span>100% secure payment • No hidden fees</span><i class="fas fa-lock"></i></div>
+          <div class="payment-note">
+            <i class="fas fa-credit-card"></i
+            ><span>100% secure payment • No hidden fees</span
+            ><i class="fas fa-lock"></i>
+          </div>
         </div>
       </div>
 
@@ -1119,11 +1734,22 @@
       <section class="py-16 md:py-24 bg-gray-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
           <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-5xl font-bold text-[#DFB975] mb-4 md:mb-6">Need Help With Your Application?</h2>
-            <p class="text-base md:text-xl text-gray-600 mb-6 md:mb-8">Our admissions team is here to guide you through every step of the process.</p>
-            <div class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
-              <a href="contact.html" class="btn-primary text-sm md:text-base">Contact Admissions</a>
-              <a href="tel:+13658552137" class="btn-accent text-sm md:text-base"><i class="fas fa-phone mr-2"></i> Call Us</a>
+            <h2
+              class="text-3xl md:text-5xl font-bold text-[#DFB975] mb-4 md:mb-6">
+              Need Help With Your Application?
+            </h2>
+            <p class="text-base md:text-xl text-gray-600 mb-6 md:mb-8">
+              Our admissions team is here to guide you through every step of the
+              process.
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center">
+              <a href="contact.html" class="btn-primary text-sm md:text-base"
+                >Contact Admissions</a
+              >
+              <a href="tel:+13658552137" class="btn-accent text-sm md:text-base"
+                ><i class="fas fa-phone mr-2"></i> Call Us</a
+              >
             </div>
           </div>
         </div>
@@ -1133,24 +1759,170 @@
     <!-- Footer -->
     <footer class="bg-[#1e2538] text-gray-400 py-12 md:py-16">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           <div>
             <div class="flex items-center space-x-3 mb-4 md:mb-6">
-              <img src="images/logo/no-bg-logo_2000x1333.png" alt="BestWeCare Logo" class="w-14 h-14 md:w-20 md:h-20" />
-              <span class="font-bold text-lg md:text-xl text-white">@BestWeCare</span>
+              <img
+                src="images/logo/no-bg-logo_2000x1333.png"
+                alt="BestWeCare Logo"
+                class="w-14 h-14 md:w-20 md:h-20" />
+              <span class="font-bold text-lg md:text-xl text-white"
+                >@BestWeCare</span
+              >
             </div>
-            <p class="text-sm md:text-base text-gray-400 mb-4 md:mb-6 leading-relaxed">From Arrival to Confidence. We walk the journey with international students from high school to university and beyond.</p>
+            <p
+              class="text-sm md:text-base text-gray-400 mb-4 md:mb-6 leading-relaxed">
+              From Arrival to Confidence. We walk the journey with international
+              students from high school to university and beyond.
+            </p>
             <div class="flex space-x-3 md:space-x-4">
-              <a href="#" class="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"><i class="fab fa-facebook-f text-sm md:text-base"></i></a>
-              <a href="#" class="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"><i class="fab fa-instagram text-sm md:text-base"></i></a>
-              <a href="#" class="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"><i class="fab fa-linkedin-in text-sm md:text-base"></i></a>
+              <a
+                href="#"
+                class="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-facebook-f text-sm md:text-base"></i
+              ></a>
+              <a
+                href="#"
+                class="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-instagram text-sm md:text-base"></i
+              ></a>
+              <a
+                href="#"
+                class="w-8 h-8 md:w-10 md:h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gradient-to-r hover:from-[#323A63] hover:to-[#83A4A1] transition"
+                ><i class="fab fa-linkedin-in text-sm md:text-base"></i
+              ></a>
             </div>
           </div>
-          <div><h4 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Quick Links</h4><ul class="space-y-2 md:space-y-3"><li><a href="index.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Home</a></li><li><a href="about.html" class="hover:text-[#DFB975] transition text-sm md:text-base">About Us</a></li><li><a href="programs.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Programs</a></li><li><a href="admissions.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Admissions</a></li><li><a href="apply.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Apply Now</a></li><li><a href="contact.html" class="hover:text-[#DFB975] transition text-sm md:text-base">Contact</a></li></ul></div>
-          <div><h4 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Our Programs</h4><ul class="space-y-2 md:space-y-3"><li><a href="programs.html#high-school" class="hover:text-[#DFB975] transition text-sm md:text-base">High School Program</a></li><li><a href="programs.html#look-see" class="hover:text-[#DFB975] transition text-sm md:text-base">Look See Canada</a></li><li><a href="programs.html#etiquette" class="hover:text-[#DFB975] transition text-sm md:text-base">School of Etiquette</a></li><li><a href="programs.html#university" class="hover:text-[#DFB975] transition text-sm md:text-base">University Support</a></li><li><a href="programs.html#science" class="hover:text-[#DFB975] transition text-sm md:text-base">For Science Lovers</a></li></ul></div>
-          <div><h4 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">Contact Info</h4><ul class="space-y-3 md:space-y-4"><li class="flex items-start space-x-3"><i class="fas fa-map-marker-alt text-[#DFB975] mt-1 text-sm md:text-base"></i><span class="text-sm md:text-base">Hamilton, Ontario, Canada</span></li><li class="flex items-center space-x-3"><i class="fas fa-phone text-[#83A4A1] text-sm md:text-base"></i><span class="text-sm md:text-base">+1 365 855 2137</span></li><li class="flex items-center space-x-3"><i class="fab fa-whatsapp text-[#DFB975] text-sm md:text-base"></i><span class="text-sm md:text-base">+1 365 855 2137</span></li><li class="flex items-center space-x-3"><i class="fas fa-envelope text-[#323A63] text-sm md:text-base"></i><span class="text-sm md:text-base">atbestwecareinc@gmail.com</span></li></ul></div>
+          <div>
+            <h4 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">
+              Quick Links
+            </h4>
+            <ul class="space-y-2 md:space-y-3">
+              <li>
+                <a
+                  href="index.html"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="programs.html"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >Programs</a
+                >
+              </li>
+              <li>
+                <a
+                  href="admissions.html"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >Admissions</a
+                >
+              </li>
+              <li>
+                <a
+                  href="apply.html"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >Apply Now</a
+                >
+              </li>
+              <li>
+                <a
+                  href="contact.html"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">
+              Our Programs
+            </h4>
+            <ul class="space-y-2 md:space-y-3">
+              <li>
+                <a
+                  href="programs.html#high-school"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >High School Program</a
+                >
+              </li>
+              <li>
+                <a
+                  href="programs.html#look-see"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >Look See Canada</a
+                >
+              </li>
+              <li>
+                <a
+                  href="programs.html#etiquette"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >School of Etiquette</a
+                >
+              </li>
+              <li>
+                <a
+                  href="programs.html#university"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >University Support</a
+                >
+              </li>
+              <li>
+                <a
+                  href="programs.html#science"
+                  class="hover:text-[#DFB975] transition text-sm md:text-base"
+                  >For Science Lovers</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-lg md:text-xl font-bold text-white mb-4 md:mb-6">
+              Contact Info
+            </h4>
+            <ul class="space-y-3 md:space-y-4">
+              <li class="flex items-start space-x-3">
+                <i
+                  class="fas fa-map-marker-alt text-[#DFB975] mt-1 text-sm md:text-base"></i
+                ><span class="text-sm md:text-base"
+                  >Hamilton, Ontario, Canada</span
+                >
+              </li>
+              <li class="flex items-center space-x-3">
+                <i class="fas fa-phone text-[#83A4A1] text-sm md:text-base"></i
+                ><span class="text-sm md:text-base">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i
+                  class="fab fa-whatsapp text-[#DFB975] text-sm md:text-base"></i
+                ><span class="text-sm md:text-base">+1 365 855 2137</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <i
+                  class="fas fa-envelope text-[#323A63] text-sm md:text-base"></i
+                ><span class="text-sm md:text-base"
+                  >atbestwecareinc@gmail.com</span
+                >
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-gray-500 text-xs md:text-sm"><p>© 2026 @BestWeCare Inc. All rights reserved. | Business Registration #: 770656601RC0001</p></div>
+        <div
+          class="border-t border-gray-800 mt-8 md:mt-12 pt-6 md:pt-8 text-center text-gray-500 text-xs md:text-sm">
+          <p>
+            © 2026 @BestWeCare Inc. All rights reserved. | Business Registration
+            #: 770656601RC0001
+          </p>
+        </div>
       </div>
     </footer>
 
@@ -1160,22 +1932,28 @@
       // Payment verification storage
       const PAYMENT_TOKEN_KEY = 'application_payment_verified';
       const PAYMENT_EXPIRY_KEY = 'application_payment_expiry';
-      
+
       // DOM Elements
       const form = document.getElementById('applicationForm');
       const paymentModal = document.getElementById('paymentModal');
-      const paymentStatusBanner = document.getElementById('paymentStatusBanner');
-      const paymentSuccessBanner = document.getElementById('paymentSuccessBanner');
+      const paymentStatusBanner = document.getElementById(
+        'paymentStatusBanner',
+      );
+      const paymentSuccessBanner = document.getElementById(
+        'paymentSuccessBanner',
+      );
       const bottomPayButton = document.getElementById('bottomPayButton');
       const submitButton = document.getElementById('submitButton');
       const modalPayButton = document.getElementById('modalPayButton');
-      const showPaymentModalBtn = document.getElementById('showPaymentModalBtn');
-      
+      const showPaymentModalBtn = document.getElementById(
+        'showPaymentModalBtn',
+      );
+
       // All form inputs
       const formInputs = form.querySelectorAll('input, select, textarea');
       const fileUploads = document.querySelectorAll('.file-upload');
       const lockBadges = document.querySelectorAll('.locked-badge');
-      
+
       // Show payment modal - IMPROVED VERSION
       function showPaymentModal() {
         if (paymentModal) {
@@ -1183,10 +1961,11 @@
           paymentModal.offsetHeight; // Force reflow
           paymentModal.classList.add('active');
           document.body.style.overflow = 'hidden';
-          document.body.style.paddingRight = window.innerWidth - document.documentElement.clientWidth + 'px';
+          document.body.style.paddingRight =
+            window.innerWidth - document.documentElement.clientWidth + 'px';
         }
       }
-      
+
       // Hide payment modal - IMPROVED VERSION
       function hidePaymentModal() {
         if (paymentModal) {
@@ -1198,48 +1977,59 @@
           }, 300);
         }
       }
-      
+
       // Enable all form fields
       function enableFormFields() {
-        formInputs.forEach(input => { input.disabled = false; });
-        fileUploads.forEach(upload => {
+        formInputs.forEach((input) => {
+          input.disabled = false;
+        });
+        fileUploads.forEach((upload) => {
           upload.classList.remove('disabled');
           const fileInput = upload.querySelector('input[type="file"]');
           if (fileInput) fileInput.disabled = false;
         });
-        lockBadges.forEach(badge => { badge.style.display = 'none'; });
+        lockBadges.forEach((badge) => {
+          badge.style.display = 'none';
+        });
         bottomPayButton.style.display = 'none';
         submitButton.style.display = 'block';
       }
-      
+
       // Disable all form fields
       function disableFormFields() {
-        formInputs.forEach(input => { input.disabled = true; });
-        fileUploads.forEach(upload => {
+        formInputs.forEach((input) => {
+          input.disabled = true;
+        });
+        fileUploads.forEach((upload) => {
           upload.classList.add('disabled');
           const fileInput = upload.querySelector('input[type="file"]');
           if (fileInput) fileInput.disabled = true;
         });
-        lockBadges.forEach(badge => { badge.style.display = 'flex'; });
+        lockBadges.forEach((badge) => {
+          badge.style.display = 'flex';
+        });
         bottomPayButton.style.display = 'block';
         submitButton.style.display = 'none';
       }
-      
+
       // Unlock form after payment
       function unlockForm() {
         enableFormFields();
         paymentStatusBanner.style.display = 'none';
         paymentSuccessBanner.style.display = 'block';
-        paymentSuccessBanner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        paymentSuccessBanner.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start',
+        });
       }
-      
+
       // Lock form
       function lockForm() {
         disableFormFields();
         paymentStatusBanner.style.display = 'flex';
         paymentSuccessBanner.style.display = 'none';
       }
-      
+
       // Check payment status
       function checkPaymentStatus() {
         const verified = localStorage.getItem(PAYMENT_TOKEN_KEY);
@@ -1256,32 +2046,46 @@
           return false;
         }
       }
-      
+
       // Handle payment
       function processPayment() {
         const email = document.getElementById('parentEmail')?.value || '';
-        const returnUrl = encodeURIComponent(window.location.href + '?payment=success&t=' + Date.now());
+        const returnUrl = encodeURIComponent(
+          window.location.href + '?payment=success&t=' + Date.now(),
+        );
         const stripeUrl = `https://buy.stripe.com/14AaEY1pl1Zyg3xfbndZ602?prefilled_email=${encodeURIComponent(email)}&return_url=${returnUrl}`;
         window.location.href = stripeUrl;
       }
-      
+
       // Check URL for payment success
       function checkUrlForPayment() {
         const urlParams = new URLSearchParams(window.location.search);
         if (urlParams.get('payment') === 'success') {
           localStorage.setItem(PAYMENT_TOKEN_KEY, 'true');
-          localStorage.setItem(PAYMENT_EXPIRY_KEY, (Date.now() + 24 * 60 * 60 * 1000).toString());
-          window.history.replaceState({}, document.title, window.location.pathname);
+          localStorage.setItem(
+            PAYMENT_EXPIRY_KEY,
+            (Date.now() + 24 * 60 * 60 * 1000).toString(),
+          );
+          window.history.replaceState(
+            {},
+            document.title,
+            window.location.pathname,
+          );
           unlockForm();
         }
       }
-      
+
       // Form Progress Tracking
       function updateProgress() {
-        let filled = 0, total = 0;
+        let filled = 0,
+          total = 0;
         const inputs = form.querySelectorAll('input, select, textarea');
         inputs.forEach((input) => {
-          if (input.type !== 'file' && input.type !== 'checkbox' && !input.disabled) {
+          if (
+            input.type !== 'file' &&
+            input.type !== 'checkbox' &&
+            !input.disabled
+          ) {
             total++;
             if (input.value.trim() !== '') filled++;
           }
@@ -1294,32 +2098,36 @@
         total++;
         const percentage = Math.round((filled / total) * 100);
         const progressBar = document.getElementById('progressBar');
-        const progressPercentage = document.getElementById('progressPercentage');
+        const progressPercentage =
+          document.getElementById('progressPercentage');
         if (progressBar) progressBar.style.width = percentage + '%';
-        if (progressPercentage) progressPercentage.textContent = percentage + '%';
+        if (progressPercentage)
+          progressPercentage.textContent = percentage + '%';
       }
-      
+
       // File upload handlers
       function setupFileUploads() {
         const fileInputs = [
           { id: 'transcripts', filenameId: 'transcripts-filename' },
           { id: 'passport', filenameId: 'passport-filename' },
           { id: 'english', filenameId: 'english-filename' },
-          { id: 'sop', filenameId: 'sop-filename' }
+          { id: 'sop', filenameId: 'sop-filename' },
         ];
         fileInputs.forEach(({ id, filenameId }) => {
           const input = document.getElementById(id);
           if (input) {
-            input.addEventListener('change', function() {
-              const filename = this.files[0] ? this.files[0].name : 'No file chosen';
+            input.addEventListener('change', function () {
+              const filename = this.files[0]
+                ? this.files[0].name
+                : 'No file chosen';
               const span = document.getElementById(filenameId);
               if (span) span.textContent = filename;
               updateProgress();
             });
           }
         });
-        document.querySelectorAll('.file-upload').forEach(upload => {
-          upload.addEventListener('click', function(e) {
+        document.querySelectorAll('.file-upload').forEach((upload) => {
+          upload.addEventListener('click', function (e) {
             if (!this.classList.contains('disabled')) {
               const fileInput = this.querySelector('input[type="file"]');
               if (fileInput) fileInput.click();
@@ -1327,7 +2135,7 @@
           });
         });
       }
-      
+
       // Form submission
       form.addEventListener('submit', function (e) {
         if (!checkPaymentStatus()) {
@@ -1351,7 +2159,9 @@
                 span.textContent = 'No file chosen';
               });
               setTimeout(() => {
-                document.getElementById('successMessage').classList.remove('show');
+                document
+                  .getElementById('successMessage')
+                  .classList.remove('show');
               }, 5000);
             } else {
               alert('Something went wrong. Please try again.');
@@ -1361,42 +2171,51 @@
             alert('Network error. Please try again.');
           });
       });
-      
+
       // Event listeners for modal
-      if (bottomPayButton) bottomPayButton.addEventListener('click', showPaymentModal);
-      if (showPaymentModalBtn) showPaymentModalBtn.addEventListener('click', showPaymentModal);
-      if (modalPayButton) modalPayButton.addEventListener('click', processPayment);
-      
-      const closeModalButtons = document.querySelectorAll('#closeModalBtn, #closeModalBtn2');
-      closeModalButtons.forEach(btn => {
+      if (bottomPayButton)
+        bottomPayButton.addEventListener('click', showPaymentModal);
+      if (showPaymentModalBtn)
+        showPaymentModalBtn.addEventListener('click', showPaymentModal);
+      if (modalPayButton)
+        modalPayButton.addEventListener('click', processPayment);
+
+      const closeModalButtons = document.querySelectorAll(
+        '#closeModalBtn, #closeModalBtn2',
+      );
+      closeModalButtons.forEach((btn) => {
         if (btn) btn.addEventListener('click', hidePaymentModal);
       });
-      
+
       if (paymentModal) {
-        paymentModal.addEventListener('click', function(e) {
+        paymentModal.addEventListener('click', function (e) {
           if (e.target === paymentModal) hidePaymentModal();
         });
       }
-      
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && paymentModal && paymentModal.style.display === 'flex') {
+
+      document.addEventListener('keydown', function (e) {
+        if (
+          e.key === 'Escape' &&
+          paymentModal &&
+          paymentModal.style.display === 'flex'
+        ) {
           hidePaymentModal();
         }
       });
-      
+
       // Form input listeners
       const allInputs = form.querySelectorAll('input, select, textarea');
       allInputs.forEach((input) => {
         input.addEventListener('input', updateProgress);
       });
-      
+
       // Mobile Menu
       const menuToggle = document.getElementById('menuToggle');
       const closeMenuBtn = document.getElementById('closeMenu');
       const mobileMenu = document.getElementById('mobileMenu');
       const menuOverlay = document.getElementById('menuOverlay');
       const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-      
+
       function openMenu() {
         mobileMenu.classList.add('active');
         menuOverlay.classList.add('active');
@@ -1410,49 +2229,65 @@
       if (menuToggle) menuToggle.addEventListener('click', openMenu);
       if (closeMenuBtn) closeMenuBtn.addEventListener('click', closeMenuFunc);
       if (menuOverlay) menuOverlay.addEventListener('click', closeMenuFunc);
-      mobileNavLinks.forEach((link) => { link.addEventListener('click', closeMenuFunc); });
-      
+      mobileNavLinks.forEach((link) => {
+        link.addEventListener('click', closeMenuFunc);
+      });
+
       // Back to Top
       const backToTop = document.getElementById('backToTop');
       window.addEventListener('scroll', function () {
-        window.scrollY > 500 ? backToTop.classList.add('visible') : backToTop.classList.remove('visible');
+        window.scrollY > 500
+          ? backToTop.classList.add('visible')
+          : backToTop.classList.remove('visible');
       });
       backToTop.addEventListener('click', function () {
         gsap.to(window, { duration: 1, scrollTo: { y: 0 } });
       });
-      
+
       // GSAP Animations
       window.addEventListener('load', function () {
         gsap.registerPlugin(ScrollTrigger);
         gsap.utils.toArray('.form-section').forEach((section, i) => {
-          gsap.fromTo(section, { opacity: 0, y: 50 }, {
-            opacity: 1, y: 0, duration: 0.8, delay: i * 0.2,
-            scrollTrigger: { trigger: section, start: 'top 80%', end: 'bottom 20%', toggleActions: 'play none none reverse' }
-          });
+          gsap.fromTo(
+            section,
+            { opacity: 0, y: 50 },
+            {
+              opacity: 1,
+              y: 0,
+              duration: 0.8,
+              delay: i * 0.2,
+              scrollTrigger: {
+                trigger: section,
+                start: 'top 80%',
+                end: 'bottom 20%',
+                toggleActions: 'play none none reverse',
+              },
+            },
+          );
         });
       });
-      
+
       // Close success message
-      window.closeSuccessMessage = function() {
+      window.closeSuccessMessage = function () {
         document.getElementById('successMessage').classList.remove('show');
       };
-      
+
       // Initialize
-      document.addEventListener('DOMContentLoaded', function() {
+      document.addEventListener('DOMContentLoaded', function () {
         checkUrlForPayment();
         checkPaymentStatus();
         setupFileUploads();
         updateProgress();
       });
 
-       // Testing functions (remove in production)
+      // Testing functions (remove in production)
       // window.simulatePayment = function() {
       //   localStorage.setItem(PAYMENT_TOKEN_KEY, 'true');
       //   localStorage.setItem(PAYMENT_EXPIRY_KEY, (Date.now() + 24 * 60 * 60 * 1000).toString());
       //   unlockForm();
       //   paymentSuccessBanner.scrollIntoView({ behavior: 'smooth', block: 'center' });
       // };
-      
+
       // window.clearPayment = function() {
       //   localStorage.removeItem(PAYMENT_TOKEN_KEY);
       //   localStorage.removeItem(PAYMENT_EXPIRY_KEY);
